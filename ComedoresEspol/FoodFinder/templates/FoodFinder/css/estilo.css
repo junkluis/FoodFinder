@@ -1,0 +1,664 @@
+/*FUENTES*/
+@import url('https://fonts.googleapis.com/css?family=News+Cycle');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:600i');
+
+
+
+body, html{
+    width: 100%;
+    height: 100%;
+
+    }
+
+.main .row{
+    padding: 0%;
+    margin: 0%;
+    }
+
+/*ESTILO PARA COMPUTADORAS*/
+@media only screen and (min-width: 1300px){
+    .main{
+        width: calc(100% - 200px);
+        margin-left: 200px;
+        height: 100%;
+    }
+      
+    nav.sidebar{
+        margin-left: 0%;
+        float: left;
+        width: 15%;
+        height: 100%;
+    }
+
+    #franja{
+        background-color: black;
+        margin-bottom: 20px;
+        height: 10px;
+        width: 100%;
+    }   
+
+    div#food-logo{
+        width: 100%;
+        margin: 10%  0% 20% 4%;
+    } 
+
+    ul li a {
+        font-family: ;
+    }
+
+    #titulo-name{
+        margin-left: 5%;
+        text-align: center;
+        font-family: 'Pacifico';
+        font-size: 1.4em;
+        color: rgb(214, 7, 82);
+        margin-bottom: 20%;
+        padding-top: 10px
+    }
+
+    #encabezado {
+        color: black;
+        height: 30%;
+        margin-top: 0%;
+        text-align: right;
+        width: 100%;
+        background: url("../img/header.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        padding: 4% 2% 2% 0%;
+    }
+
+    #encabezado h1 {
+        color: white;
+        margin-top: 0%;
+        vertical-align: bottom;
+        font-family: 'Pacifico';
+        font-size: 3.5em;
+    }
+
+    #encabezado h3 {
+        color: white;
+        margin-top: 20px;
+        vertical-align: bottom;
+    }    
+
+    #filtro-search {
+        display: inline-block;
+        width: 55%;
+        margin: 5px 5px 5px 15px;
+    }
+
+    #buscar {
+        width:15%;
+        margin:0%;
+        display: inline-block;
+    }
+
+    #filtro-search {
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    #facultad-comedores {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .facultad-detalle {
+        width: 270px;
+        height: 270px;
+        padding-top: 30px;
+        border-style: solid;
+        border-radius: 20px;
+        display: inline-block;
+        margin-left: 25px;
+        margin-bottom: 25px;
+        margin-top: 25px;
+        border-color: #d60651;
+    }
+
+    .facultad-detalle a{
+        margin-left: 85px;
+        padding-top:  10px;
+
+    }
+
+    .imagen-facultad {
+        width: 200px;
+        height: 60px;
+        margin-left: 15px;
+    }
+
+    .facultad-detalle p {
+        padding-left: 40px;
+    }
+
+    .facultad-detalle h4 {
+        color: #004d99;
+        text-align: center;
+    }
+
+    /*  Estilos usados para web de about.html */
+
+    #about-us img{
+        margin-left: 450px;
+        margin-top: 40px;
+    }
+
+    #descripcion-site p {
+        width: 520px;
+        margin-left: 330px;
+        text-align: center;
+        margin-top: 30px;
+        font-family: 'Josefin Slab', serif;
+        font-size: 1.5em;
+    }
+
+    #prog-luis {
+        text-align: center;
+        width: 30%;
+        display: inline-block;
+        margin-left: 10%;
+        margin-top: 20px;
+        padding-left: 0px;
+    }
+
+    #prog-luis img{
+        width: 40%;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 0%;
+    }
+    #prog-johan {
+        text-align: center;
+        width: 30%;
+        display: inline-block;
+        margin-left: 10%;
+        margin-top: 20px;
+        padding-left: 0px;
+    }
+
+    #prog-johan img{
+        width: 40%;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 0%;
+    }
+
+
+    /*index - platillos*/
+
+    .platillos-del-dia{
+        margin: 20px;
+        display: flex;
+        flex-flow: row wrap;
+
+    }
+
+    .platillo{
+        margin: 10px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .desc{
+        display: none;
+    }
+
+    .platillo:hover .desc{
+        display: block;
+        position: absolute;
+        background-color: rgba(85,48,55,0.8);
+        width: 250px;
+        height: 100%;
+        border-radius: 5px;
+        color: white;
+        padding: 8%;
+    }
+
+    .platillo:hover .desc ul{
+        list-style: none;
+        font-size: 16px;
+    }
+
+    .platillo img{
+        width: 250px;
+        height: auto;
+        border-radius: 5px;
+        
+    }
+
+    .desc a{
+        color: white;
+    }
+
+    .desc a:hover{
+        color: white;
+    }
+
+
+
+    /*COMEDOR NEO*/
+    .info-comedor h4{
+        font-family: 'Pacifico';
+        margin: 5px;
+    }
+
+    .info-comedor h2{
+        font-family: 'Josefin Slab';
+        font-size: 3em;
+        margin: 20px 5px 5px 5px;
+        color: #d60651;
+    }
+
+    .info-comedor ul{
+        list-style: none;
+        font-size: 1.3em;
+    }
+
+    .platillos{
+        overflow-y: scroll;
+        height: 65%;
+        width: 110%;
+    }
+
+    .plato-neo{
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        margin: 0px 0px 10px !important;
+    }
+
+    .plato-neo div img{
+        border-radius: 5px;
+    }
+
+    .plato-neo div.col-md-6{
+        padding-left: 0px;
+    }
+}
+
+/*ESTILO PARA TELEFONOS*/
+@media only screen and (max-width: 700px){
+    
+    #filtro-search {
+        margin-left: 10px;
+        margin-top: 0px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .navbar-toggle{
+        display: inline-block;
+        margin-top: 8%;
+    }
+
+    #encabezado {
+        display: none;
+    }
+
+    #food-logo{
+        width: 40%;
+        padding-bottom: 20px; 
+        display: inline-block;
+    }
+
+    .btn{
+        margin-bottom: 3px;
+    }
+
+    #food-logo img {
+        width: 170px;
+        margin-left: 10%;
+        padding-top: 20px;
+        display: inline-block;
+    }
+
+    #descripcion-site p {
+        margin-top: 40px;
+        margin-left: 15px;
+        width: 350px;
+        text-align: center;
+        font-family: 'Josefin Slab', serif;
+        font-size: 1.3em;
+    }
+
+
+    #logo {
+        display: none; 
+    }
+
+    /*INDEX - para telefonos*/
+    .platillos-del-dia{
+        margin: 5px;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .platillo{
+        margin: 5px;
+        background-color: #f7f7f7;
+        border-radius: 5px;
+    }
+
+    .desc{
+        display: inline-block;
+        width: 50%;
+        padding: 15px;
+    }
+
+    .desc ul{
+        list-style: none;
+        padding-left: 15px;
+    }
+
+    .platillo img{
+        display: inline-block;
+        width: 45%;
+        margin: 5px 0px 5px;
+    }
+
+    /*NEO RESTAURANT*/
+    .info-comedor h4{
+        font-family: 'Pacifico';
+        margin: 5px;
+    }
+
+    .info-comedor h2{
+        font-family: 'Josefin Slab';
+        font-size: 3em;
+        margin: 20px 5px 5px 5px;
+        color: #d60651;
+    }
+
+    .info-comedor ul{
+        list-style: none;
+        font-size: 1em;
+        padding-bottom: 10px;
+        border-bottom: 1px solid;
+    }
+
+    .platillos{
+        overflow-y: scroll;
+        height: 65%;
+        width: 110%;
+    }
+
+    .plato-neo{
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        margin: 0px 0px 10px !important;
+    }
+
+    .plato-neo:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .plato-neo div img{
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .plato-neo div.col-md-6{
+        padding: 0px 0px 0px 7px;
+        width: 49%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    div.imgenneo{
+        padding: 0px;
+        width: 38% !important;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    /*about*/
+    div#prog{
+        text-align: center;
+        width: 30%;
+        display: inline-block;
+        margin-left: 15%;
+        margin-top: 10px;
+    }
+
+    div#prog img{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    div#prog h3{
+        font-size: 1em;
+    }
+
+
+
+
+} 
+
+/*TABLETS*/
+@media only screen 
+and (max-width : 1300px)
+and (min-width : 700px){
+
+    .platillos-del-dia{
+        margin: 20px;
+        display: flex;
+        flex-flow: row wrap;
+
+    }
+
+    .platillo{
+        margin: 10px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .desc{
+        display: none;
+    }
+
+    .platillo:hover .desc{
+        display: block;
+        position: absolute;
+        background-color: rgba(85,48,55,0.8);
+        width: 250px;
+        height: 100%;
+        border-radius: 5px;
+        color: white;
+        padding: 8%;
+    }
+
+    .platillo:hover .desc ul{
+        list-style: none;
+        font-size: 16px;
+    }
+
+    .platillo img{
+        width: 250px;
+        height: auto;
+        border-radius: 5px;
+        
+    }
+
+    .desc a{
+        color: white;
+    }
+
+    .desc a:hover{
+        color: white;
+    }
+
+    /*about us*/
+    #about-us img{
+        margin-left: 450px;
+        margin-top: 40px;
+    }
+
+    #descripcion-site p {
+        width: 520px;
+        margin-left: 330px;
+        text-align: center;
+        margin-top: 30px;
+        font-family: 'Josefin Slab', serif;
+        font-size: 1.5em;
+    }
+
+    div#prog{
+        text-align: center;
+        width: 30%;
+        display: inline-block;
+        margin-left: 15%;
+        margin-top: 10px;
+    }
+
+    div#prog img{
+        margin: 0px;
+        padding: 0px;
+    }
+
+
+    /*NEO PARA TABLETS*/
+    .info-comedor h4{
+        font-family: 'Pacifico';
+        margin: 5px;
+    }
+
+    .info-comedor h2{
+        font-family: 'Josefin Slab';
+        font-size: 3em;
+        margin: 20px 5px 5px 5px;
+        color: #d60651;
+    }
+
+    .info-comedor ul{
+        list-style: none;
+        font-size: 1.3em;
+    }
+
+    .platillos{
+        overflow-y: scroll;
+        height: 65%;
+        width: 110%;
+    }
+
+    .plato-neo{
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        margin: 0px 0px 10px !important;
+    }
+
+    .plato-neo div img{
+        border-radius: 5px;
+    }
+
+    .plato-neo div.col-md-6{
+        padding-left: 0px;
+    }
+
+    /*otros*/
+
+    #food-logo img {
+            width: 130px;
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-top: 5px;
+            display: inline-block;
+        }
+
+    .navbar-nav{
+        margin-left: 50px;
+    }
+
+    nav.sidebar.navbar{
+        border-radius: 0px;
+        }
+
+    nav.sidebar, .main{
+        transition: margin 200ms ease-out;
+        }
+
+    .main{
+        padding: 0px 0px 0px 0px;
+        }
+
+    section{
+        padding-left: 15px; 
+        }
+
+    h3#tit-comd-cerc{
+        margin-left: 15px;
+        font-size: 3em;
+        }
+
+    h3#tit-2{
+        margin-left: 15px;
+        font-size: 3em;
+        font-family: 'Josefin Slab', serif;
+        font-weight: bold;
+        }
+
+    #filtro-search {
+        display: inline-block;
+        width: 100%;
+        margin: 5px 5px 5px 15px;
+    }
+
+    #buscar {
+        width:15%;
+        margin:0%;
+        display: inline-block;
+    }
+
+    #filtro-search {
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    #encabezado {
+        display: none;
+    }
+}
+
+/*GENERALES*/
+
+/* css para grafico */
+.bar {
+    fill: #d60651;
+    }
+
+.axis {
+    font-size: 13px;
+    }
+        
+
+.axis path, .axis line {
+    fill: none;
+    display: none;
+    }
+        
+.label {
+    font-size: 13px;
+    }
+
+g text{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+/*inicio de sesion*/
+
+.jumbotron{
+    background-color: #18baa3;
+    color: white;
+}
+
+.jumbotron h1{
+    font-family: 'Pacifico';
+}
+
+
+

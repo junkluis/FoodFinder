@@ -1,0 +1,41 @@
+[
+	{	"lowsrc":"gallery/photo-1.jpg",
+ 		"fullsrc":"upload/gallery/photo-1.jpg",
+ 		"description":"Chaulafan de Pollo",
+ 		"category":"drawing"
+ 		"alt"= "Chaulafan de Pollo" },
+ 	
+ 	{
+ 		"lowsrc":"gallery/photo-2.jpg",
+ 		"fullsrc":"upload/gallery/photo-2.jpg",
+ 		"description":"Seco de Pollo",
+ 		"category":"drawing"
+ 		"alt"= "Seco de Pollo" },
+
+ 	{
+ 		"lowsrc":"gallery/photo-3.jpg",
+ 		"fullsrc":"gallery/photo-3.jpg",
+ 		"description":"Arroz con menestra y carne",
+ 		"category":"drawing"
+ 		"alt"= "Arroz con menestra y carne" },
+
+ 	{
+ 		"lowsrc":"gallery/photo-4.jpg",
+ 		"fullsrc":"gallery/photo-4.jpg",
+ 		"description":"BisteC de carne",
+ 		"category":"drawing"
+ 		"alt"= "Bistec de Carne"
+	},
+    {
+    	"lowsrc":"gallery/photo-4.jpg",
+ 		"fullsrc":"gallery/photo-4.jpg",
+ 		"description":"Bisted de carne",
+ 		"category":"drawing"
+ 		"alt"= "Arroz con menestra y carne"
+
+
+    }
+
+
+
+ 		]

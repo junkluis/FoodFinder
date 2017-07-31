@@ -1,0 +1,84 @@
+[ 
+	{
+		"titulo":"Comida sabrosa",
+		"imagen":"gallery/photo-1.jpg",
+		"precio":"3.5",
+		"likes":"30",
+		"disponible":"si",
+		"distancia":"200",
+		"nutricion":"500"
+	},
+	{
+		"titulo":"Seco de pollo",
+		"imagen":"gallery/photo-2.jpg",
+		"precio":"3.0",
+		"likes":"25",
+		"disponible":"no",
+		"distancia":"500",
+		"nutricion":"800"
+	},
+	{
+		"titulo":"Carne Frita y menestra",
+		"imagen":"gallery/photo-3.jpg",
+		"precio":"4",
+		"likes":"40",
+		"disponible":"si",
+		"distancia":"100",
+		"nutricion":"100"
+	},
+	{
+		"titulo":"Vistek de carne",
+		"imagen":"gallery/photo-4.jpg",
+		"precio":"2.6",
+		"likes":"40",
+		"disponible":"si",
+		"distancia":"800",
+		"nutricion":"100"
+	},
+	{
+		"titulo":"Comida sabrosa",
+		"imagen":"gallery/photo-5.jpeg",
+		"precio":"5",
+		"likes":"30",
+		"disponible":"si",
+		"distancia":"100",
+		"nutricion":"100"
+	},
+	{
+		"titulo":"Comida sabrosa",
+		"imagen":"gallery/photo-6.jpeg",
+		"precio":"3.8",
+		"likes":"30",
+		"disponible":"si",
+		"distancia":"500",
+		"nutricion":"550"
+	},
+	{
+		"titulo":"Comida sabrosa",
+		"imagen":"gallery/photo-7.jpg",
+		"precio":"2.9",
+		"likes":"30",
+		"disponible":"no",
+		"distancia":"800",
+		"nutricion":"100"
+	},
+	{
+		"titulo":"Comida sabrosa",
+		"imagen":"gallery/photo-8.jpg",
+		"precio":"3.5",
+		"likes":"30",
+		"disponible":"no",
+		"distancia":"100",
+		"nutricion":"500"
+	},
+	{
+		"titulo":"Comida sabrosa",
+		"imagen":"gallery/photo-9.jpg",
+		"precio":"3.5",
+		"likes":"30",
+		"disponible":"no",
+		"distancia":"500",
+		"nutricion":"800"
+	}
+	
+]

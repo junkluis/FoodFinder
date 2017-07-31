@@ -1,0 +1,111 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Comedores de la ESPOL</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/estilo.css" rel="stylesheet">
+	</head>
+	<body>
+		<!-- SIDE BAR BASE -->
+		<nav class="navbar navbar-default sidebar navbar-collapse">
+			<div id="franja"></div>
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div id="food-logo" >
+						<a href="index.html"><img src="img/logo-v.png" alt="logo" width="150" /></a>
+					</div>
+					
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" >
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="photoGallery.html">Galeria de Platillos</a></li>
+						<li><a href="comedores-cercanos.html">Comedores Cercanos</a></li>
+						<li><a href="comedoresFacultad.html">Comedores por Facultad</a></li>
+						<li><a href="mejores-platos.html">Mejores Platos</a></li>
+						<li><a href="about.html">Nosotros</a></li>
+						<li><a href="time.html">Nuestra historia</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="main">
+			<div id="encabezado">
+				<h1> Conoce tus opciones </h1>
+				<h3> COMEDORES DE LA ESPOL </h3>
+				
+			</div>
+			<div id="filtro-search">
+				<p id="buscar"><span class="glyphicon glyphicon-search" ></span> Buscar por: </p>  
+				<button type="button" onclick="filtro('data-precio','des')" class="btn busqueda"> Precio </button>
+				<button type="button" onclick="filtro('data-distancia','des')" class="btn busqueda">Ubicacion</button>
+				<button type="button" onclick="filtro('data-disponible','asc')" class="btn busqueda"> Disponibles </button>
+				<button type="button" onclick="filtro('data-vnutricional','asc')" class="btn busqueda">Valor nutricional </button>  
+			</div>
+			<div class="platillos-del-dia">
+				<div class="platillo" data-precio="2.5" data-vnutricional="500" data-disponible="si" data-distancia="200">
+					<div class="desc">
+						<a href="comedor-neo.html"><h4>Arroz con Pollo</h4></a>
+						<ul>
+							<li><span class="glyphicon glyphicon-apple"></span> $ 2.5</li>
+							<li><span class="glyphicon glyphicon-map-marker"></span> 200 mts</li>
+							<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li> 
+						</ul>
+					</div>
+					<img src="gallery/photo-1.jpg" alt="logo" width="200" />
+				</div>
+				<div class="platillo" data-precio="1.5" data-vnutricional="200" data-disponible="no" data-distancia="800">
+					<div class="desc">
+						<a href="comedor-neo.html"><h4>Bandeja Paisa</h4></a>
+						<ul>
+							<li><span class="glyphicon glyphicon-apple"></span> $ 1.5</li>
+							<li><span class="glyphicon glyphicon-map-marker"></span> 800 mts</li>
+							<li><span class="glyphicon glyphicon-remove"></span> Agotado</li> 
+						</ul>
+					</div>
+					<img src="gallery/photo-9.jpg" alt="logo" width="200" />
+				</div>
+				<!--
+				<div class="platillo" precio="2.75" vnutricional="600" disponible="si" distancia="400">
+					<div class="desc">
+						<a href="comedor-neo.html"><h4>Encebollado de Pescado</h4></a>
+						<ul>
+							<li><span class="glyphicon glyphicon-apple"></span> $ 2.5</li>
+							<li><span class="glyphicon glyphicon-map-marker"></span> 200 mts</li>
+							<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li> 
+						</ul>
+					</div>
+					<img src="gallery/photo-7.jpg" alt="logo" width="200" />
+				</div>
+				-->
+				<!--
+				<div class="platillo" precio="2.50" vnutricional="700" disponible="si" distancia="800">
+					<div class="desc">
+						<a href="comedor-neo.html"><h4>Tallarin de Pollo</h4></a>
+						<ul>
+							<li><span class="glyphicon glyphicon-apple"></span> $ 2.5</li>
+							<li><span class="glyphicon glyphicon-map-marker"></span> 200 mts</li>
+							<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li> 
+						</ul>
+					</div>
+					<img src="gallery/photo-8.jpg" alt="logo" width="200" />
+				</div> -->
+			</div>
+		</div>
+		<!-- JAVASCRIPT -->
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/index.js"></script>
+	</body>
+</html>

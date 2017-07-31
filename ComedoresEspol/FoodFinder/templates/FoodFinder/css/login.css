@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+body{
+	background: url("../img/fondo.jpg")  no-repeat center center fixed;
+}
+
+.vertical-offset-100{
+    padding-top:100px;
+}
+
+.row{
+	margin: 0px;
+}
+
+#logo{
+	margin: 0px;
+}
+
+p{
+	margin-bottom: 2px;
+}
+
+p#title{
+	font-family: 'Pacifico';
+	font-size: 1.4em;
+	color: rgb(214, 7, 82);
+}
+
+p#in-se{
+	font-weight: bold;
+	font-size: 1em;
+}
+
+#login-btn{
+	margin-left: 34%;
+	width: 100px;
+}
+
+#pie-pag{
+	text-align: center;
+	color: white;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    width:100%;
+    padding: 10px;
+    background: rgba(0,0,0,0.7);
+}

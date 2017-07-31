@@ -1,0 +1,167 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Comedores de la ESPOL</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/estilo.css" rel="stylesheet">
+	</head>
+	<body id="sesion">
+		 <!-- Static navbar -->
+	      <nav class="navbar navbar-default">
+	        <div class="container-fluid">
+	          <div class="navbar-header">
+	            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	              <span class="sr-only">Toggle navigation</span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="#">Food Finder | Comedor Neo</a>
+	          </div>
+	          <div id="navbar" class="navbar-collapse collapse">
+	            
+	            <ul class="nav navbar-nav navbar-right">
+	              <li class="active"><a href="login-comd.html">Cerrar Sesion<span class="sr-only">(current)</span></a></li>
+	            </ul>
+	          </div><!--/.nav-collapse -->
+	        </div><!--/.container-fluid -->
+	      </nav>
+	      <main>
+	      	<div class="container">
+				<div class="jumbotron">
+			    	<h1>Comedor Neo</h1>      
+			    	<p>Bienvenido a Food Finder!</p>
+			  	</div>
+				<div class="col-md-6">
+					<h3>Mi Comedor</h3>
+					<p><b>Descripcion:</b></p>
+					<p id="desc-perfil">Lorem ipsum dolor sit amet, no ponderum detraxit percipitur nec, ad paulo honestatis his, ut pri quem graeci. Pri modo iusto ne. Fierent singulis electram ut mel, eos ut quando constituam. Ferri nihil ut usu, solet noluisse mei ei.</p>
+					<p id="horario">Horario: 9:30 am - 6:30 pm</p>
+					<p id="esp-perfil">Especialidad: Almuerzos</p>
+					<p id="ayu-perfil">Aceptamos Ayudantes</p>
+					<br>
+					
+					<!-- EDITAR -->
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editarForm">
+						<span class="glyphicon glyphicon-pencil"></span> Editar
+					</button>
+
+					<!-- EDITAR FORM MODAL -->
+					<div class="modal fade" id="editarForm" tabindex="-1" role="dialog"  aria-hidden="true">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h4>Editar mi Perfil</h4>
+					      </div>
+					      <form>
+					      <div class="modal-body">
+					        <!-- FORMULARIO -->
+					        	
+								  <div class="form-group">
+								    <label>Descripcion:</label>
+								    <textarea class="form-control" rows="3" id="descripcion" placeholder="Hablanos de tu restaurante" required="required"></textarea>
+								  </div>
+
+								  <div class="form-group">
+								    <label>Especialidad:</label>
+								    <input type="text" class="form-control" id="especialidad" placeholder="Almuerzos, Comida tipica, ..." required="required">
+								  </div>
+								  <div class="checkbox">
+								    <label><input type="checkbox" id="ayudantes">Aceptamos Ayudantes</label>
+								  </div>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					        <button type="submit" class="btn btn-primary" onclick="editarPerfil()">Guardar Cambios</button>
+					      </div>
+					      </form>
+					    </div>
+					  </div>
+					</div>
+
+
+					<!-- ARGEGAR PLATILLO -->
+					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#AddPlatilloForm"><span class="glyphicon glyphicon-plus"></span> Agregar Platillo
+					</button>
+
+					<!-- ARGEGAR PLATILLO FORM -->
+					<div class="modal fade" id="AddPlatilloForm" tabindex="-1" role="dialog"  aria-hidden="true">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h4>Agregar Platillo</h4>
+					      </div>
+					      <form>
+						      <div class="modal-body">
+						        <!-- FORMULARIO -->
+									  <div class="form-group">
+									    <label >Titulo:</label>
+									    <input type="text" class="form-control" id="pwd" placeholder="Arroz con pollo" required="required">
+									  </div>
+									  <div class="form-group col-md-6">
+									    <label>Costo:</label>
+									    <input type="number" min="0" class="form-control" id="money" placeholder="$3.50" required="required">
+									  </div>
+									  <div class="form-group col-md-6">
+									    <label>Cantidad Disponible:</label>
+									    <input type="number" min="0" class="form-control" id="cantidad" placeholder="5" required="required" >
+									  </div>
+									  <div class="form-group">
+									    <label>Tipo:</label>
+									    <input type="text" class="form-control" id="tipo" placeholder="Almuerzo" required="required">
+									  </div>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+						        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+						      </div>
+					      </form>
+					    </div>
+					  </div>
+					</div>
+					
+				</div>
+				<div class="platillos-disp col-md-5">
+					<h3>Mis Platillo </h3> 
+					<div class="platillos">
+						<div class="plato-neo row">
+							<div class="imgenneo col-md-6">
+								<img src="gallery/photo-1.jpg" alt="logo" width="200" />
+							</div>
+							<div class="col-md-6">
+								<h4>Comida para humanos - Verificada</h4>
+								<ul>
+									<li><span class="glyphicon glyphicon-blackboard"></span> $ 2.5</li>
+									<li><span class="glyphicon glyphicon-apple"></span> Almuerzo</li>
+									<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li> 
+								</ul>
+							</div>
+						</div>
+						<div class="plato-neo row">
+							<div class="imgenneo col-md-6">
+								<img src="gallery/photo-2.jpg" alt="logo" width="200" />
+							</div>
+							<div class="col-md-6">
+								<h4>Comida para humanos - Verificada</h4>
+								<ul>
+									<li><span class="glyphicon glyphicon-blackboard"></span> $ 2.5</li>
+									<li><span class="glyphicon glyphicon-apple"></span> Almuerzo</li>
+									<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li> 
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+
+	      </main>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/sesion-forms.js"></script>
+	</body>
+</html>

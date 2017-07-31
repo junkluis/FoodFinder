@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:400,700');
+
+#cont-bares{
+	margin: 10px;
+	height: 60%;
+	margin-left: 35px;
+
+}
+
+#list-comed{
+	height: 100%;
+    overflow-y: scroll;
+    padding: 5px;
+}
+
+#pos-comed{
+	height: 100%;
+}
+
+.comedor-tk  a p{
+	margin: 0px;
+	font-weight: bold;
+}
+
+#tit-comd-cerc {
+	font-family: 'Josefin Slab', serif;
+	font-weight: bold;
+}
+
+#list-comed a h4{
+	font-family: 'Josefin Slab', serif;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
