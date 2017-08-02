@@ -25,7 +25,8 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<form action="sesion-comedor.html">
+								<form action="POST">
+									{% csrf_token %}
 									<div class="form-group">
 										<input class="form-control" placeholder="Usuario" name="usuario" type="text" required="required">
 									</div>

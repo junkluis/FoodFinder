@@ -51,6 +51,19 @@
 				<button type="button" onclick="filtro('data-vnutricional','asc')" class="btn busqueda">Valor nutricional </button>
 			</div>
 			<div class="platillos-del-dia">
+				{% for plato in platillos %}
+				<div class="platillo" data-precio="{{plato.precio}}" data-vnutricional="{{plato.valorNutricional}}" data-disponible="si" data-distancia="{{plato.distancia}}">
+					<div class="desc">
+						<a href="comedor-neo.html"><h4>{{plato.titulo}}</h4></a>
+						<ul>
+							<li><span class="glyphicon glyphicon-apple"></span> $ {{plato.precio}}</li>
+							<li><span class="glyphicon glyphicon-map-marker"></span> {{plato.distancias}} mts</li>
+							<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
+						</ul>
+					</div>
+					<img src="{% static plato.imagen %}" alt="logo" width="200" />
+				</div>
+				{% endfor %}
 				<div class="platillo" data-precio="2.5" data-vnutricional="500" data-disponible="si" data-distancia="200">
 					<div class="desc">
 						<a href="comedor-neo.html"><h4>Arroz con Pollo</h4></a>

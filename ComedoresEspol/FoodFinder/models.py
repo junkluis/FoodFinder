@@ -15,7 +15,8 @@ class Comedor(models.Model):
     hora_ini=models.TimeField()
     hora_fin=models.TimeField()
     ayudantes=models.BooleanField()
-    ubicacion=models.FloatField()
+    latitud=models.FloatField(default=0)
+    longitud=models.FloatField(default=0)
     especialidad=models.CharField(max_length=30)
 
 class Platillo(models.Model):

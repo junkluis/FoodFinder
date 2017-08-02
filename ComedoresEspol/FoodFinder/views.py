@@ -4,11 +4,14 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from datetime import date
-# Create your views here.
+from FoodFinder.models import *
 
 def index(request):
     template = loader.get_template('FoodFinder/index.html')
-    context = {}
+    platillos = Platillo.objects.all()
+    context = {
+        'platillos':platillos,
+    }
     return HttpResponse(template.render(context, request))
 
 def galeria(request):
@@ -18,7 +21,10 @@ def galeria(request):
 
 def comedoresC(request):
     template = loader.get_template('FoodFinder/comedores-cercanos.html')
-    context = {}
+    comedores = Comedor.objects.all()
+    context = {
+        'comedores':comedores,
+    }
     return HttpResponse(template.render(context, request))
 
 def comedoresF(request):
