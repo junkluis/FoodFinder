@@ -3,8 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab:600i');
 
-
-
 body, html{
     width: 100%;
     height: 100%;
@@ -23,7 +21,7 @@ body, html{
         margin-left: 200px;
         height: 100%;
     }
-      
+
     nav.sidebar{
         margin-left: 0%;
         float: left;
@@ -36,12 +34,12 @@ body, html{
         margin-bottom: 20px;
         height: 10px;
         width: 100%;
-    }   
+    }
 
     div#food-logo{
         width: 100%;
         margin: 10%  0% 20% 4%;
-    } 
+    }
 
     ul li a {
         font-family: ;
@@ -81,7 +79,7 @@ body, html{
         color: white;
         margin-top: 20px;
         vertical-align: bottom;
-    }    
+    }
 
     #filtro-search {
         display: inline-block;
@@ -226,7 +224,7 @@ body, html{
         width: 250px;
         height: auto;
         border-radius: 5px;
-        
+
     }
 
     .desc a{
@@ -280,7 +278,7 @@ body, html{
 
 /*ESTILO PARA TELEFONOS*/
 @media only screen and (max-width: 700px){
-    
+
     #filtro-search {
         margin-left: 10px;
         margin-top: 0px;
@@ -299,7 +297,7 @@ body, html{
 
     #food-logo{
         width: 40%;
-        padding-bottom: 20px; 
+        padding-bottom: 20px;
         display: inline-block;
     }
 
@@ -325,7 +323,7 @@ body, html{
 
 
     #logo {
-        display: none; 
+        display: none;
     }
 
     /*INDEX - para telefonos*/
@@ -436,10 +434,10 @@ body, html{
 
 
 
-} 
+}
 
 /*TABLETS*/
-@media only screen 
+@media only screen
 and (max-width : 1300px)
 and (min-width : 700px){
 
@@ -480,7 +478,7 @@ and (min-width : 700px){
         width: 250px;
         height: auto;
         border-radius: 5px;
-        
+
     }
 
     .desc a{
@@ -585,7 +583,7 @@ and (min-width : 700px){
         }
 
     section{
-        padding-left: 15px; 
+        padding-left: 15px;
         }
 
     h3#tit-comd-cerc{
@@ -632,13 +630,13 @@ and (min-width : 700px){
 .axis {
     font-size: 13px;
     }
-        
+
 
 .axis path, .axis line {
     fill: none;
     display: none;
     }
-        
+
 .label {
     font-size: 13px;
     }
@@ -659,6 +657,3 @@ g text{
 .jumbotron h1{
     font-family: 'Pacifico';
 }
-
-
-

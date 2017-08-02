@@ -1,14 +1,15 @@
 <!Doctype html>
+{% load static %}
 <html>
 	<head>
 		<meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Mejores platos</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/timeline-style.css" rel="stylesheet">
-		<link href="css/estilo.css" rel="stylesheet">
+		<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+		<link href="{% static "css/timeline-style.css" %}" rel="stylesheet">
+		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
 	</head>
 	<body>
 		<nav class="navbar navbar-default sidebar">
@@ -16,9 +17,8 @@
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<div id="food-logo" >
-						<a href="index.html"><img src="img/logo-v.png" alt="logo" width="150" /></a>
+						<a href="index.html"><img src="{% static "img/logo-v.png" %}" alt="logo" width="150" /></a>
 					</div>
-					
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" >
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
@@ -28,13 +28,13 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html">Inicio</a></li>
-						<li><a href="photoGallery.html">Galeria de Platillos</a></li>
-						<li><a href="comedores-cercanos.html">Comedores Cercanos</a></li>
-						<li><a href="comedoresFacultad.html">Comedores por Facultad</a></li>
-						<li><a href="mejores-platos.html">Mejores Platos</a></li>
-						<li><a href="about.html">Nosotros</a></li>
-						<li><a href="time.html">Nuestra historia</a></li>
+						<li><a href="index">Inicio</a></li>
+						<li><a href="photoGallery">Galeria de Platillos</a></li>
+						<li><a href="comedores-cercanos">Comedores Cercanos</a></li>
+						<li><a href="comedoresFacultad">Comedores por Facultad</a></li>
+						<li><a href="mejores-platos">Mejores Platos</a></li>
+						<li><a href="about">Nosotros</a></li>
+						<li><a href="time">Nuestra historia</a></li>
 					</ul>
 				</div>
 			</div>
@@ -42,19 +42,18 @@
 		<div class="main">
 			<div id="encabezado">
 				<h1> Conoce tus opciones </h1>
-				<h3> COMEDORES DE LA ESPOL </h3>	
+				<h3> COMEDORES DE LA ESPOL </h3>
 			</div>
 			<h3 id="tit-2"> Los mejores platos de la semana</h3>
 			<div>
-				 <div id="graphic"></div>
-				 
+				<div id="graphic"></div>
 			</div>
 		</div>
-			<!-- JavaScript -->
-		<script src="js/jquery-3.2.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-		<script src="js/mejoresPlatos.js"></script>
+		<!-- JavaScript -->
+		<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+		<script src="{% static "js/bootstrap.min.js" %}"></script>
+		<script src="{% static "js/bootstrap.js" %}"></script>
+		<script src="{% static "js/d3.v3.min.js" %}"></script>
+		<script src="{% static "js/mejoresPlatos.js" %}"></script>
 	</body>
 </html>
