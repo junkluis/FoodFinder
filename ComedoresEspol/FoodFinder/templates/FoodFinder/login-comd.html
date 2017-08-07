@@ -12,6 +12,15 @@
 		<link href="{% static "css/login.css" %}" rel="stylesheet">
 	</head>
 	<body>
+	<script type="text/javascript">
+		window.onload = function(){
+		    console.log('{{notice}}')
+		    if('{{notice}}' == 'Ingreso Invalido'){
+		    	alert('{{notice}}');
+		    }
+
+		}
+	</script>
 		<div class="container">
 			<div class="row vertical-offset-100">
 				<div class="col-md-4 col-md-offset-4">
@@ -25,7 +34,7 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<form action="POST">
+								<form method="POST" action="{% url 'FoodFinder:login' %}">
 									{% csrf_token %}
 									<div class="form-group">
 										<input class="form-control" placeholder="Usuario" name="usuario" type="text" required="required">

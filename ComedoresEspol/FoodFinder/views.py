@@ -5,6 +5,8 @@ from django.http import HttpResponse
 from django.template import loader
 from datetime import date
 from FoodFinder.models import *
+from django.contrib.auth import authenticate, login
+from .forms import UserForm
 
 def index(request):
     template = loader.get_template('FoodFinder/index.html')
@@ -46,3 +48,31 @@ def historia(request):
     template = loader.get_template('FoodFinder/time.html')
     context = {}
     return HttpResponse(template.render(context, request))
+
+def login(request):
+    template = loader.get_template('FoodFinder/login-comd.html')
+
+    if(request.method == 'POST'):
+        nombre = request.POST['usuario']
+        clave = request.POST['password']
+        user = authenticate(username=nombre, password=clave)
+        if user is not None:
+            notice='Bienvenido'
+            return redirect('/FoodFinder/')
+        else:
+            notice='Ingreso Invalido'
+    else:
+        notice='none'
+    context = {
+        'notice':notice
+    }
+    return HttpResponse(template.render(context, request))
+
+
+
+
+
+
+
+
+
