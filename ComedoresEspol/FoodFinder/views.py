@@ -49,6 +49,12 @@ def historia(request):
     context = {}
     return HttpResponse(template.render(context, request))
 
+def contacto (request):
+    template=loader.get_template('FoodFinder/contacto.html')
+    context={}
+    return  HttpResponse(template.render(context, request))
+
+
 def login(request):
     template = loader.get_template('FoodFinder/login-comd.html')
 

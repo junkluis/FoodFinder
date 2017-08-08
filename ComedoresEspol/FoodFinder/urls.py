@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^about/', views.about, name='about'),
     url(r'^time/', views.historia, name='historia'),
     url(r'^login/', views.login, name='login'),
+    url(r'^contacto/',views.contacto,name='contacto'),
 
 ]

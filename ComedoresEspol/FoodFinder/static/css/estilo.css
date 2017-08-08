@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=News+Cycle');
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab:600i');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+
 
 body, html{
     width: 100%;
@@ -21,7 +24,7 @@ body, html{
         margin-left: 200px;
         height: 100%;
     }
-
+      
     nav.sidebar{
         margin-left: 0%;
         float: left;
@@ -34,12 +37,12 @@ body, html{
         margin-bottom: 20px;
         height: 10px;
         width: 100%;
-    }
+    }   
 
     div#food-logo{
         width: 100%;
         margin: 10%  0% 20% 4%;
-    }
+    } 
 
     ul li a {
         font-family: ;
@@ -79,7 +82,7 @@ body, html{
         color: white;
         margin-top: 20px;
         vertical-align: bottom;
-    }
+    }    
 
     #filtro-search {
         display: inline-block;
@@ -137,6 +140,17 @@ body, html{
         text-align: center;
     }
 
+    #contacto-header {
+        color:#d60651;
+        font-family: 'Pacifico';
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 30px; 
+    }
+
+}
+
     /*  Estilos usados para web de about.html */
 
     #about-us img{
@@ -184,6 +198,12 @@ body, html{
         padding-left: 0%;
     }
 
+    #formulario {
+        margin-top: 20px;
+        margin-left: 330px;
+
+    }
+
 
     /*index - platillos*/
 
@@ -224,7 +244,7 @@ body, html{
         width: 250px;
         height: auto;
         border-radius: 5px;
-
+        
     }
 
     .desc a{
@@ -274,11 +294,22 @@ body, html{
     .plato-neo div.col-md-6{
         padding-left: 0px;
     }
+
+    .red{
+        color:blue;
+    }
+    .form-area
+    {
+        background-color: #FAFAFA;
+        padding: 10px 40px 60px;
+        margin: 10px 0px 60px;
+        border: 1px solid GREY;
+    }
 }
 
 /*ESTILO PARA TELEFONOS*/
 @media only screen and (max-width: 700px){
-
+    
     #filtro-search {
         margin-left: 10px;
         margin-top: 0px;
@@ -297,7 +328,7 @@ body, html{
 
     #food-logo{
         width: 40%;
-        padding-bottom: 20px;
+        padding-bottom: 20px; 
         display: inline-block;
     }
 
@@ -323,7 +354,16 @@ body, html{
 
 
     #logo {
-        display: none;
+        display: none; 
+    }
+
+    #contacto-header {
+        color:#d60651;
+        font-family: 'Pacifico';
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 20px; 
     }
 
     /*INDEX - para telefonos*/
@@ -432,12 +472,24 @@ body, html{
     }
 
 
+    .red{
+        color:red;
+    }
+    .form-area
+    {
+        background-color: #FAFAFA;
+        padding: 10px 40px 60px;
+        margin: 10px 0px 60px;
+        border: 1px solid GREY;
+    }
 
 
-}
+
+
+} 
 
 /*TABLETS*/
-@media only screen
+@media only screen 
 and (max-width : 1300px)
 and (min-width : 700px){
 
@@ -478,7 +530,7 @@ and (min-width : 700px){
         width: 250px;
         height: auto;
         border-radius: 5px;
-
+        
     }
 
     .desc a{
@@ -515,6 +567,15 @@ and (min-width : 700px){
     div#prog img{
         margin: 0px;
         padding: 0px;
+    }
+
+    #contacto-header {
+        color:#d60651;
+        font-family: 'Pacifico';
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 20px; 
     }
 
 
@@ -583,7 +644,7 @@ and (min-width : 700px){
         }
 
     section{
-        padding-left: 15px;
+        padding-left: 15px; 
         }
 
     h3#tit-comd-cerc{
@@ -630,13 +691,13 @@ and (min-width : 700px){
 .axis {
     font-size: 13px;
     }
-
+        
 
 .axis path, .axis line {
     fill: none;
     display: none;
     }
-
+        
 .label {
     font-size: 13px;
     }
@@ -657,3 +718,18 @@ g text{
 .jumbotron h1{
     font-family: 'Pacifico';
 }
+
+.red{
+    color:red;
+    }
+
+.form-area
+{
+    background-color: #FAFAFA;
+    padding: 10px 40px 60px;
+    margin: 10px 0px 60px;
+    border: 1px solid GREY;
+    }
+
+
+
