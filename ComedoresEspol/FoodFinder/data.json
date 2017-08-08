@@ -1,0 +1,54 @@
+[
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":1,
+		"fields":{
+			"nombre":"FIEC",
+			"logo": "static/img/facultades/FIEC.png"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":2,
+		"fields":{
+			"nombre":"FCNM",
+			"logo": "static/img/facultades/fcnm.png"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":3,
+		"fields":{
+			"nombre":"EDCOM",
+			"logo": "static/img/facultades/edcom.png"
+		}
+	},
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":4,
+		"fields":{
+			"nombre":"FCSH",
+			"logo": "static/img/facultades/fcsh.png"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":5,
+		"fields":{
+			"nombre":"FICT",
+			"logo": "static/img/facultades/fict.png"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":6,
+		"fields":{
+			"nombre":"FIMCP",
+			"logo": "static/img/facultades/fimcp.png"
+		}
+	}
+]

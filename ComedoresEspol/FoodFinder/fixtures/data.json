@@ -1,0 +1,138 @@
+[
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":1,
+		"fields":{
+			"nombre":"FIEC",
+			"logo": "static/img/facultades/FIEC.png"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":2,
+		"fields":{
+			"nombre":"FCNM",
+			"logo": "static/img/facultades/fcnm.png"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":3,
+		"fields":{
+			"nombre":"EDCOM",
+			"logo": "static/img/facultades/edcom.png"
+		}
+	},
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":4,
+		"fields":{
+			"nombre":"FCSH",
+			"logo": "static/img/facultades/fcsh.png"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":5,
+		"fields":{
+			"nombre":"FICT",
+			"logo": "static/img/facultades/fict.png"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Facultad",
+		"pk":6,
+		"fields":{
+			"nombre":"FIMCP",
+			"logo": "static/img/facultades/fimcp.png"
+		}
+	},
+		
+	{
+		"model":"FoodFinder.Comedor",
+		"pk":1,
+		"fields":{
+			"facultad":"1",
+			"nombre": "Comedor Coca Cola ",
+			"tipo":"Comedor",
+			"descripcion":"Desayunos, snacks y almuerzos",
+			"hora_ini":"13:30",
+			"hora_fin":"14:30",
+			"ayudantes":"True",
+			"latitud":"-2.146965",
+			"longitud":"-79.966675",
+			"especialidad":"Encebollado y Cazuela"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Comedor",
+		"pk":2,
+		"fields":{
+			"facultad":"2",
+			"nombre": "Comedor de Matematica",
+			"tipo":"Comedor",
+			"descripcion":"Almuerzos y Snacks",
+			"hora_ini":"12:30",
+			"hora_fin":"14:30",
+			"ayudantes":"False",
+			"latitud":"-2.146251",
+			"longitud":"-79.966844",
+			"especialidad":"Lasagna de Carne"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Comedor",
+		"pk":3,
+		"fields":{
+			"facultad":"3",
+			"nombre": "Comedor de Lucho",
+			"tipo":"Cafeteria y Comedor",
+			"descripcion":"Bar de Mecanica ",
+			"hora_ini":"10:00",
+			"hora_fin":"16:00",
+			"ayudantes":"True",
+			"latitud":"-2.146299",
+			"longitud":"-79.963189",
+			"especialidad":"Almuerzos"
+		}
+	},
+	{
+		"model":"FoodFinder.Comedor",
+		"pk":4,
+		"fields":{
+			"facultad":"4",
+			"nombre": "Comedor Delicia",
+			"tipo":"Restaurante Bar",
+			"descripcion":"Bar de almuerzos y snacks",
+			"hora_ini":"08:00",
+			"hora_fin":"16:00",
+			"ayudantes":"True",
+			"latitud":"-2.143496",
+			"longitud":"-79.961344",
+			"especialidad":"Bistec de Carne con Patacones"
+		}
+	},
+	{
+		"model":"FoodFinder.Comedor",
+		"pk":5,
+		"fields":{
+			"facultad":"5",
+			"nombre": "Comedor Malicia",
+			"tipo":"Restaurante Bar",
+			"descripcion":"Bar de almuerzos y snacks",
+			"hora_ini":"08:00",
+			"hora_fin":"16:00",
+			"ayudantes":"True",
+			"latitud":"-2.133196",
+			"longitud":"-79.961344",
+			"especialidad":"Costillas BBQ"
+		}
+	}
+
+]

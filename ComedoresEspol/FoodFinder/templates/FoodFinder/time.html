@@ -28,13 +28,13 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="index">Inicio</a></li>
-						<li><a href="photoGallery">Galeria de Platillos</a></li>
-						<li><a href="comedores-cercanos">Comedores Cercanos</a></li>
-						<li><a href="comedoresFacultad">Comedores por Facultad</a></li>
-						<li><a href="mejores-platos">Mejores Platos</a></li>
-						<li><a href="about">Nosotros</a></li>
-						<li><a href="time">Nuestra historia</a></li>
+                        <li><a href="{% url 'FoodFinder:index'%}">Inicio</a></li>
+                        <li><a href="{% url 'FoodFinder:galeria'%}">Galeria de Platillos</a></li>
+                        <li><a href="{% url 'FoodFinder:comedoresC'%}">Comedores Cercanos</a></li>
+                        <li><a href="{% url 'FoodFinder:comedoresF' %}">Comedores por Facultad</a></li>
+                        <li><a href="{% url 'FoodFinder:mejoresPlatos' %}">Mejores Platos</a></li>
+                        <li><a href="{% url 'FoodFinder:about' %}">Nosotros</a></li>
+                        <li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
                     </ul>
                 </div>
             </div>
