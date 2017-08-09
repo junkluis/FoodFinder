@@ -116,9 +116,6 @@
 		            dataType: "json",
 		            data: { plato_id: platoId, valor: value },
 		            type: 'GET',
-		            success: function (datos) {
-		                alert(datos["platillos"]);
-		            },
 		            error: function(XMLHttpRequest, textStatus, errorThrown){
 		                console.log(errorThrown);
 		            }
