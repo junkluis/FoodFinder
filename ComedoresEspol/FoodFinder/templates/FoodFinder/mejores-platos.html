@@ -1,59 +1,25 @@
-<!Doctype html>
+{% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Mejores platos</title>
-		<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
-		<link href="{% static "css/timeline-style.css" %}" rel="stylesheet">
-		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
-	</head>
-	<body>
-		<nav class="navbar navbar-default sidebar">
-			<div id="franja"></div>
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<div id="food-logo" >
-						<a href="index.html"><img src="{% static "img/logo-v.png" %}" alt="logo" width="150" /></a>
-					</div>
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" >
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="{% url 'FoodFinder:index'%}">Inicio</a></li>
-						<li><a href="{% url 'FoodFinder:galeria'%}">Galeria de Platillos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresC'%}">Comedores Cercanos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresF' %}">Comedores por Facultad</a></li>
-						<li><a href="{% url 'FoodFinder:mejoresPlatos' %}">Mejores Platos</a></li>
-						<li><a href="{% url 'FoodFinder:about' %}">Nosotros</a></li>
-						<li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class="main">
-			<div id="encabezado">
-				<h1> Conoce tus opciones </h1>
-				<h3> COMEDORES DE LA ESPOL </h3>
-			</div>
-			<h3 id="tit-2"> Los mejores platos de la semana</h3>
-			<div>
-				<div id="graphic"></div>
-			</div>
-		</div>
-		<!-- JavaScript -->
-		<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
-		<script src="{% static "js/bootstrap.min.js" %}"></script>
-		<script src="{% static "js/bootstrap.js" %}"></script>
-		<script src="{% static "js/d3.v3.min.js" %}"></script>
-		<script src="{% static "js/mejoresPlatos.js" %}"></script>
-	</body>
-</html>
+{% block titulo %}Comedores Cercanos{% endblock %}
+{% block extraStyle %}
+<link href="{% static 'css/timeline-style.css' %}" rel="stylesheet">
+<link href="{% static 'plugins/chartist/chartist.min.js' %}" rel="stylesheet">
+<link href="{% static 'plugins/chartist/chartist.css' %}" rel="stylesheet">
+<link href="{% static 'plugins/chartist/chartist.min.css' %}" rel="stylesheet">
+{% endblock %}
+{% block contenido %}
+<div>
+<div id="graphic"></div>
+</div>
+<h2 style="color:black">Los mejores platos de la semana</h2>
+<div id="chart_div"></div>
+{% endblock %}
+{% block extraScript %}
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="{% static 'js/d3.v3.min.js' %}"></script>
+	<script src="{% static 'js/mejoresPlatos.js' %}"></script>
+	<script src="{% static 'plugins/chartist/chartist.js' %}"></script>
+	<script src="{% static 'plugins/chartist/chartist.min.js' %}"></script>
+	
+
+{% endblock %}

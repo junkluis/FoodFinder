@@ -1,71 +1,23 @@
-<!Doctype html>
+{% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
-<html>
-	<head>
-		<meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Comedores cercanos - Espol</title>
-		<link href="{% static "css/css/bootstrap.min.css" %}" rel="stylesheet">
-		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
-		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
-		<link href="{% static "css/est-comed.css" %}" rel="stylesheet">
-	</head>
-	<body>
-		<nav class="navbar navbar-default sidebar">
-			<div id="franja"></div>
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<div id="food-logo" >
-						<a href="index.html"><img src="{% static "img/logo-v.png" %}" alt="logo" width="150" /></a>
-					</div>
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" >
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="{% url 'FoodFinder:index'%}">Inicio</a></li>
-						<li><a href="{% url 'FoodFinder:galeria'%}">Galeria de Platillos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresC'%}">Comedores Cercanos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresF' %}">Comedores por Facultad</a></li>
-						<li><a href="{% url 'FoodFinder:mejoresPlatos' %}">Mejores Platos</a></li>
-						<li><a href="{% url 'FoodFinder:about' %}">Nosotros</a></li>
-						<li><a href="{% url 'FoodFinder:contacto' %}"> Contacto </a></li>
-						<li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class="main">
-			<div id="encabezado">
-				<h1> Conoce tus opciones </h1>
-				<h3> COMEDORES DE LA ESPOL </h3>
-			</div>
-			<div id="cont-bares">
-				<h3 id="tit-comd-cerc">Comedores cercanos</h3>
-				<div id="list-comed" class="col-md-3 list-group">
-					{% for comd in comedores %}
-					<a href="#pos-comed" class="list-group-item comedor-tk" onclick="return selecComed({{comd.latitud}},{{comd.longitud}}, '{{comd.nombre}}');">
-				        <h4 class="list-group-item-heading">{{comd.nombre}}</h4>
-				        <p class="list-group-item-text">{{comd.facultad.nombre}} </p><span>
-				        {{comd.especialidad}}<br />
-				        {{comd.tipo}}</span>
-				    </a>
-					{% endfor %}
-				</div>
-				<div id="pos-comed" class="col-md-8">
-					<div id="mapa-comedores" style="width:100%;height:400px;"></div>
-				</div>
-			</div>
-		</div>
-		<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
-		<script src="{% static "js/bootstrap.min.js" %}"></script>
-		<script src="{% static "js/bootstrap.js" %}"></script>
-	   	<script src="{% static "js/comed-cerc.js" %}"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuKMTTgBEGbT5Ry3SNsBr2rUy2aLpb4Rw&callback=iniciarMapa"></script>
-	</body>
-</html>
+{% block titulo %}Comedores Cercanos{% endblock %}
+{% block contenido %}
+<h3 id="tit-comd-cerc">Comedores cercanos</h3>
+<div id="list-comed" class="col-md-3 list-group">
+	{% for comd in comedores %}
+	<a href="#pos-comed" class="list-group-item comedor-tk" onclick="return selecComed({{comd.latitud}},{{comd.longitud}}, '{{comd.nombre}}');">
+		<h4 class="list-group-item-heading">{{comd.nombre}}</h4>
+		<p class="list-group-item-text">{{comd.facultad.nombre}} </p><span>
+		{{comd.especialidad}}<br />
+		{{comd.tipo}}</span>
+	</a>
+	{% endfor %}
+</div>
+<div id="pos-comed" class="col-md-8">
+	<div id="mapa-comedores" style="width:100%;height:400px;"></div>
+</div>
+{% block extraScript %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuKMTTgBEGbT5Ry3SNsBr2rUy2aLpb4Rw&callback=iniciarMapa"></script>
+<script src="{% static "js/comed-cerc.js" %}"></script>
+{% endblock %}
+{% endblock %}

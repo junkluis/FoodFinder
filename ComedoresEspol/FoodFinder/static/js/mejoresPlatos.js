@@ -1,10 +1,10 @@
-$( document ).ready(function() {
+/*jQuery( document ).ready(function() {
    arreglo();
 });
 
 
 var data = [{
-                "name": "Arroz con Pollo",
+                "name": "Arroz  luis con Pollo",
                 "value": 20,
                 "image": "../img/logo.png"
         },
@@ -30,7 +30,7 @@ var data = [{
  
         }];
 
-/* Ordena los datoa */
+
 
 data = data.sort(function (a, b) {
             return d3.ascending(a.value, b.value);
@@ -109,7 +109,7 @@ bars.append("text")
 
 
 function arreglo(){
-    var barras = $(".bar")
+    var barras = jQuery(".bar")
     var i;
     var color = ["#96ceb4","#ff6f69","#ffcc5c","#ffeead","#88d8b0"]
     for(i=0; i<barras.length; i++){
@@ -120,5 +120,114 @@ function arreglo(){
 
 
 
+//chartist
+/*
+var data2 = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    series: [
+    [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8],
+    [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4]
+  ]
+};
+
+var options = {
+  seriesBarDistance: 15
+};
+
+var responsiveOptions = [
+  ['screen and (min-width: 641px) and (max-width: 1024px)', {
+    seriesBarDistance: 10,
+    axisX: {
+      labelInterpolationFnc: function (value) {
+        return value;
+      }
+    }
+  }],
+  ['screen and (max-width: 640px)', {
+    seriesBarDistance: 5,
+    axisX: {
+      labelInterpolationFnc: function (value) {
+        return value[0];
+      }
+    }
+  }]
+];
+
+new Chartist.Bar('.ct-chart', data2, options, responsiveOptions);*/
+/*
+$("#id_username").change(function () {
+      var username = $(this).val();
+
+      $.ajax({
+        url: '/ajax/validate_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            alert("A user with this username already exists.");
+          }
+        }
+      });
+
+    });*/
 
 
+
+platos=[]
+
+    setInterval(function() {
+        jQuery.ajax({
+            url: "/FoodFinder/refresh",
+            dataType: "json",
+            type: 'GET',
+            success: function (datos) {
+                platos = datos.platillos;
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                console.log(errorThrown);
+            }
+        });
+        var tabla = [];
+        var header =  ['Platillo', 'Puntuación ',  { role: 'style' },{ role: 'annotation' },];
+        tabla.push(header);
+        var i = 0;
+        
+        var colores = ['#C02942','#D95B43','#D95B43','#ECD078','#53777A']
+        for(i; i<platos.length; i++){
+            infoP = platos[i];
+            tabla.push([infoP.nombre, infoP.valoracion, colores[i], infoP.valoracion]);
+        }
+
+
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(BarChart);
+
+        function BarChart() {
+
+              var data = google.visualization.arrayToDataTable(tabla);
+
+              var options = {
+                chartArea: {width: '50%'},
+                hAxis: {
+                  title: 'Puntuación',
+                  minValue: 0
+                },
+                vAxis: {
+                  title: 'Platillos'
+                },
+                width: 1200,
+                height: 400,
+                bar: {groupWidth: "80%"},
+                legend: { position: "none" },
+              };
+              var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+              chart.draw(data, options);
+            }
+
+    }, 500);
+
+    
+        

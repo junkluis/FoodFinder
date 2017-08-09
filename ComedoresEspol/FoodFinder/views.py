@@ -7,6 +7,7 @@ from datetime import date
 from FoodFinder.models import *
 from django.contrib.auth import authenticate, login
 from .forms import UserForm
+from django.http import JsonResponse
 
 def index(request):
     template = loader.get_template('FoodFinder/index.html')
@@ -74,6 +75,48 @@ def login(request):
     }
     return HttpResponse(template.render(context, request))
 
+
+def ajaxMejoresPlatos(request):
+    #username = request.GET.get('username', None)
+    mejoresPlatos = Platillo.objects.all().order_by('-valoracion')[:5]
+    platillos = []
+    for plato in mejoresPlatos:
+        platillo = {}
+        platillo["nombre"] = plato.titulo
+        platillo["valoracion"] = plato.valoracion
+        platillos.append(platillo)
+    data = {
+        #'is_taken': User.objects.filter(username__iexact=username).exists()
+        'platillos':platillos
+    }
+    return JsonResponse(data)
+
+
+    ajaxValorar
+
+def ajaxValorar(request):
+    idPlato = request.GET.get("plato_id")
+    puntaje = request.GET.get("valor")
+    plato = Platillo.objects.get(pk=idPlato)
+    total = plato.valoracion + int(puntaje)
+
+    Platillo.objects.filter(pk=idPlato).update(valoracion=total)
+
+    #username = request.GET.get('username', None)
+    '''
+    mejoresPlatos = Platillo.objects.all().order_by('-valoracion')[:5]
+    platillos = []
+    for plato in mejoresPlatos:
+        platillo = {}
+        platillo["nombre"] = plato.titulo
+        platillo["valoracion"] = plato.valoracion
+        platillos.append(platillo)
+        '''
+    data = {
+        #'is_taken': User.objects.filter(username__iexact=username).exists()
+        'platillos':idPlato
+    }
+    return JsonResponse(data)
 
 
 

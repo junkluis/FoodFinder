@@ -80,10 +80,8 @@ function cargarPlatillos() {
 }
 
 
-
-
-
-
 $( document ).ready(function() {
    cargarPlatillos();
+   console.log("hola desde index");
 });
+
