@@ -64,8 +64,7 @@
 			"hora_fin":"14:30",
 			"ayudantes":"True",
 			"latitud":"-2.146965",
-			"longitud":"-79.966675",
-			"especialidad":"Encebollado y Cazuela"
+			"longitud":"-79.966675"
 		}
 	},
 
@@ -81,8 +80,7 @@
 			"hora_fin":"14:30",
 			"ayudantes":"False",
 			"latitud":"-2.146251",
-			"longitud":"-79.966844",
-			"especialidad":"Lasagna de Carne"
+			"longitud":"-79.966844"
 		}
 	},
 
@@ -98,8 +96,7 @@
 			"hora_fin":"16:00",
 			"ayudantes":"True",
 			"latitud":"-2.146299",
-			"longitud":"-79.963189",
-			"especialidad":"Almuerzos"
+			"longitud":"-79.963189"
 		}
 	},
 	{
@@ -114,8 +111,7 @@
 			"hora_fin":"16:00",
 			"ayudantes":"True",
 			"latitud":"-2.143496",
-			"longitud":"-79.961344",
-			"especialidad":"Bistec de Carne con Patacones"
+			"longitud":"-79.961344"
 		}
 	},
 	{
@@ -130,8 +126,7 @@
 			"hora_fin":"16:00",
 			"ayudantes":"True",
 			"latitud":"-2.133196",
-			"longitud":"-79.961344",
-			"especialidad":"Costillas BBQ"
+			"longitud":"-79.961344"
 		}
 	},
 	{
@@ -163,11 +158,89 @@
 	},
 	{
 		"model":"FoodFinder.Denuncia",
-		"pk":1,
+		"pk":4,
 		"fields":{
 			"comedor":"Coca-cola",
 			"fecha_den": "2017-07-17",
 			"denuncia":"Encontré bichos en mi sopa"
+		}
+	},
+	{
+		"model":"FoodFinder.Platillo",
+		"pk":1,
+		"fields":{
+			"comedor":"1",
+			"titulo": "Lomo al ajillo",
+			"tipo":"Segundo",
+			"precio": 3.5,
+			"cantidad": 300,
+			"imagen": "http://comidasperuanas.net/wp-content/uploads/2015/07/Arroz-con-Pollo-Peruano-730x430.jpg",
+			"valoracion": 3
+		}
+	},
+	{
+		"model":"FoodFinder.Platillo",
+		"pk":2,
+		"fields":{
+			"comedor":"2",
+			"titulo": "Enrollado de atún",
+			"tipo":"Segundo",
+			"precio": 2.0,
+			"cantidad": 350,
+			"imagen": "http://blog.espol.edu.ec/mayagord/files/2013/11/enrollado_atun.jpg",
+			"valoracion": 4
+		}
+	},
+	{
+		"model":"FoodFinder.Platillo",
+		"pk":3,
+		"fields":{
+			"comedor":"2",
+			"titulo": "Caldo de pata",
+			"tipo":"Sopa",
+			"precio": 2.0,
+			"cantidad": 500,
+			"imagen": "https://www.laylita.com/recetas/wp-content/uploads/receta-del-caldo-de-pata-15.jpg",
+			"valoracion": 5
+		}
+	},
+	{
+		"model":"FoodFinder.Platillo",
+		"pk":4,
+		"fields":{
+			"comedor":"3",
+			"titulo": "Carne apanada",
+			"tipo":"Segundo",
+			"precio": 1.5,
+			"cantidad": 100,
+			"imagen": "http://sinmiedosec.com/wp-content/uploads/2016/07/Carne-Apanada-Receta-y-Preparaci%C3%B3n.jpg",
+			"valoracion": 2
+		}
+	},
+	{
+		"model":"FoodFinder.Platillo",
+		"pk":5,
+		"fields":{
+			"comedor":"3",
+			"titulo": "Sopa de quinua",
+			"tipo":"Sopa",
+			"precio": 3.0,
+			"cantidad": 20,
+			"imagen": "https://i1.wp.com/www.laylita.com/recetas/wp-content/uploads/2016/09/Sopa-de-quinoa-y-queso.jpg",
+			"valoracion": 3
+		}
+	},
+	{
+		"model":"FoodFinder.Platillo",
+		"pk":6,
+		"fields":{
+			"comedor":"4",
+			"titulo": "Tigrillo",
+			"tipo":"Desayuno",
+			"precio": 2.0,
+			"cantidad": 25,
+			"imagen": "https://img-global.cpcdn.com/002_recipes/recipes_184911_v1430198765_receta_foto_00184911-vnpwxghy7yzfoir5ymbw/751x532cq70/photo.jpg",
+			"valoracion": 3
 		}
 	}
 

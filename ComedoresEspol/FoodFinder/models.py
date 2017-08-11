@@ -17,7 +17,6 @@ class Comedor(models.Model):
     ayudantes=models.BooleanField()
     latitud=models.FloatField(default=0)
     longitud=models.FloatField(default=0)
-    especialidad=models.CharField(max_length=30)
 
 class Platillo(models.Model):
     comedor=models.ForeignKey(Comedor, on_delete=models.CASCADE)
@@ -25,8 +24,6 @@ class Platillo(models.Model):
     tipo=models.CharField(max_length=30)
     precio=models.FloatField()
     cantidad=models.IntegerField()
-    distancia=models.FloatField()
-    valorNutricional=models.FloatField()
     imagen=models.CharField(max_length=300)
     valoracion=models.IntegerField()
 
