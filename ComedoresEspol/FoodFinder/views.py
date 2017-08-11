@@ -125,14 +125,10 @@ def denuncia(request):
     return HttpResponse(template.render(context, request))
 
 def guardarDenuncia(request):
-    template = loader.get_template('FoodFinder/pruebas.html')
-    nombre_comedor = request.POST.get('comedor')
-    den = Denuncia(request.POST)
-    den.comedor = Comedor.objects.get(nombre=nombre_comedor)   # EL ID O EL OBJETO?? #
+    den = Denuncia()
+    den.comedor = request.POST.get('comedor')
     den.fecha_den = request.POST.get('fecha_den')
     den.denuncia = request.POST.get('denuncia')
 
-    #den.save()
-    context = {'denuncia':den}
-    return HttpResponse(template.render(context, request))
-    #return redirect('/FoodFinder/denuncia.html/')
+    den.save()
+    return redirect('/FoodFinder/denuncia/')

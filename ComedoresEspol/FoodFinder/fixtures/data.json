@@ -133,6 +133,43 @@
 			"longitud":"-79.961344",
 			"especialidad":"Costillas BBQ"
 		}
+	},
+	{
+		"model":"FoodFinder.Denuncia",
+		"pk":1,
+		"fields":{
+			"comedor":"Carreta del Toño",
+			"fecha_den": "2017-08-17",
+			"denuncia":"Encontré un gusano en mi sopa"
+		}
+	},
+	{
+		"model":"FoodFinder.Denuncia",
+		"pk":2,
+		"fields":{
+			"comedor":"Comedor NEO",
+			"fecha_den": "2017-08-15",
+			"denuncia":"Encontré un pelo en mi arroz"
+		}
+	},
+	{
+		"model":"FoodFinder.Denuncia",
+		"pk":3,
+		"fields":{
+			"comedor":"Comedor NEO",
+			"fecha_den": "2017-08-16",
+			"denuncia":"Encontré moscas en mi postre"
+		}
+	},
+	{
+		"model":"FoodFinder.Denuncia",
+		"pk":1,
+		"fields":{
+			"comedor":"Coca-cola",
+			"fecha_den": "2017-07-17",
+			"denuncia":"Encontré bichos en mi sopa"
+		}
 	}
+
 
 ]
