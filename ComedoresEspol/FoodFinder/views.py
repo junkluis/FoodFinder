@@ -117,8 +117,10 @@ def ajaxValorar(request):
 def valoracion(request):
     template=loader.get_template('FoodFinder/valoracion.html')
     platillos = Platillo.objects.all()
-    context={'platos': platillos}
-
+    platillosDic={}
+    for platillo in platillos:
+        platillosDic[platillo.comedor.nombre]=platillosDic.get(platillo.comedor.nombre,[])+[platillo]
+    context={"platillosDic": platillosDic}
     return  HttpResponse(template.render(context, request))
 
 def denuncia(request):
