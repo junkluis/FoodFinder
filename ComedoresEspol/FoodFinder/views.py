@@ -111,7 +111,7 @@ def ajaxValorar(request):
 def valoracion(request):
     template=loader.get_template('FoodFinder/valoracion.html')
     platillos = Platillo.objects.all()
-    context={'platos': platillos}        
+    context={'platos': platillos}
 
     return  HttpResponse(template.render(context, request))
 
@@ -120,18 +120,19 @@ def denuncia(request):
     comedores = Comedor.objects.all()
     context = {
         'comedores':comedores,
+        'action': 'Enviar'
     }
     return HttpResponse(template.render(context, request))
 
 def guardarDenuncia(request):
-    comedor = request.POST.get('comedor')
+    template = loader.get_template('FoodFinder/pruebas.html')
+    nombre_comedor = request.POST.get('comedor')
     den = Denuncia(request.POST)
-    den.comedor = Comedor.objects.get(nombre=comedor)   # EL ID O EL OBJETO?? #
+    den.comedor = Comedor.objects.get(nombre=nombre_comedor)   # EL ID O EL OBJETO?? #
     den.fecha_den = request.POST.get('fecha_den')
     den.denuncia = request.POST.get('denuncia')
 
-    den.save()
-    context = {}
-    
-    return redirect('/FoodFinder/denuncia.html/')
-
+    #den.save()
+    context = {'denuncia':den}
+    return HttpResponse(template.render(context, request))
+    #return redirect('/FoodFinder/denuncia.html/')
