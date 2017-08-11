@@ -11,6 +11,7 @@
 		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
 		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
 		<link href="{% static "css/est-comed.css" %}" rel="stylesheet">
+		
 		{% block extraStyle %}{% endblock %}
 	</head>
 	<body>
@@ -38,6 +39,7 @@
 						<li><a href="{% url 'FoodFinder:about' %}">Nosotros</a></li>
 						<li><a href="{% url 'FoodFinder:contacto' %}"> Contacto </a></li>
 						<li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
+						<li><a href="{% url 'FoodFinder:denuncia' %}"> Denuncia </a></li>
 					</ul>
 				</div>
 			</div>

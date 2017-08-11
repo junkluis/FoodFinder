@@ -103,15 +103,6 @@ def ajaxValorar(request):
     Platillo.objects.filter(pk=idPlato).update(valoracion=total)
 
     #username = request.GET.get('username', None)
-    '''
-    mejoresPlatos = Platillo.objects.all().order_by('-valoracion')[:5]
-    platillos = []
-    for plato in mejoresPlatos:
-        platillo = {}
-        platillo["nombre"] = plato.titulo
-        platillo["valoracion"] = plato.valoracion
-        platillos.append(platillo)
-        '''
     data = {
         #'is_taken': User.objects.filter(username__iexact=username).exists()
         'platillos':idPlato
@@ -123,3 +114,24 @@ def valoracion(request):
     context={'platos': platillos}        
 
     return  HttpResponse(template.render(context, request))
+
+def denuncia(request):
+    template = loader.get_template('FoodFinder/denuncia.html')
+    comedores = Comedor.objects.all()
+    context = {
+        'comedores':comedores,
+    }
+    return HttpResponse(template.render(context, request))
+
+def guardarDenuncia(request):
+    comedor = request.POST.get('comedor')
+    den = Denuncia(request.POST)
+    den.comedor = Comedor.objects.get(nombre=comedor)   # EL ID O EL OBJETO?? #
+    den.fecha_den = request.POST.get('fecha_den')
+    den.denuncia = request.POST.get('denuncia')
+
+    den.save()
+    context = {}
+    
+    return redirect('/FoodFinder/denuncia.html/')
+

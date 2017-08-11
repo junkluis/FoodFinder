@@ -17,5 +17,7 @@ urlpatterns = [
     url(r'^refresh/$', views.ajaxMejoresPlatos, name='ajaxPlatos'),
     url(r'^valorar/$', views.ajaxValorar, name='ajaxValorar'),
     url(r'^valoracion/$', views.valoracion, name='valoracion'),
+    url(r'^denuncia/$', views.guardarDenuncia, name='denuncia'),
+
 
 ]

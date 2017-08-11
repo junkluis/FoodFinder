@@ -35,3 +35,8 @@ class Usuario(models.Model):
     nombre=models.CharField(max_length=30)
     correo=models.EmailField(max_length=30)
     password=models.CharField(max_length=15)
+
+class Denuncia(models.Model):
+    comedor=models.ForeignKey(Comedor, on_delete=models.CASCADE)
+    fecha_den=models.DateField()
+    denuncia=models.CharField(max_length=1000)
