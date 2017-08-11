@@ -117,11 +117,9 @@ def ajaxValorar(request):
         'platillos':idPlato
     }
     return JsonResponse(data)
+def valoracion(request):
+    template=loader.get_template('FoodFinder/valoracion.html')
+    platillos = Platillo.objects.all()
+    context={'platos': platillos}        
 
-
-
-
-
-
-
-
+    return  HttpResponse(template.render(context, request))

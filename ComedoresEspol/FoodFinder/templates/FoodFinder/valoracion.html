@@ -1,0 +1,29 @@
+{% extends "FoodFinder/SideBar_base.html" %}
+{% load static %}
+{% block titulo %}Valoración de los platillos{% endblock %}
+{% block extraScript %}
+<script src="{% static "js/valorar.js" %}"></script>
+{% endblock %}
+
+{% block contenido %}
+<h1>Comedores</h1>
+  {% for plato in platos %}
+  <h2>{{ plato.comedor.nombre }}</h2>
+  <figure>
+    <img src="{{ plato.imagen }}" width="250" height="200">
+    <figcaption>{{ plato.titulo }}</figcaption>
+  </figure>
+  <span class="starRating" id_p='{{plato.id}}'>
+    <input id="rating5{{plato.id}}" type="radio" name="rating{{plato.id}}" value="1" style="display: none">
+    <label for="rating5{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+    <input id="rating4{{plato.id}}" type="radio" name="rating{{plato.id}}" value="2" style="display: none">
+    <label for="rating4{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+    <input id="rating3{{plato.id}}" type="radio" name="rating{{plato.id}}" value="3" style="display: none">
+    <label for="rating3{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+    <input id="rating2{{plato.id}}" type="radio" name="rating{{plato.id}}" value="4" style="display: none">
+    <label for="rating2{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+    <input id="rating1{{plato.id}}" type="radio" name="rating{{plato.id}}" value="5" style="display: none">
+    <label for="rating1{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+  </span>
+  {% endfor %}
+{% endblock %}
