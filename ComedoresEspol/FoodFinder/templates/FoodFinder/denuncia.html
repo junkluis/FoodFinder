@@ -3,7 +3,7 @@
 {% block titulo %}Denuncia{% endblock %}
 {% block contenido %}
 <form action="{% url 'FoodFinder:guardarDenuncia' %}" method="POST">{% csrf_token %}
-	<h1>Denuncia {{ denuncia.comedor }}</h1>
+	<h1>Denuncia</h1>
 	<div>
 		<div class="form-group">
 			<label>Comedor:</label>
