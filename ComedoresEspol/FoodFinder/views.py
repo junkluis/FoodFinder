@@ -153,3 +153,19 @@ def sesionModerador(request):
         'denuncias': denuncias,
     }
     return HttpResponse(template.render(context, request))
+
+def contacto (request):
+    template=loader.get_template('FoodFinder/contacto.html')
+    if(request.method== 'POST'):
+        numero_contacto =  request.POST.get('numero')
+        nombres_contacto=  request.POST.get('nombre')
+        correo_contacto=   request.POST.get('email')
+        asunto_contacto=   request.POST.get('subject')
+        mensaje_contacto=  request.POST.get('mensaje')
+        send_mail(asunto_contacto, mensaje_contacto, correo_contacto, ['johanalejandro@me.com'], fail_silently=False)
+            
+    
+    return  HttpResponse(template.render(context, request))
+
+
+
