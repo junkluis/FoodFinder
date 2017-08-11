@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^mejores-platos/', views.mejoresPlatos, name='mejoresPlatos'),
     url(r'^about/', views.about, name='about'),
     url(r'^time/', views.historia, name='historia'),
-    url(r'^login/', views.login, name='login'),
+    url(r'^login/', views.loginUser, name='login'),
     url(r'^contacto/',views.contacto,name='contacto'),
     url(r'^refresh/$', views.ajaxMejoresPlatos, name='ajaxPlatos'),
     url(r'^valorar/$', views.ajaxValorar, name='ajaxValorar'),
@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^denuncia/$', views.denuncia, name='denuncia'),
     url(r'^guardarDenuncia/$', views.guardarDenuncia, name='guardarDenuncia'),
     url(r'^pruebas/$', views.guardarDenuncia, name='pruebas'),
+    url(r'^moderador/$', views.sesionModerador, name='moderador'),
 
 ]

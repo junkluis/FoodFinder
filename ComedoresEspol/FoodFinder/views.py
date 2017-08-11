@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login
 from .forms import UserForm
 from django.http import JsonResponse
 
+
 def index(request):
     template = loader.get_template('FoodFinder/index.html')
     platillos = Platillo.objects.all()
@@ -56,7 +57,7 @@ def contacto (request):
     return  HttpResponse(template.render(context, request))
 
 
-def login(request):
+def loginUser(request):
     template = loader.get_template('FoodFinder/login-comd.html')
 
     if(request.method == 'POST'):
@@ -64,8 +65,12 @@ def login(request):
         clave = request.POST['password']
         user = authenticate(username=nombre, password=clave)
         if user is not None:
-            notice='Bienvenido'
-            return redirect('/FoodFinder/')
+            usuario = Usuario.objects.get(nombre=nombre);
+            if usuario is not None:
+                login(request, user)
+                if usuario.tipo == "moderador":
+                    return redirect('FoodFinder:moderador')
+
         else:
             notice='Ingreso Invalido'
     else:
@@ -108,6 +113,7 @@ def ajaxValorar(request):
         'platillos':idPlato
     }
     return JsonResponse(data)
+
 def valoracion(request):
     template=loader.get_template('FoodFinder/valoracion.html')
     platillos = Platillo.objects.all()
@@ -132,3 +138,16 @@ def guardarDenuncia(request):
 
     den.save()
     return redirect('/FoodFinder/denuncia/')
+
+def sesionModerador(request):
+    template = loader.get_template('FoodFinder/sesion-moderador.html')
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    denuncias = Denuncia.objects.all()
+    if usuario is not None:
+        usuarioValido = usuario
+
+    context = {
+        'usuario': usuarioValido,
+        'denuncias': denuncias,
+    }
+    return HttpResponse(template.render(context, request))

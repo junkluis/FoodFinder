@@ -32,6 +32,7 @@ class Usuario(models.Model):
     nombre=models.CharField(max_length=30)
     correo=models.EmailField(max_length=30)
     password=models.CharField(max_length=15)
+    tipo=models.CharField(max_length=15, default="cliente")
 
 class Denuncia(models.Model):
     comedor=models.CharField(max_length=30)

@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'practicaMVC1',
-        'USER': 'anrosant',
-        'PASSWORD': 'sistema',
+        'USER': 'root',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': '',
     }

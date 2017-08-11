@@ -174,7 +174,7 @@
 			"tipo":"Segundo",
 			"precio": 3.5,
 			"cantidad": 300,
-			"imagen": "http://comidasperuanas.net/wp-content/uploads/2015/07/Arroz-con-Pollo-Peruano-730x430.jpg",
+			"imagen": "/gallery/photo-9.jpg",
 			"valoracion": 3
 		}
 	},
@@ -187,7 +187,7 @@
 			"tipo":"Segundo",
 			"precio": 2.0,
 			"cantidad": 350,
-			"imagen": "http://blog.espol.edu.ec/mayagord/files/2013/11/enrollado_atun.jpg",
+			"imagen": "/gallery/photo-9.jpg",
 			"valoracion": 4
 		}
 	},
@@ -200,7 +200,7 @@
 			"tipo":"Sopa",
 			"precio": 2.0,
 			"cantidad": 500,
-			"imagen": "https://www.laylita.com/recetas/wp-content/uploads/receta-del-caldo-de-pata-15.jpg",
+			"imagen": "/gallery/photo-9.jpg",
 			"valoracion": 5
 		}
 	},
@@ -213,7 +213,7 @@
 			"tipo":"Segundo",
 			"precio": 1.5,
 			"cantidad": 100,
-			"imagen": "http://sinmiedosec.com/wp-content/uploads/2016/07/Carne-Apanada-Receta-y-Preparaci%C3%B3n.jpg",
+			"imagen": "/gallery/photo-9.jpg",
 			"valoracion": 2
 		}
 	},
@@ -226,7 +226,7 @@
 			"tipo":"Sopa",
 			"precio": 3.0,
 			"cantidad": 20,
-			"imagen": "https://i1.wp.com/www.laylita.com/recetas/wp-content/uploads/2016/09/Sopa-de-quinoa-y-queso.jpg",
+			"imagen": "/gallery/photo-9.jpg",
 			"valoracion": 3
 		}
 	},
@@ -239,7 +239,7 @@
 			"tipo":"Desayuno",
 			"precio": 2.0,
 			"cantidad": 25,
-			"imagen": "https://img-global.cpcdn.com/002_recipes/recipes_184911_v1430198765_receta_foto_00184911-vnpwxghy7yzfoir5ymbw/751x532cq70/photo.jpg",
+			"imagen": "/gallery/photo-9.jpg",
 			"valoracion": 3
 		}
 	}

@@ -1,0 +1,84 @@
+<!Doctype html>
+{% load static %}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Comedores de la ESPOL | {% block titulo %}{% endblock %}</title>
+		<link href="{% static "css/css/bootstrap.min.css" %}" rel="stylesheet">
+		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+		{% block ExtraStyle %}{% endblock %}
+	</head>
+	<body id="sesion">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Food Finder | Comedor Neo</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="login-comd.html">Cerrar Sesion<span class="sr-only">(current)</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<main>
+			<div class="container">
+				<div class="jumbotron">
+					{% block Encabezado %}{% endblock %}
+				</div>
+				<div class="row sesionBase" style="padding-top: 20px; padding-bottom: 40px; ">
+					{% block contenido %}{% endblock %}
+				</div>
+			</div>
+			<div class="footer" style="height: 100px">
+				
+			</div>
+		</main>
+		<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+		<script src="{% static "js/bootstrap.min.js" %}"></script>
+		<script src="{% static "js/bootstrap.js" %}"></script>
+		<script src="{% static "js/index.js" %}"></script>
+		<script src="{% static "js/sesion-forms.js" %}"></script>
+		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+		<script type="text/javascript">
+			$(document).ready( function () {
+			    $('#tablaQuery').DataTable();
+			} );
+		</script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		    <script type="text/javascript">
+		      google.charts.load("current", {packages:["corechart"]});
+		      google.charts.setOnLoadCallback(drawChart);
+		      function drawChart() {
+		        var data = google.visualization.arrayToDataTable([
+		          ['Task', 'Hours per Day'],
+		          ['Work',     11],
+		          ['Eat',      2],
+		          ['Commute',  2],
+		          ['Watch TV', 2],
+		          ['Sleep',    7]
+		        ]);
+
+		        var options = {
+		          title: 'My Daily Activities',
+		          is3D: true,
+		        };
+
+		        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+		        chart.draw(data, options);
+		      }
+		</script>
+
+		{% block ExtraScript %}{% endblock %}
+	</body>
+</html>

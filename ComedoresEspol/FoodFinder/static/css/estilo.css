@@ -731,3 +731,13 @@ g text{
     border: 1px solid GREY;
     }
 
+
+body#sesion{
+    background: url("../img/bg3.jpg") center; 
+}
+
+
+.sesionBase{
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 10px;
+}
