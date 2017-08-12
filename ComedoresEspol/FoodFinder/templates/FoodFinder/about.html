@@ -3,32 +3,36 @@
 {% block titulo %}Acerca de nosotros{% endblock %}
 {% block contenido %}
 <div id="about-us">
-	<img src="{% static "img/logo-v.png" %}" id="logo" alt="logo">
+	<img id="logo" class="img-responsive center-block" src="{% static 'img/logo-v.png' %}" alt="logo"/>
 	<div id="descripcion-site">
-		<p> Pagina web diseñada para proporcionar a la comunidad de estudiantes de ESPOL
+		<p class="center-block"> Pagina web diseñada para proporcionar a la comunidad de estudiantes de ESPOL
 			una forma rapida y sencilla de consultar los distintos menus que se sirven dia
 			a dia en los  restaurantes de la universidad, adicionalmente se proporciona una herramienta para ubicar los resturantes desde la ubicacion actual del usuario.
-		</p> <br>
-		<p>
-			DESARROLLADORES
 		</p>
+		<p id="desa" class="center-block">DESARROLLADORES</p>
 		<div id="desarrolladores" class="row">
-			<div id="prog-johan">
-				<img src="{% static "img/johan.png" %}" width="100" alt="johan-imagen">
-				<h3>Johan Canales</h3>
+			<div class="perfil col-lg-3 col-md-3 col-sm-6 col-xs-6">
+				<img class="foto img-responsive center-block" src="{% static 'img/johan.png' %}" alt="johan-imagen">
+				<h4>Johan Canales</h4>
 			</div>
-			<div id="prog-luis" >
-				<img src="{% static "img/luis.png" %}" width="100" alt="luis-imagen">
-				<h3>Luis Zuñiga</h3>
+			<div class="perfil col-lg-3 col-md-3 col-sm-6 col-xs-6">
+				<img class="foto img-responsive center-block" src="{% static 'img/luis.png' %}" alt="luis-imagen">
+				<h4>Luis Zuñiga</h4>
+			</div>
+			<div class="perfil col-lg-3 col-md-3 col-sm-6 col-xs-6">
+				<img class="foto img-responsive center-block" src="{% static 'img/johan.png' %}" alt="johan-imagen">
+				<h4>Anni Santacruz</h4>
+			</div>
+			<div class="perfil col-lg-3 col-md-3 col-sm-6 col-xs-6">
+				<img class="foto img-responsive center-block" src="{% static 'img/johan.png' %}" alt="johan-imagen">
+				<h4>Daniel Castro</h4>
 			</div>
 		</div>
 	</div>
 </div>
- {% block extraScript %}
-		<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
-		<script src="{% static "js/bootstrap.min.js" %}"></script>
-		<script src="{% static "js/bootstrap.js" %}"></script>
-		<script src="{% static "js/comedores-facultad.js" %}"></script>
 {% endblock %}
->>>>>>> Stashed changes
+{% block extraScript %}
+	<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+	<script src="{% static "js/bootstrap.js" %}"></script>
 {% endblock %}

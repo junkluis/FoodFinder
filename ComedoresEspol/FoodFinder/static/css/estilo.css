@@ -7,8 +7,7 @@
 body, html{
     width: 100%;
     height: 100%;
-
-    }
+}
 
 .main .row{
     padding: 0%;
@@ -17,6 +16,10 @@ body, html{
 
 .container {
     width: 100%;
+}
+
+#about-us {
+    padding-bottom: 20px;
 }
 
 /*ESTILO PARA COMPUTADORAS*/
@@ -156,54 +159,30 @@ body, html{
     /*  Estilos usados para web de about.html */
 
     #about-us img{
-        margin-left: 450px;
-        margin-top: 40px;
+        padding: 20px 0px;
+        width: 200px;
+    }
+
+    #desarrolladores .foto {
+        width: 150px;
     }
 
     #descripcion-site p {
-        width: 520px;
-        margin-left: 330px;
+        display: block;
+        width: 50%;
+        padding: 10px 0px;
         text-align: center;
-        margin-top: 30px;
         font-family: 'Josefin Slab', serif;
         font-size: 1.5em;
-    }
-
-    #prog-luis {
-        text-align: center;
-        width: 30%;
-        display: inline-block;
-        margin-left: 10%;
-        margin-top: 20px;
-        padding-left: 0px;
-    }
-
-    #prog-luis img{
-        width: 40%;
-        margin: 0px;
-        padding: 0px;
-        padding-left: 0%;
-    }
-    #prog-johan {
-        text-align: center;
-        width: 30%;
-        display: inline-block;
-        margin-left: 10%;
-        margin-top: 20px;
-        padding-left: 0px;
-    }
-
-    #prog-johan img{
-        width: 40%;
-        margin: 0px;
-        padding: 0px;
-        padding-left: 0%;
     }
 
     #formulario {
         margin-top: 20px;
     }
 
+    .perfil h4 {
+        text-align: center;
+    }
 
     /*index - platillos*/
 
@@ -336,25 +315,13 @@ body, html{
         margin-bottom: 3px;
     }
 
-    #food-logo img {
-        width: 170px;
-        margin-left: 10%;
-        padding-top: 20px;
-        display: inline-block;
-    }
-
     #descripcion-site p {
-        margin-top: 40px;
-        margin-left: 15px;
-        width: 350px;
+        display: block;
+        width: 50%;
+        padding: 10px 0px;
         text-align: center;
         font-family: 'Josefin Slab', serif;
-        font-size: 1.3em;
-    }
-
-
-    #logo {
-        display: none;
+        font-size: 1.5em;
     }
 
     #contacto-header {
@@ -530,7 +497,6 @@ and (min-width : 700px){
         width: 250px;
         height: 190px;
         border-radius: 5px;
-
     }
 
     .desc a{
@@ -543,15 +509,15 @@ and (min-width : 700px){
 
     /*about us*/
     #about-us img{
-        margin-left: 450px;
-        margin-top: 40px;
+        padding: 20px 0px;
+        width: 200px;
     }
 
     #descripcion-site p {
-        width: 520px;
-        margin-left: 330px;
+        display: block;
+        width: 50%;
+        padding: 10px 0px;
         text-align: center;
-        margin-top: 30px;
         font-family: 'Josefin Slab', serif;
         font-size: 1.5em;
     }
@@ -618,14 +584,11 @@ and (min-width : 700px){
     }
 
     /*otros*/
-
-    #food-logo img {
-            width: 130px;
-            margin-left: 10%;
-            margin-right: 10%;
-            padding-top: 5px;
-            display: inline-block;
-        }
+    #logo {
+        width: 200px;
+        padding-top: 5px;
+        display: block;
+    }
 
     .navbar-nav{
         margin-left: 50px;

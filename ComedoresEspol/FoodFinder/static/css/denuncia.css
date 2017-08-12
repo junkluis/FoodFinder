@@ -1,0 +1,18 @@
+#formulario > form{
+    background-color: #FAFAFA;
+    border: 1px solid grey;
+    padding: 10px 40px 60px;
+    margin: 10px 0px 60px;
+}
+
+form h3 {
+    text-align: center;
+    font-family: 'Pacifico';
+    color: #d60651;
+    padding: 10px 0px;
+}
+
+#logo {
+	padding-top: 25px;
+    width: 200px;
+}
