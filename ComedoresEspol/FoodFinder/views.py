@@ -164,11 +164,6 @@ def contacto (request):
         correo_contacto=   request.POST.get('email')
         asunto_contacto=   request.POST.get('subject')
         mensaje_contacto=  request.POST.get('mensaje')
-<<<<<<< Updated upstream
-        send_mail(asunto_contacto, mensaje_contacto, correo_contacto, ['johanalejandro@me.com'], fail_silently=False)
-    context = {}
-    return  HttpResponse(template.render(context, request))
-=======
         email_envio=[email_host,correo_contacto]
         send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=True)
     
@@ -178,7 +173,7 @@ def contacto (request):
         'notice':notice
     }
     return HttpResponse(template.render(context, request))
->>>>>>> Stashed changes
+
 
 def platilloInfo(request, pId):
     template=loader.get_template('FoodFinder/platillo.html')
