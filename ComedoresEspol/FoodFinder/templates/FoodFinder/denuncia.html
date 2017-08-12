@@ -7,19 +7,19 @@
 	<div>
 		<div class="form-group">
 			<label>Comedor:</label>
-	    	<select class="form-control" name="comedor">
-	    	{% for c in comedores %}
-	    		<option>{{ c.nombre }}</option>
-	    	{% endfor %}
-	    	</select>
+			<select class="form-control" name="comedor">
+				{% for c in comedores %}
+				<option>{{ c.nombre }}</option>
+				{% endfor %}
+			</select>
 		</div>
 		<div class="form-group">
 			<label>Fecha del incoveniente:</label>
-	    <input type="date" name="fecha_den" max="2017-08-11"/>
+			<input type="date" name="fecha_den" max="2017-08-11"/>
 		</div>
 		<div class="form-group">
 			<label>Denuncia:</label>
-	    	<textarea class="form-control" rows="5" name="denuncia" pattern=".{0,1000}"></textarea>
+			<textarea class="form-control" rows="5" name="denuncia" pattern=".{0,1000}"></textarea>
 		</div>
 		<button type="submit" class="btn btn-default">{{ action }}</button>
 	</div>

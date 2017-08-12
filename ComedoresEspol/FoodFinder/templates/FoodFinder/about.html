@@ -1,77 +1,27 @@
-<!Doctype html>
+{% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Acerca de nosotros</title>
-		<link href="{% static "css/css/bootstrap.min.css" %}" rel="stylesheet">
-		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
-		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
-	</head>
-	<body>
-		<nav class="navbar navbar-default sidebar">
-			<div id="franja"></div>
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<div id="food-logo" >
-						<a href="index.html">
-							<img src="{% static "img/logo-v.png" %}" alt="logo" style="width:90%;" />
-						</a>
-					</div>
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" >
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="{% url 'FoodFinder:index'%}">Inicio</a></li>
-						<li><a href="{% url 'FoodFinder:galeria'%}">Galeria de Platillos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresC'%}">Comedores Cercanos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresF' %}">Comedores por Facultad</a></li>
-						<li><a href="{% url 'FoodFinder:mejoresPlatos' %}">Mejores Platos</a></li>
-						<li><a href="{% url 'FoodFinder:about' %}">Nosotros</a></li>
-						<li><a href="{% url 'FoodFinder:contacto' %}"> Contacto </a></li>
-						<li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
-					</ul>
-				</div>
+{% block titulo %}Acerca de nosotros{% endblock %}
+{% block contenido %}
+<div id="about-us">
+	<img src="{% static "img/logo-v.png" %}" id="logo" alt="logo">
+	<div id="descripcion-site">
+		<p> Pagina web diseñada para proporcionar a la comunidad de estudiantes de ESPOL
+			una forma rapida y sencilla de consultar los distintos menus que se sirven dia
+			a dia en los  restaurantes de la universidad, adicionalmente se proporciona una herramienta para ubicar los resturantes desde la ubicacion actual del usuario.
+		</p> <br>
+		<p>
+			DESARROLLADORES
+		</p>
+		<div id="desarrolladores" class="row">
+			<div id="prog-johan">
+				<img src="{% static "img/johan.png" %}" width="100" alt="johan-imagen">
+				<h3>Johan Canales</h3>
 			</div>
-		</nav>
-		<div class="main">
-			<div id="encabezado">
-				<h1> Conoce tus opciones </h1>
-				<h3> COMEDORES DE LA ESPOL </h3>
-			</div>
-			<div id="about-us">
-				<img src="{% static "img/logo-v.png" %}" id="logo" alt="logo">
-				<div id="descripcion-site">
-					<p> Pagina web diseñada para proporcionar a la comunidad de estudiantes de ESPOL
-						una forma rapida y sencilla de consultar los distintos menus que se sirven dia
-						a dia en los  restaurantes de la universidad, adicionalmente se proporciona una herramienta para ubicar los resturantes desde la ubicacion actual del usuario.
-					</p> <br>
-					<p>
-						DESARROLLADORES
-					</p>
-					<div id="desarrolladores" class="row">
-						<div id="prog-johan">
-							<img src="{% static "img/johan.png" %}" width="100" alt="johan-imagen">
-							<h3>Johan Canales</h3>
-						</div>
-						<div id="prog-luis" >
-							<img src="{% static "img/luis.png" %}" width="100" alt="luis-imagen">
-							<h3>Luis Zuñiga</h3>
-						</div>
-					</div>
-				</div>
+			<div id="prog-luis" >
+				<img src="{% static "img/luis.png" %}" width="100" alt="luis-imagen">
+				<h3>Luis Zuñiga</h3>
 			</div>
 		</div>
-		<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
-		<script src="{% static "js/bootstrap.min.js" %}"></script>
-		<script src="{% static "js/bootstrap.js" %}"></script>
-		<script src="{% static "js/comedores-facultad.js" %}"></script>
-	</body>
-</html>
+	</div>
+</div>
+{% endblock %}

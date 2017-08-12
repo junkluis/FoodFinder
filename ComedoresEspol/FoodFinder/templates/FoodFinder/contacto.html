@@ -1,93 +1,34 @@
-<!Doctype html>
+{% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
-<html>
-	<head>
-		<meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Contacto</title>
-		<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
-		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
-	</head>
-	<body>
-		<!-- SIDE BAR BASE -->
-		<nav class="navbar navbar-default sidebar">
-			<div id="franja"></div>
-			<div class="container-fluid">
-				<div class="navbar-header">
-
-					<div id="food-logo" >
-						<a href="index.html">
-						<img src="{% static "img/logo-v.png" %}" alt="logo" style="width:90%;" />
-						</a>
+{% block titulo %}Contacto{% endblock %}
+{% block contenido %}
+<div id="about-us">
+	<img src="{% static "img/logo-v.png" %}" alt="logo" style="width:18%;" />
+   	<div class="container">
+	 	<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12">
+			<div class="form-area">
+				<form role="form">
+				 	<br style="clear:both">
+                    <h3 id="contacto-header" style="margin-bottom: 25px; text-align: center;">Contactanos</h3>
+    				<div class="form-group">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Nombres" required>
 					</div>
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" >
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="{% url 'FoodFinder:index'%}">Inicio</a></li>
-						<li><a href="{% url 'FoodFinder:galeria'%}">Galeria de Platillos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresC'%}">Comedores Cercanos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresF' %}">Comedores por Facultad</a></li>
-						<li><a href="{% url 'FoodFinder:mejoresPlatos' %}">Mejores Platos</a></li>
-						<li><a href="{% url 'FoodFinder:about' %}">Nosotros</a></li>
-						<li><a href="{% url 'FoodFinder:contacto' %}"> Contacto </a></li>
-
-						<li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class="main">
-			<div id="encabezado">
-				<h1> Conoce tus opciones </h1>
-				<h3> COMEDORES DE LA ESPOL </h3>
-
-			</div>
-
-				<div id="about-us">
-					<img src="{% static "img/logo-v.png" %}" alt="logo" style="width:18%;" />
-					<div id="formulario">
-					   <div class="container">
-						 <div class="col-md-5">
-   							<div class="form-area">
-        						<form role="form">
-       							 <br style="clear:both">
-					                    <h3 id="contacto-header" style="margin-bottom: 25px; text-align: center;">Contactanos</h3>
-					    				<div class="form-group">
-											<input type="text" class="form-control" id="name" name="name" placeholder="Nombres" required>
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control" id="email" name="email" placeholder="Correo Electronico" required>
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Telefono Movil" required>
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control" id="subject" name="subject" placeholder="Asunto" required>
-										</div>
-					                    <div class="form-group">
-					                    <textarea class="form-control" type="textarea" id="message" placeholder="Mensaje" maxlength="250" rows="7"></textarea>
-
-					                    </div>
-            					<button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Enviar</button>
-        						</form>
-   							</div>
-						</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="email" name="email" placeholder="Correo Electronico" required>
 					</div>
-				</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Telefono Movil" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="subject" name="subject" placeholder="Asunto" required>
+					</div>
+                    <div class="form-group">
+                    	<textarea class="form-control" type="textarea" id="message" placeholder="Mensaje" maxlength="250" rows="7"></textarea>
+                    </div>
+					<button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Enviar</button>
+				</form>
 			</div>
 		</div>
-	<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
-	<script src="{% static "js/bootstrap.min.js" %}"></script>
-	<script src="{% static "js/bootstrap.js" %}"></script>
-	<script src="{% static "js/index.js" %}"></script>
-	</body>
-</html>
+	</div>
+</div>
+{% endblock %}

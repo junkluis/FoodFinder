@@ -163,9 +163,5 @@ def contacto (request):
         asunto_contacto=   request.POST.get('subject')
         mensaje_contacto=  request.POST.get('mensaje')
         send_mail(asunto_contacto, mensaje_contacto, correo_contacto, ['johanalejandro@me.com'], fail_silently=False)
-            
-    
+    context = {}
     return  HttpResponse(template.render(context, request))
-
-
-

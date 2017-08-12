@@ -1,128 +1,80 @@
-<!Doctype html>
+{% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Comedores de la ESPOL</title>
-		<link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}" />
-		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
-		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-	</head>
-	<body>
-		<nav class="navbar navbar-default sidebar navbar-collapse">
-			<div id="franja"></div>
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<div id="food-logo" >
-						<a href="index.html"><img src="{% static "img/logo-v.png" %}" alt="logo" width="150" /></a>
-					</div>
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" >
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="{% url 'FoodFinder:index'%}">Inicio</a></li>
-						<li><a href="{% url 'FoodFinder:galeria'%}">Galeria de Platillos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresC'%}">Comedores Cercanos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresF' %}">Comedores por Facultad</a></li>
-						<li><a href="{% url 'FoodFinder:mejoresPlatos' %}">Mejores Platos</a></li>
-						<li><a href="{% url 'FoodFinder:about' %}">Nosotros</a></li>
-						<li><a href="{% url 'FoodFinder:contacto' %}"> Contacto </a></li>
-						<li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
-						<li><a href="{% url 'FoodFinder:denuncia' %}"> Denuncia </a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class="main">
-			<div id="encabezado">
-				<h1> Conoce tus opciones </h1>
-				<h3> COMEDORES DE LA ESPOL </h3>
-			</div>
-			<div id="filtro-search">
-				<p id="buscar"><span class="glyphicon glyphicon-search" ></span> Buscar por: </p>
-				<button type="button" onclick="filtro('data-precio','des')" class="btn busqueda"> Precio </button>
-				<button type="button" onclick="filtro('data-distancia','des')" class="btn busqueda">Ubicacion</button>
-				<button type="button" onclick="filtro('data-disponible','asc')" class="btn busqueda"> Disponibles </button>
-				<button type="button" onclick="filtro('data-vnutricional','asc')" class="btn busqueda">Valor nutricional </button>
-			</div>
-			<div class="platillos-del-dia">
-				{% for plato in platillos %}
-				<div class="platillo" data-precio="{{plato.precio}}" data-vnutricional="{{plato.valorNutricional}}" data-disponible="si" data-distancia="{{plato.distancia}}">
-					<div class="desc">
-						<a href="comedor-neo.html"><h4>{{plato.titulo}}</h4></a>
-						<ul>
-							<li><span class="glyphicon glyphicon-apple"></span> $ {{plato.precio}}</li>
-							<li><span class="glyphicon glyphicon-map-marker"></span> {{plato.distancias}} mts</li>
-							<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
-						</ul>
-						<span class="starRating" id_p='{{plato.id}}'>
-						  <input id="rating5{{plato.id}}" type="radio" name="rating{{plato.id}}" value="1" style="display: none">
-						  <label for="rating5{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-						  <input id="rating4{{plato.id}}" type="radio" name="rating{{plato.id}}" value="2" style="display: none">
-						  <label for="rating4{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-						  <input id="rating3{{plato.id}}" type="radio" name="rating{{plato.id}}" value="3" style="display: none">
-						  <label for="rating3{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-						  <input id="rating2{{plato.id}}" type="radio" name="rating{{plato.id}}" value="4" style="display: none">
-						  <label for="rating2{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-						  <input id="rating1{{plato.id}}" type="radio" name="rating{{plato.id}}" value="5" style="display: none">
-						  <label for="rating1{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-						</span>
-					</div>
-					<img src="{% static plato.imagen %}" alt="logo" width="200" />
-				</div>
-				{% endfor %}
-				<div class="platillo" data-precio="2.5" data-vnutricional="500" data-disponible="si" data-distancia="200">
-					<div class="desc">
-						<a href="comedor-neo.html"><h4>Arroz con Pollo</h4></a>
-						<ul>
-							<li><span class="glyphicon glyphicon-apple"></span> $ 2.5</li>
-							<li><span class="glyphicon glyphicon-map-marker"></span> 200 mts</li>
-							<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
-						</ul>
-					</div>
-					<img src="{% static "gallery/photo-1.jpg" %}" alt="logo" width="200" />
-				</div>
-				<div class="platillo" data-precio="1.5" data-vnutricional="200" data-disponible="no" data-distancia="800">
-					<div class="desc">
-						<a href="comedor-neo.html"><h4>Bandeja Paisa</h4></a>
-						<ul>
-							<li><span class="glyphicon glyphicon-apple"></span> $ 1.5</li>
-							<li><span class="glyphicon glyphicon-map-marker"></span> 800 mts</li>
-							<li><span class="glyphicon glyphicon-remove"></span> Agotado</li>
-						</ul>
-					</div>
-					<img src="{% static "gallery/photo-9.jpg" %}" alt="logo" width="200" />
-				</div>
-			</div>
+{% block titulo %}FoodFinder{% endblock %}
+{% block contenido %}
+<div id="filtro-search">
+	<p id="buscar"><span class="glyphicon glyphicon-search" ></span> Buscar por: </p>
+	<button type="button" onclick="filtro('data-precio','des')" class="btn busqueda"> Precio </button>
+	<button type="button" onclick="filtro('data-distancia','des')" class="btn busqueda">Ubicacion</button>
+	<button type="button" onclick="filtro('data-disponible','asc')" class="btn busqueda"> Disponibles </button>
+</div>
+<div class="platillos-del-dia">
+	{% for plato in platillos %}
+	<div class="platillo" data-precio="{{plato.precio}}" data-disponible="si" data-distancia="{{plato.distancia}}">
+		<div class="desc">
+			<a href="comedor-neo.html"><h4>{{plato.titulo}}</h4></a>
+			<ul>
+				<li><span class="glyphicon glyphicon-apple"></span> $ {{plato.precio}}</li>
+				<li><span class="glyphicon glyphicon-map-marker"></span> {{plato.distancias}} mts</li>
+				<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
+			</ul>
+			<span class="starRating" id_p='{{plato.id}}'>
+			  <input id="rating5{{plato.id}}" type="radio" name="rating{{plato.id}}" value="1" style="display: none">
+			  <label for="rating5{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+			  <input id="rating4{{plato.id}}" type="radio" name="rating{{plato.id}}" value="2" style="display: none">
+			  <label for="rating4{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+			  <input id="rating3{{plato.id}}" type="radio" name="rating{{plato.id}}" value="3" style="display: none">
+			  <label for="rating3{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+			  <input id="rating2{{plato.id}}" type="radio" name="rating{{plato.id}}" value="4" style="display: none">
+			  <label for="rating2{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+			  <input id="rating1{{plato.id}}" type="radio" name="rating{{plato.id}}" value="5" style="display: none">
+			  <label for="rating1{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+			</span>
 		</div>
-	<!-- JAVASCRIPT -->
-	<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
-	<script src="{% static "js/bootstrap.min.js" %}"></script>
-	<script src="{% static "js/bootstrap.js" %}"></script>
-	<script src="{% static "js/index.js" %}"></script>
-	<script type="text/javascript">
-		$( document ).ready(function() {
-		   $('[name^=rating]').change(function(){
-			   	value = this.getAttribute("value");
-			   	platoId = this.parentElement.getAttribute("id_p");
-			   	jQuery.ajax({
-		            url: "/FoodFinder/valorar",
-		            dataType: "json",
-		            data: { plato_id: platoId, valor: value },
-		            type: 'GET',
-		            error: function(XMLHttpRequest, textStatus, errorThrown){
-		                console.log(errorThrown);
-		            }
-        		});
-		   });
-		});
-	</script>
-	</body>
-</html>
+		<img src="{% static plato.imagen %}" alt="logo" width="200" />
+	</div>
+	{% endfor %}
+	<div class="platillo" data-precio="2.5" data-disponible="si" data-distancia="200">
+		<div class="desc">
+			<a href="comedor-neo.html"><h4>Arroz con Pollo</h4></a>
+			<ul>
+				<li><span class="glyphicon glyphicon-apple"></span> $ 2.5</li>
+				<li><span class="glyphicon glyphicon-map-marker"></span> 200 mts</li>
+				<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
+			</ul>
+		</div>
+		<img src="{% static "gallery/photo-1.jpg" %}" alt="logo" width="200" />
+	</div>
+	<div class="platillo" data-precio="1.5" data-disponible="no" data-distancia="800">
+		<div class="desc">
+			<a href="comedor-neo.html"><h4>Bandeja Paisa</h4></a>
+			<ul>
+				<li><span class="glyphicon glyphicon-apple"></span> $ 1.5</li>
+				<li><span class="glyphicon glyphicon-map-marker"></span> 800 mts</li>
+				<li><span class="glyphicon glyphicon-remove"></span> Agotado</li>
+			</ul>
+		</div>
+		<img src="{% static "gallery/photo-9.jpg" %}" alt="logo" width="200" />
+	</div>
+</div>
+{% endblock %}
+{% block extraScript %}
+<script src="{% static "js/index.js" %}"></script>
+<script type="text/javascript">
+	$( document ).ready(function() {
+	   $('[name^=rating]').change(function(){
+		   	value = this.getAttribute("value");
+		   	platoId = this.parentElement.getAttribute("id_p");
+		   	jQuery.ajax({
+	            url: "/FoodFinder/valorar",
+	            dataType: "json",
+	            data: { plato_id: platoId, valor: value },
+	            type: 'GET',
+	            error: function(XMLHttpRequest, textStatus, errorThrown){
+	                console.log(errorThrown);
+	            }
+    		});
+	   });
+	});
+</script>
+{% endblock %}

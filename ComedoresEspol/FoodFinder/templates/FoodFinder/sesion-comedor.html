@@ -1,130 +1,121 @@
 {% extends "FoodFinder/BaseSesion.html" %}
 {% load static %}
 {% block titulo %}Moderador{% endblock %}
-{% block extraStyle %}
-{% endblock %}
-
 {% block Encabezado %}
 	<h1>Comedor Neo</h1>
 	<p>Bienvenido a Food Finder!</p>
 {% endblock %}
-
 {% block contenido %}
-				<div class="col-md-5">
-					<h3>Mi Comedor</h3>
-					<p><b>Descripcion:</b></p>
-					<p id="desc-perfil">Lorem ipsum dolor sit amet, no ponderum detraxit percipitur nec, ad paulo honestatis his, ut pri quem graeci. Pri modo iusto ne. Fierent singulis electram ut mel, eos ut quando constituam. Ferri nihil ut usu, solet noluisse mei ei.</p>
-					<p id="horario">Horario: 9:30 am - 6:30 pm</p>
-					<p id="esp-perfil">Especialidad: Almuerzos</p>
-					<p id="ayu-perfil">Aceptamos Ayudantes</p>
-					<br>
-					<!-- EDITAR -->
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editarForm">
-						<span class="glyphicon glyphicon-pencil"></span> Editar
-					</button>
-					<!-- EDITAR FORM MODAL -->
-					<div class="modal fade" id="editarForm" tabindex="-1" role="dialog"  aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4>Editar mi Perfil</h4>
-								</div>
-								<form>
-									<div class="modal-body">
-										<!-- FORMULARIO -->
-										<div class="form-group">
-											<label>Descripcion:</label>
-											<textarea class="form-control" rows="3" id="descripcion" placeholder="Hablanos de tu restaurante" required="required"></textarea>
-										</div>
-										<div class="form-group">
-											<label>Especialidad:</label>
-											<input type="text" class="form-control" id="especialidad" placeholder="Almuerzos, Comida tipica, ..." required="required">
-										</div>
-										<div class="checkbox">
-											<label><input type="checkbox" id="ayudantes">Aceptamos Ayudantes</label>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-										<button type="submit" class="btn btn-primary" onclick="editarPerfil()">Guardar Cambios</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-					<!-- ARGEGAR PLATILLO -->
-					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#AddPlatilloForm"><span class="glyphicon glyphicon-plus"></span> Agregar Platillo
-					</button>
-					<!-- ARGEGAR PLATILLO FORM -->
-					<div class="modal fade" id="AddPlatilloForm" tabindex="-1" role="dialog"  aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4>Agregar Platillo</h4>
-								</div>
-								<form>
-									<div class="modal-body">
-										<!-- FORMULARIO -->
-										<div class="form-group">
-											<label >Titulo:</label>
-											<input type="text" class="form-control" id="pwd" placeholder="Arroz con pollo" required="required">
-										</div>
-										<div class="form-group col-md-6">
-											<label>Costo:</label>
-											<input type="number" min="0" class="form-control" id="money" placeholder="$3.50" required="required">
-										</div>
-										<div class="form-group col-md-6">
-											<label>Cantidad Disponible:</label>
-											<input type="number" min="0" class="form-control" id="cantidad" placeholder="5" required="required" >
-										</div>
-										<div class="form-group">
-											<label>Tipo:</label>
-											<input type="text" class="form-control" id="tipo" placeholder="Almuerzo" required="required">
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-										<button type="submit" class="btn btn-primary">Guardar Cambios</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
+<div class="col-md-5">
+	<h3>Mi Comedor</h3>
+	<p><b>Descripcion:</b></p>
+	<p id="desc-perfil">Lorem ipsum dolor sit amet, no ponderum detraxit percipitur nec, ad paulo honestatis his, ut pri quem graeci. Pri modo iusto ne. Fierent singulis electram ut mel, eos ut quando constituam. Ferri nihil ut usu, solet noluisse mei ei.</p>
+	<p id="horario">Horario: 9:30 am - 6:30 pm</p>
+	<p id="esp-perfil">Especialidad: Almuerzos</p>
+	<p id="ayu-perfil">Aceptamos Ayudantes</p>
+	<br>
+	<!-- EDITAR -->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editarForm">
+		<span class="glyphicon glyphicon-pencil"></span> Editar
+	</button>
+	<!-- EDITAR FORM MODAL -->
+	<div class="modal fade" id="editarForm" tabindex="-1" role="dialog"  aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4>Editar mi Perfil</h4>
 				</div>
-				<div class="platillos-disp col-md-6">
-					<h3>Mis Platillo </h3>
-					<div class="platillos">
-						<div class="plato-neo row">
-							<div class="imgenneo col-md-6">
-								<img src="{% static "gallery/photo-1.jpg" %}" alt="logo" width="200" />
-							</div>
-							<div class="col-md-6">
-								<h4>Comida para humanos - Verificada</h4>
-								<ul>
-									<li><span class="glyphicon glyphicon-blackboard"></span> $ 2.5</li>
-									<li><span class="glyphicon glyphicon-apple"></span> Almuerzo</li>
-									<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
-								</ul>
-							</div>
+				<form>
+					<div class="modal-body">
+						<!-- FORMULARIO -->
+						<div class="form-group">
+							<label>Descripcion:</label>
+							<textarea class="form-control" rows="3" id="descripcion" placeholder="Hablanos de tu restaurante" required="required"></textarea>
 						</div>
-						<div class="plato-neo row">
-							<div class="imgenneo col-md-6">
-								<img src="{% static "gallery/photo-2.jpg" %}" alt="logo" width="200" />
-							</div>
-							<div class="col-md-6">
-								<h4>Comida para humanos - Verificada</h4>
-								<ul>
-									<li><span class="glyphicon glyphicon-blackboard"></span> $ 2.5</li>
-									<li><span class="glyphicon glyphicon-apple"></span> Almuerzo</li>
-									<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
-								</ul>
-							</div>
+						<div class="form-group">
+							<label>Especialidad:</label>
+							<input type="text" class="form-control" id="especialidad" placeholder="Almuerzos, Comida tipica, ..." required="required">
+						</div>
+						<div class="checkbox">
+							<label><input type="checkbox" id="ayudantes">Aceptamos Ayudantes</label>
 						</div>
 					</div>
-				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-primary" onclick="editarPerfil()">Guardar Cambios</button>
+					</div>
+				</form>
 			</div>
-
-{% endblock %}
-
-{% block extraScript %}
+		</div>
+	</div>
+	<!-- ARGEGAR PLATILLO -->
+	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#AddPlatilloForm"><span class="glyphicon glyphicon-plus"></span> Agregar Platillo
+	</button>
+	<!-- ARGEGAR PLATILLO FORM -->
+	<div class="modal fade" id="AddPlatilloForm" tabindex="-1" role="dialog"  aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4>Agregar Platillo</h4>
+				</div>
+				<form>
+					<div class="modal-body">
+						<!-- FORMULARIO -->
+						<div class="form-group">
+							<label >Titulo:</label>
+							<input type="text" class="form-control" id="pwd" placeholder="Arroz con pollo" required="required">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Costo:</label>
+							<input type="number" min="0" class="form-control" id="money" placeholder="$3.50" required="required">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Cantidad Disponible:</label>
+							<input type="number" min="0" class="form-control" id="cantidad" placeholder="5" required="required" >
+						</div>
+						<div class="form-group">
+							<label>Tipo:</label>
+							<input type="text" class="form-control" id="tipo" placeholder="Almuerzo" required="required">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-primary">Guardar Cambios</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="platillos-disp col-md-6">
+	<h3>Mis Platillo </h3>
+	<div class="platillos">
+		<div class="plato-neo row">
+			<div class="imgenneo col-md-6">
+				<img src="{% static "gallery/photo-1.jpg" %}" alt="logo" width="200" />
+			</div>
+			<div class="col-md-6">
+				<h4>Comida para humanos - Verificada</h4>
+				<ul>
+					<li><span class="glyphicon glyphicon-blackboard"></span> $ 2.5</li>
+					<li><span class="glyphicon glyphicon-apple"></span> Almuerzo</li>
+					<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
+				</ul>
+			</div>
+		</div>
+		<div class="plato-neo row">
+			<div class="imgenneo col-md-6">
+				<img src="{% static "gallery/photo-2.jpg" %}" alt="logo" width="200" />
+			</div>
+			<div class="col-md-6">
+				<h4>Comida para humanos - Verificada</h4>
+				<ul>
+					<li><span class="glyphicon glyphicon-blackboard"></span> $ 2.5</li>
+					<li><span class="glyphicon glyphicon-apple"></span> Almuerzo</li>
+					<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

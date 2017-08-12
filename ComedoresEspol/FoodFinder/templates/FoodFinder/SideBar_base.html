@@ -7,11 +7,9 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>FoodFinder - {% block titulo %}{% endblock %}</title>
 		<link rel="shortcut icon" href="{% static "img/caterin.ico" %}" />
-		<link href="{% static "css/css/bootstrap.min.css" %}" rel="stylesheet">
+		<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
 		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
-		<link href="{% static "css/est-comed.css" %}" rel="stylesheet">
-		
 		{% block extraStyle %}{% endblock %}
 	</head>
 	<body>
@@ -49,14 +47,11 @@
 				<h1> Conoce tus opciones </h1>
 				<h3> COMEDORES DE LA ESPOL </h3>
 			</div>
-			<div id="cont-bares">
-				{% block contenido %}{% endblock %}
-			</div>
+			{% block contenido %}{% endblock %}
 		</div>
 		<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
 		<script src="{% static "js/bootstrap.min.js" %}"></script>
 		<script src="{% static "js/bootstrap.js" %}"></script>
-
 		{% block extraScript %}{% endblock %}
 	</body>
 </html>

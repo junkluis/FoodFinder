@@ -4,8 +4,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab:600i');
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
-
-
 body, html{
     width: 100%;
     height: 100%;
@@ -16,6 +14,10 @@ body, html{
     padding: 0%;
     margin: 0%;
     }
+
+.container {
+    width: 100%;
+}
 
 /*ESTILO PARA COMPUTADORAS*/
 @media only screen and (min-width: 1300px){
@@ -200,8 +202,6 @@ body, html{
 
     #formulario {
         margin-top: 20px;
-        margin-left: 330px;
-
     }
 
 

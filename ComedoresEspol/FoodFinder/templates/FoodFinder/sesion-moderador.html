@@ -1,50 +1,39 @@
 {% extends "FoodFinder/BaseSesion.html" %}
 {% load static %}
 {% block titulo %}Moderador{% endblock %}
-{% block extraStyle %}
-
-{% endblock %}
-
 {% block Encabezado %}
 	<h1>Bienvenido</h1>
 	<p>{{ hello.nombre }} - Moderador</p>
 {% endblock %}
-
 {% block contenido %}
-				<div class="col-md-6">
-					<div>
-						<h3> Denuncias Reportadas</h3><br>
-						<div>
-							<table id="tablaQuery" class="display">
-							    <thead>
-							        <tr>
-							            <th>Fecha</th>
-							            <th>Comedor</th>
-							            <th>Quejas y denuncias</th>
-							        </tr>
-							    </thead>
-							    <tbody>
-							        {% for d in denuncias %}
-							        	<tr>
-							        		<td>{{ d.comedor }}</td>
-							        		<td>{{ d.fecha_den }}</td>
-							        		<td>{{ d.denuncia }}</td>
-							        	</tr>
-							        {% endfor %}
-							        
-							    </tbody>
-							</table>					
-						</div>
-					</div>
-				</div>
-				<div class="platillos-disp col-md-5">
-					<h3>Numero de Quejas por Comedores</h3><br>
-					<div id="piechart" style="width: 900px; height: 500px;"></div>
-				</div>
-			</div>
-
-{% endblock %}
-
-{% block extraScript %}  
-
+<div class="col-md-6">
+	<div>
+		<h3> Denuncias Reportadas</h3><br>
+		<div>
+			<table id="tablaQuery" class="display">
+			    <thead>
+			        <tr>
+			            <th>Fecha</th>
+			            <th>Comedor</th>
+			            <th>Quejas y denuncias</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        {% for d in denuncias %}
+			        	<tr>
+			        		<td>{{ d.comedor }}</td>
+			        		<td>{{ d.fecha_den }}</td>
+			        		<td>{{ d.denuncia }}</td>
+			        	</tr>
+			        {% endfor %}
+			        
+			    </tbody>
+			</table>					
+		</div>
+	</div>
+</div>
+<div class="platillos-disp col-md-5">
+	<h3>Numero de Quejas por Comedores</h3><br>
+	<div id="piechart" style="width: 900px; height: 500px;"></div>
+</div>
 {% endblock %}
