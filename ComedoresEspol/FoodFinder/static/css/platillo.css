@@ -1,0 +1,42 @@
+.imagen{
+        margin-top: 110px;
+}
+.imagen img{
+	width: 95%;
+	height: 200px;
+}
+.imagen:hover{
+	/*box-shadow: 0px 0px 16px 4px rgba(0, 0, 0, 0.84);*/
+	transform: scale(1.05);
+	z-index: 1;
+}
+.valorar {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.imagen:hover .valorar {
+	opacity: 0.8;
+}
+.imagen:hover img{
+	filter: grayscale(50%);
+}
+.text {
+	background-color: rgba(0, 91, 155, 1);
+	padding: 5px 25px;
+}
+.text a{
+	color: white;
+	font-size: 14px;
+	text-decoration: none;
+}
+.text a:hover{
+	color: white;
+	text-decoration: none;
+}
+li {
+    margin-bottom: 5px;
+}

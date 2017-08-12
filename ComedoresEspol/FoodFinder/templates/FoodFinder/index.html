@@ -12,69 +12,16 @@
 	{% for plato in platillos %}
 	<div class="platillo" data-precio="{{plato.precio}}" data-disponible="si" data-distancia="{{plato.distancia}}">
 		<div class="desc">
-			<a href="comedor-neo.html"><h4>{{plato.titulo}}</h4></a>
+			<a href="{% url 'FoodFinder:platillo' plato.id %}"><h4>{{plato.titulo}}</h4></a>
 			<ul>
 				<li><span class="glyphicon glyphicon-apple"></span> $ {{plato.precio}}</li>
 				<li><span class="glyphicon glyphicon-map-marker"></span> {{plato.distancias}} mts</li>
 				<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
+				<li><a href="{% url 'FoodFinder:valoracion' %}">Valorar</a></li>
 			</ul>
-			<span class="starRating" id_p='{{plato.id}}'>
-			  <input id="rating5{{plato.id}}" type="radio" name="rating{{plato.id}}" value="1" style="display: none">
-			  <label for="rating5{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-			  <input id="rating4{{plato.id}}" type="radio" name="rating{{plato.id}}" value="2" style="display: none">
-			  <label for="rating4{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-			  <input id="rating3{{plato.id}}" type="radio" name="rating{{plato.id}}" value="3" style="display: none">
-			  <label for="rating3{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-			  <input id="rating2{{plato.id}}" type="radio" name="rating{{plato.id}}" value="4" style="display: none">
-			  <label for="rating2{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-			  <input id="rating1{{plato.id}}" type="radio" name="rating{{plato.id}}" value="5" style="display: none">
-			  <label for="rating1{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-			</span>
 		</div>
 		<img src="{% static plato.imagen %}" alt="logo" width="200" />
 	</div>
 	{% endfor %}
-	<div class="platillo" data-precio="2.5" data-disponible="si" data-distancia="200">
-		<div class="desc">
-			<a href="comedor-neo.html"><h4>Arroz con Pollo</h4></a>
-			<ul>
-				<li><span class="glyphicon glyphicon-apple"></span> $ 2.5</li>
-				<li><span class="glyphicon glyphicon-map-marker"></span> 200 mts</li>
-				<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
-			</ul>
-		</div>
-		<img src="{% static "gallery/photo-1.jpg" %}" alt="logo" width="200" />
-	</div>
-	<div class="platillo" data-precio="1.5" data-disponible="no" data-distancia="800">
-		<div class="desc">
-			<a href="comedor-neo.html"><h4>Bandeja Paisa</h4></a>
-			<ul>
-				<li><span class="glyphicon glyphicon-apple"></span> $ 1.5</li>
-				<li><span class="glyphicon glyphicon-map-marker"></span> 800 mts</li>
-				<li><span class="glyphicon glyphicon-remove"></span> Agotado</li>
-			</ul>
-		</div>
-		<img src="{% static "gallery/photo-9.jpg" %}" alt="logo" width="200" />
-	</div>
 </div>
-{% endblock %}
-{% block extraScript %}
-<script src="{% static "js/index.js" %}"></script>
-<script type="text/javascript">
-	$( document ).ready(function() {
-	   $('[name^=rating]').change(function(){
-		   	value = this.getAttribute("value");
-		   	platoId = this.parentElement.getAttribute("id_p");
-		   	jQuery.ajax({
-	            url: "/FoodFinder/valorar",
-	            dataType: "json",
-	            data: { plato_id: platoId, valor: value },
-	            type: 'GET',
-	            error: function(XMLHttpRequest, textStatus, errorThrown){
-	                console.log(errorThrown);
-	            }
-    		});
-	   });
-	});
-</script>
 {% endblock %}

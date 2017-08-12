@@ -1,78 +1,39 @@
-<!Doctype html>
+{% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Galeria de platos</title>
-		<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
-		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
-		<link href="{% static "css/est-comed.css" %}" rel="stylesheet">
-		<link href="{% static "galereya/css/jquery.galereya.css" %}" rel="stylesheet"/>
-	</head>
-	<body>
-		<nav class="navbar navbar-default sidebar">
-			<div id="franja"></div>
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<div id="food-logo" >
-						<img src="{% static "img/logo-v.png" %}" alt="logo" style="width:90%;" />
-					</div>
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" >
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="{% url 'FoodFinder:index'%}">Inicio</a></li>
-						<li><a href="{% url 'FoodFinder:galeria'%}">Galeria de Platillos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresC'%}">Comedores Cercanos</a></li>
-						<li><a href="{% url 'FoodFinder:comedoresF' %}">Comedores por Facultad</a></li>
-						<li><a href="{% url 'FoodFinder:mejoresPlatos' %}">Mejores Platos</a></li>
-						<li><a href="{% url 'FoodFinder:about' %}">Nosotros</a></li>
-						<li><a href="{% url 'FoodFinder:contacto' %}"> Contacto </a></li>
-						<li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class="main">
-			<div id="encabezado">
-				<h1> Conoce tus opciones </h1>
-				<h3> COMEDORES DE LA ESPOL </h3>
-			</div>
-			<div id="galleryherepls">
-				<img src="{% static "gallery/photo-1.jpg" %}" alt="Arroz con Pollo" title="Arroz con Pollo" data-desc="Comedor Neo - Fiec "
-				data-category="Pollo" data-fullsrc="{% static "gallery/photo-1.jpg" %}"/>
-				<img src="{% static "gallery/photo-2.jpg" %}" alt="Seco de Pollo" data-desc="Comedor Coca-Cola" data-fullsrc="{% static "gallery/photo-2.jpg" %}"
-				data-category="Pollo"/>
-				<img src="{% static "gallery/photo-3.jpg" %}" alt="Arroz con menestra y chuleta" data-desc="Example" data-fullsrc="{% static "gallery/photo-3.jpg" %}"
-				data-category="Carne"/>
-				<img src="{% static "gallery/photo-4.jpg" %}" alt="Bistec de Carne" data-desc="Comedor Maritima" data-fullsrc="{% static "gallery/photo-4.jpg" %}"
-				data-category="Carne"/>
-				<img src="{% static "gallery/photo-5.jpeg" %}" alt="Fritada de Cerdo" data-desc="Comedor Mecanica" data-category="Carne"
-				data-fullsrc="{% static "gallery/photo-5.jpeg" %}"/>
-				<img src="{% static "gallery/photo-6.jpeg" %}" alt="Menestra de Lenteja" data-desc="Comedor EDCOM" data-category="Pollo"
-				data-fullsrc="{% static "gallery/photo-6.jpeg" %}"/>
-				<img src="{% static "gallery/photo-7.jpg" %}" alt="Encebollado de Pescado" title="Encebollado de Pescado" data-desc="Encebollado de Pescado"
-				data-category="Mariscos" data-fullsrc="{% static "gallery/photo-7.jpg" %}"/>
-				<img src="{% static "gallery/photo-10.jpg" %}" alt="Pescado Frito" title="Pescado Frito" data-desc="Comedor Mecanics"
-				data-category="Mariscos" data-fullsrc="{% static "gallery/photo-10.jpg" %}"/>
-			</div>
-		</div>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="{% static "galereya/js/jquery-2.2.4.min.js" %}" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-		<script src="{% static "galereya/js/jquery.galereya.js" %}"></script>
-		<script src="{% static "galereya/js/jquery.galereya.min.js" %}"></script>
-		<script>
-			$(function() {
-				$('#galleryherepls').galereya();
-			});
-		</script>
+{% block titulo %}Galería de platillos{% endblock %}
+{% block extraStyle %}
+<link href="{% static "galereya/css/jquery.galereya.css" %}" rel="stylesheet"/>
+{% endblock %}
+{% block contenido %}
+<div id="galleryherepls">
+	<img src="{% static "gallery/photo-1.jpg" %}" alt="Arroz con Pollo" title="Arroz con Pollo" data-desc="Comedor Neo - Fiec "
+	data-category="Pollo" data-fullsrc="{% static "gallery/photo-1.jpg" %}"/>
+	<img src="{% static "gallery/photo-2.jpg" %}" alt="Seco de Pollo" data-desc="Comedor Coca-Cola" data-fullsrc="{% static "gallery/photo-2.jpg" %}"
+	data-category="Pollo"/>
+	<img src="{% static "gallery/photo-3.jpg" %}" alt="Arroz con menestra y chuleta" data-desc="Example" data-fullsrc="{% static "gallery/photo-3.jpg" %}"
+	data-category="Carne"/>
+	<img src="{% static "gallery/photo-4.jpg" %}" alt="Bistec de Carne" data-desc="Comedor Maritima" data-fullsrc="{% static "gallery/photo-4.jpg" %}"
+	data-category="Carne"/>
+	<img src="{% static "gallery/photo-5.jpeg" %}" alt="Fritada de Cerdo" data-desc="Comedor Mecanica" data-category="Carne"
+	data-fullsrc="{% static "gallery/photo-5.jpeg" %}"/>
+	<img src="{% static "gallery/photo-6.jpg" %}" alt="Menestra de Lenteja" data-desc="Comedor EDCOM" data-category="Pollo"
+	data-fullsrc="{% static "gallery/photo-6.jpeg" %}"/>
+	<img src="{% static "gallery/photo-7.jpg" %}" alt="Encebollado de Pescado" title="Encebollado de Pescado" data-desc="Encebollado de Pescado"
+	data-category="Mariscos" data-fullsrc="{% static "gallery/photo-7.jpg" %}"/>
+	<img src="{% static "gallery/photo-10.jpg" %}" alt="Pescado Frito" title="Pescado Frito" data-desc="Comedor Mecanics"
+	data-category="Mariscos" data-fullsrc="{% static "gallery/photo-10.jpg" %}"/>
+</div>
+{% endblock %}
+{% block extraScript %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="{% static "galereya/js/jquery-2.2.4.min.js" %}" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="{% static "galereya/js/jquery.galereya.js" %}"></script>
+<script src="{% static "galereya/js/jquery.galereya.min.js" %}"></script>
+<script>
+	$(function() {
+		$('#galleryherepls').galereya();
+	});
+</script>
+{% endblock %}
 	</body>
 </html>

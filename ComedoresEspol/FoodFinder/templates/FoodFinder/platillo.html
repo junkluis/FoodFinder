@@ -1,0 +1,31 @@
+{% extends "FoodFinder/SideBar_base.html" %}
+{% load static %}
+{% block titulo %}Valoración de los platillos{% endblock %}
+{% block extraStyle %}
+<link href="{% static "css/platillo.css" %}" rel="stylesheet">
+{% endblock %}
+{% block contenido %}
+<div class="row">
+	<div class="info-comedor col-md-6">
+		<h2>{{titulo}}</h2>
+		<h4><a href="comedor-cocacola.html">{{nombreComedor}}</a></h4>
+		<hr>
+		<ul>
+			<li><span class="glyphicon glyphicon-cutlery"></span> Tipo de platillo: {{tipo}}</li>
+			<li><span class="glyphicon glyphicon-time"></span> Horario: {{horaIni}} - {{horaFin}}</li>
+			<li><span class="glyphicon glyphicon-map-marker"></span> Distancia: 7 mts (Falta)</li>
+			<li><span class="glyphicon glyphicon-plus-sign"></span> Cantidad disponible: {{cantidad}}</li>
+			<li><span class="glyphicon glyphicon-usd"></span> Precio: ${{precio}}</li>
+			
+		</ul>
+	</div>
+	<div class="row">
+		<div class="imagen col-sm-4 col-lg-4">
+			<img id="imagen-comida" src="{%static imagen %}" alt="logo" width="400" />
+	        <div class="valorar">
+				<div class="text"><a href="{% url 'FoodFinder:valoracion' %}">Valorar</a></div>
+			</div>
+	    </div>
+	</div>
+</div>
+{% endblock %}

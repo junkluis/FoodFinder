@@ -51,7 +51,7 @@
 			"logo": "static/img/facultades/fimcp.png"
 		}
 	},
-		
+
 	{
 		"model":"FoodFinder.Comedor",
 		"pk":1,
@@ -174,7 +174,7 @@
 			"tipo":"Segundo",
 			"precio": 3.5,
 			"cantidad": 300,
-			"imagen": "gallery/photo-1.jpg",
+			"imagen": "gallery/photo-11.jpg",
 			"valoracion": 3
 		}
 	},
@@ -183,11 +183,11 @@
 		"pk":2,
 		"fields":{
 			"comedor":"2",
-			"titulo": "Enrollado de atún",
+			"titulo": "Yapingacho",
 			"tipo":"Segundo",
 			"precio": 2.0,
 			"cantidad": 350,
-			"imagen": "gallery/photo-1.jpg",
+			"imagen": "gallery/photo-9.jpg",
 			"valoracion": 4
 		}
 	},
@@ -196,11 +196,11 @@
 		"pk":3,
 		"fields":{
 			"comedor":"2",
-			"titulo": "Caldo de pata",
-			"tipo":"Sopa",
+			"titulo": "Seco de chivo",
+			"tipo":"Segundo",
 			"precio": 2.0,
 			"cantidad": 500,
-			"imagen": "gallery/photo-1.jpg",
+			"imagen": "gallery/photo-2.jpg",
 			"valoracion": 5
 		}
 	},
@@ -209,7 +209,7 @@
 		"pk":4,
 		"fields":{
 			"comedor":"3",
-			"titulo": "Carne apanada",
+			"titulo": "Chaulafán de pollo",
 			"tipo":"Segundo",
 			"precio": 1.5,
 			"cantidad": 100,
@@ -226,7 +226,7 @@
 			"tipo":"Sopa",
 			"precio": 3.0,
 			"cantidad": 20,
-			"imagen": "gallery/photo-1.jpg",
+			"imagen": "gallery/photo-13.jpg",
 			"valoracion": 3
 		}
 	},
@@ -239,7 +239,7 @@
 			"tipo":"Desayuno",
 			"precio": 2.0,
 			"cantidad": 25,
-			"imagen": "gallery/photo-1.jpg",
+			"imagen": "gallery/photo-14.jpg",
 			"valoracion": 3
 		}
 	},
@@ -248,11 +248,11 @@
 		"pk":7,
 		"fields":{
 			"comedor":"2",
-			"titulo": "Caldo de pata",
+			"titulo": "Enrollado de atún",
 			"tipo":"Sopa",
 			"precio": 2.0,
 			"cantidad": 500,
-			"imagen": "gallery/photo-1.jpg",
+			"imagen": "gallery/photo-12.jpg",
 			"valoracion": 5
 		}
 	},
@@ -261,11 +261,11 @@
 		"pk":8,
 		"fields":{
 			"comedor":"2",
-			"titulo": "Caldo de pata",
+			"titulo": "Carne apanada y menestra",
 			"tipo":"Sopa",
 			"precio": 2.0,
 			"cantidad": 500,
-			"imagen": "gallery/photo-1.jpg",
+			"imagen": "gallery/photo-6.jpg",
 			"valoracion": 5
 		}
 	},
@@ -278,7 +278,7 @@
 			"tipo":"Sopa",
 			"precio": 2.0,
 			"cantidad": 500,
-			"imagen": "gallery/photo-1.jpg",
+			"imagen": "gallery/photo-15.jpg",
 			"valoracion": 5
 		}
 	},
@@ -287,11 +287,11 @@
 		"pk":10,
 		"fields":{
 			"comedor":"2",
-			"titulo": "Caldo de pata",
-			"tipo":"Sopa",
+			"titulo": "Bolón de queso",
+			"tipo":"Desayuno",
 			"precio": 2.0,
 			"cantidad": 500,
-			"imagen": "gallery/photo-1.jpg",
+			"imagen": "gallery/photo-16.jpg",
 			"valoracion": 5
 		}
 	}

@@ -10,10 +10,10 @@
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h3>{{ comedor }}</h3>
-        </div>
+
         {% for platillo in platillos %}
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <img class="img-responsive" src="{{ platillo.imagen }}">
+            <img class="img-responsive" src="{% static platillo.imagen %}">
             <figcaption>{{ platillo.titulo }}</figcaption>
             <span class="starRating" id_p='{{plato.id}}'>
                 <input id="rating5{{plato.id}}" type="radio" name="rating{{plato.id}}" value="1" style="display: none">
@@ -28,7 +28,9 @@
                 <label for="rating1{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
             </span>
         </div>
+
         {% endfor %}
+        </div>
     </div>
     {% endfor %}
 </div>

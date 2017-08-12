@@ -26,7 +26,7 @@ body, html{
         margin-left: 200px;
         height: 100%;
     }
-      
+
     nav.sidebar{
         margin-left: 0%;
         float: left;
@@ -39,12 +39,12 @@ body, html{
         margin-bottom: 20px;
         height: 10px;
         width: 100%;
-    }   
+    }
 
     div#food-logo{
         width: 100%;
         margin: 10%  0% 20% 4%;
-    } 
+    }
 
     ul li a {
         font-family: ;
@@ -84,7 +84,7 @@ body, html{
         color: white;
         margin-top: 20px;
         vertical-align: bottom;
-    }    
+    }
 
     #filtro-search {
         display: inline-block;
@@ -148,7 +148,7 @@ body, html{
         text-align: center;
         margin-top: 0;
         margin-bottom: 0;
-        padding-top: 30px; 
+        padding-top: 30px;
     }
 
 }
@@ -242,9 +242,9 @@ body, html{
 
     .platillo img{
         width: 250px;
-        height: auto;
+        height: 190px;
         border-radius: 5px;
-        
+
     }
 
     .desc a{
@@ -309,7 +309,7 @@ body, html{
 
 /*ESTILO PARA TELEFONOS*/
 @media only screen and (max-width: 700px){
-    
+
     #filtro-search {
         margin-left: 10px;
         margin-top: 0px;
@@ -328,7 +328,7 @@ body, html{
 
     #food-logo{
         width: 40%;
-        padding-bottom: 20px; 
+        padding-bottom: 20px;
         display: inline-block;
     }
 
@@ -354,7 +354,7 @@ body, html{
 
 
     #logo {
-        display: none; 
+        display: none;
     }
 
     #contacto-header {
@@ -363,7 +363,7 @@ body, html{
         text-align: center;
         margin-top: 0;
         margin-bottom: 0;
-        padding-top: 20px; 
+        padding-top: 20px;
     }
 
     /*INDEX - para telefonos*/
@@ -486,10 +486,10 @@ body, html{
 
 
 
-} 
+}
 
 /*TABLETS*/
-@media only screen 
+@media only screen
 and (max-width : 1300px)
 and (min-width : 700px){
 
@@ -528,9 +528,9 @@ and (min-width : 700px){
 
     .platillo img{
         width: 250px;
-        height: auto;
+        height: 190px;
         border-radius: 5px;
-        
+
     }
 
     .desc a{
@@ -575,7 +575,7 @@ and (min-width : 700px){
         text-align: center;
         margin-top: 0;
         margin-bottom: 0;
-        padding-top: 20px; 
+        padding-top: 20px;
     }
 
 
@@ -644,7 +644,7 @@ and (min-width : 700px){
         }
 
     section{
-        padding-left: 15px; 
+        padding-left: 15px;
         }
 
     h3#tit-comd-cerc{
@@ -691,13 +691,13 @@ and (min-width : 700px){
 .axis {
     font-size: 13px;
     }
-        
+
 
 .axis path, .axis line {
     fill: none;
     display: none;
     }
-        
+
 .label {
     font-size: 13px;
     }
@@ -733,7 +733,7 @@ g text{
 
 
 body#sesion{
-    background: url("../img/bg3.jpg") center; 
+    background: url("../img/bg3.jpg") center;
 }
 
 

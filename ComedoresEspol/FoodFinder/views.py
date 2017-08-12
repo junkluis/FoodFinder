@@ -70,7 +70,6 @@ def loginUser(request):
                 login(request, user)
                 if usuario.tipo == "moderador":
                     return redirect('FoodFinder:moderador')
-
         else:
             notice='Ingreso Invalido'
     else:
@@ -164,4 +163,20 @@ def contacto (request):
         mensaje_contacto=  request.POST.get('mensaje')
         send_mail(asunto_contacto, mensaje_contacto, correo_contacto, ['johanalejandro@me.com'], fail_silently=False)
     context = {}
+    return  HttpResponse(template.render(context, request))
+
+def platilloInfo(request, pId):
+    template=loader.get_template('FoodFinder/platillo.html')
+    context = {}
+    platillo=Platillo.objects.get(id=pId)
+    comedor=platillo.comedor
+    context["nombreComedor"]=comedor.nombre
+    context["titulo"]=platillo.titulo
+    context["precio"]=platillo.precio
+    context["horaIni"]=comedor.hora_ini
+    context["horaFin"]=comedor.hora_fin
+    context["imagen"]=platillo.imagen
+    context["tipo"]=platillo.tipo
+    context["cantidad"]=platillo.cantidad
+
     return  HttpResponse(template.render(context, request))
