@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'FoodFinder',
 ]
 
@@ -82,9 +83,9 @@ WSGI_APPLICATION = 'ComedoresEspol.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'practicaMVC1',
-        'USER': 'root',
-        'PASSWORD': 'admin',
+        'NAME': 'proyecto',
+        'USER': 'dajocape',
+        'PASSWORD': 'dajocape',
         'HOST': 'localhost',
         'PORT': '',
     }

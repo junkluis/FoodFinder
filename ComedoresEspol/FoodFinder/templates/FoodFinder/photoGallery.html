@@ -5,20 +5,16 @@
 <link href="{% static "galereya/css/jquery.galereya.css" %}" rel="stylesheet"/>
 {% endblock %}
 {% block contenido %}
-	
-	<div id="galleryherepls">
-		{% for platos in platillos %}
-		<img src="{% static platos.imagen %} "  alt="{{platos.titulo}}" title="{{platos.titulo}}" data-desc="{{platos.comedor.nombre}}" 
-		data-category="{{platos.comedor.facultad.nombre}}" data-fullsrc="{{platos.imagen}}" />
-		{% endfor %}
-
-	</div>
-		
-
+<div id="galleryherepls">
+	{% for platos in platillos %}
+	<img src="{% static platos.imagen %} "  alt="{{platos.titulo}}" title="{{platos.titulo}}" data-desc="{{platos.comedor.nombre}}" 
+	data-category="{{platos.comedor.facultad.nombre}}" data-fullsrc="{{platos.imagen}}" />
+	{% endfor %}
+</div>
 {% endblock %}
 {% block extraScript %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="{% static "galereya/js/jquery-2.2.4.min.js" %}" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="{% static "js/jquery-2.2.4.min.js" %}" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="{% static "galereya/js/jquery.galereya.js" %}"></script>
 <script src="{% static "galereya/js/jquery.galereya.min.js" %}"></script>
 <script>
@@ -27,5 +23,3 @@
 	});
 </script>
 {% endblock %}
-	</body>
-</html>

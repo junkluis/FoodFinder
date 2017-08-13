@@ -11,6 +11,12 @@ from django.http import JsonResponse
 from django.core.mail import send_mail
 from django.conf import settings
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Denuncia
+from .serializers import DenunciaSerializer
+from django.http import Http404
 
 def index(request):
     template = loader.get_template('FoodFinder/index.html')
@@ -193,3 +199,42 @@ def platilloInfo(request, pId):
     context["cantidad"]=platillo.cantidad
 
     return  HttpResponse(template.render(context, request))
+
+class DenunciaList(APIView):
+
+    def get(self, request):
+        stocks = Denuncia.objects.all()
+        serializer = DenunciaSerializer(stocks, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = DenunciaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class DenunciaDetail(APIView):
+    def get_object(self, pk):
+        try:
+            return Denuncia.objects.get(pk=pk)
+        except Denuncia.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk):
+        snippet = self.get_object(pk)
+        serializer = DenunciaSerializer(snippet)
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        snippet = self.get_object(pk)
+        serializer = DenunciaSerializer(snippet, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        snippet = self.get_object(pk)
+        snippet.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

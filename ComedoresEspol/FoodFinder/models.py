@@ -38,3 +38,6 @@ class Denuncia(models.Model):
     comedor=models.CharField(max_length=30)
     fecha_den=models.DateField()
     denuncia=models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.comedor
