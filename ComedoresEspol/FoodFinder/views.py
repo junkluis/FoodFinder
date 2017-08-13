@@ -163,10 +163,10 @@ def contacto (request):
     email_host=settings.EMAIL_HOST_USER
 
     if(request.method== 'POST'):
-        nombres_contacto=  request.POST.get('nombre')
+        nombres_contacto=  request.POST.get('name')
         correo_contacto=   request.POST.get('email')
         asunto_contacto=   request.POST.get('subject')
-        mensaje_contacto=  request.POST.get('mensaje')
+        mensaje_contacto=  request.POST.get('message')
         email_envio=[email_host,correo_contacto]
         send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=True)
     

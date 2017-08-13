@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_HOST = 'smtp.mail.me.com'
+EMAIL_HOST_USER = 'johanalejandro@me.com'
+EMAIL_HOST_PASSWORD = 'Cervelo291909'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Application definition
 
