@@ -1,19 +1,18 @@
 {% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
 {% block titulo %}Valoración de los platillos{% endblock %}
-{% block extraScript %}
-<script src="{% static "js/valorar.js" %}"></script>
+{% block extraStyle %}
+<link href="{% static 'css/valoracion.css' %}" rel="stylesheet">
 {% endblock %}
 {% block contenido %}
 <div class="container">
+    <h1 id="titulo">Valoraciones de platillos</h1>
     {% for comedor,platillos in platillosDic.items %}
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h3>{{ comedor }}</h3>
-
+        <h3 class="comedores">{{ comedor }}</h3>
         {% for platillo in platillos %}
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <img class="img-responsive" src="{% static platillo.imagen %}">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <img class="comida" src="{% static platillo.imagen %}">
             <figcaption>{{ platillo.titulo }}</figcaption>
             <span class="starRating" id_p='{{plato.id}}'>
                 <input id="rating5{{plato.id}}" type="radio" name="rating{{plato.id}}" value="1" style="display: none">
@@ -30,8 +29,10 @@
         </div>
 
         {% endfor %}
-        </div>
     </div>
     {% endfor %}
 </div>
+{% endblock %}
+{% block extraScript %}
+<script src="{% static 'js/valorar.js' %}"></script>
 {% endblock %}
