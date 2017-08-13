@@ -1,100 +1,24 @@
 {% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
 {% block titulo %}Comedores por facultad{% endblock %}
-{% block contenido %}
-<div id="facultad-comedores" class="row">
-	<div class="row">
-	    <div class="col-sm-4 col-md-3">
-	    	<div class="thumbnail">
-	      		<img src="{% static "img/facultades/edcom.png" %}" alt="p">
-	      	<div class="caption">
-	        <h3>Comedor Neo</h3>
-	        <p>Especialidad del dia: <br>
-	        Arroz con pollo
-	        <b>Valor: $2.5</b>
-	        <br/><span class="badge"> Aun disponible </span></p>
-	    </div>
-	    <div class="botoninfo">
-	      	<p class="mas-info"><a href="comedor-neo.html" class="btn btn-primary" role="button">Mas Info</a></p>
-	    </div>
-	</div>
-</div>
-<div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-        <img src="{% static "img/facultades/fcnm.png" %}" alt="p">
-	    <div class="caption">
-	     	<h3>Comedor Delicia</h3>
-	        <p>Especialidad del dia: <br>
-	        Arroz con pollo
-	        <b>Valor: $2.5</b>
-	        <br/><span class="label label-danger"> Agotado </span></p>
-	    </div>
-	    <div class="botoninfo">
-	      	<p class="mas-info"><a href="comedor-neo.html" class="btn btn-primary" role="button">Mas Info</a></p>
-	    </div>
-	</div>
-</div>
-<div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-        <img src="{% static "img/facultades/fcsh.png" %}" alt="p">
-        <div class="caption">
-	        <h3>Comedor de lucho</h3>
-	        <p>Especialidad del dia: <br>
-	        Arroz con pollo
-	        <b>Valor: $2.5</b>
-	        <br/><span class="badge"> Aun disponible </span></p>
-	    </div>
-	    <div class="botoninfo">
-	      	<p class="mas-info"><a href="comedor-neo.html" class="btn btn-primary" role="button">Mas Info</a></p>
-	    </div>
-	</div>
-</div>
-<div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-	    <img src="{% static "img/facultades/fict.png" %}" alt="p">
-	    <div class="caption">
-	        <h3>Comedor Don German</h3>
-	        <p>Especialidad del dia: <br>
-	        Arroz con pollo
-	        <b>Valor: $2.5</b>
-	        <br/><span class="badge"> Aun disponible </span></p>
-	    </div>
-	    <div class="botoninfo">
-	      	<p class="mas-info"><a href="comedor-neo.html" class="btn btn-primary" role="button">Mas Info</a></p>
-	    </div>
-	</div>
-</div>
-<div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-	    <img src="{% static "img/facultades/FIEC.png" %}" alt="p">
-	    <div class="caption">
-	        <h3>Comedor Coca Cola</h3>
-	        <p>Especialidad del dia: <br>
-	        Arroz con pollo
-	        <b>Valor: $2.5</b>
-	        <br/><span class="badge"> Aun disponible </span></p>
-	    </div>
-	    <div class="botoninfo">
-	      	<p class="mas-info"><a href="comedor-cocacola.html" class="btn btn-primary" role="button">Mas Info</a></p>
-	    </div>
-	</div>
-</div>
-<div class="col-sm-4 col-md-3">
-    <div class="thumbnail">
-	    <img src="{% static "img/facultades/fimcp.png" %}" alt="p">
-	    <div class="caption">
-	        <h3>Comedor Maritima </h3>
-	        <p>Especialidad del dia: <br>
-	        Arroz con pollo
-	        <b>Valor: $2.5</b>
-	        <br/><span class="badge"> Aun disponible </span></p>
-	    </div>
-	    <div class="botoninfo">
-	      	<p class="mas-info"><a href="comedor-neo.html" class="btn btn-primary" role="button">Mas Info</a></p>
-	    </div>
-	</div>
-</div>
+{% block extraStyle %}
+<link href="{% static 'css/comedores-facultad.css' %}" rel="stylesheet"/>
 {% endblock %}
-{% block extraScript %}
-<script src="{% static "js/comedores-facultad.js" %}"></script>
+{% block contenido %}
+<div id="comedores" class="container">
+	<h1 id="titulo">Comedores por facultad</h1>
+	{% for comedor in comedores %}
+	<div class="comedor col-lg-3 col-sm-3 col-md-4 col-xs-6">
+      	<img class="logo-facultad" src="{% static comedor.facultad.logo %}" alt="logo-facultad">
+      	<div class="caption">
+	        <h3 class="nombre">{{ comedor.nombre }}</h3>
+	        <p class="tipo">Tipo: {{ comedor.tipo }}</p>
+	        <p>Horario: {{ comedor.hora_ini }} - {{ comedor.hora_fin }}</p>
+	     </div>
+        <div class="botoninfo">
+	      	<p class="mas-info"><a href="comedor-neo.html" class="btn btn-primary" role="button">Mas Info</a></p>
+	    </div>
+	</div>
+	{% endfor %}
+</div>
 {% endblock %}

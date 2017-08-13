@@ -6,6 +6,7 @@
 .comida {
 	height: 176px;
 	width: 100%;
+	margin-top: 5px;
 }
 
 .comedores {
@@ -14,9 +15,12 @@
 	color: #d60651;
 }
 
+.tipo {
+	height: 50px;
+}
+
 #titulo {
 	text-align: center;
-	padding: 0px 15px;
 	font-family: 'Pacifico';
 	color: #d60651;
 	padding: 15px 0px;

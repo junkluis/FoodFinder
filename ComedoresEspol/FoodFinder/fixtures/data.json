@@ -4,7 +4,7 @@
 		"pk":1,
 		"fields":{
 			"nombre":"FIEC",
-			"logo": "static/img/facultades/FIEC.png"
+			"logo": "img/facultades/FIEC.png"
 		}
 	},
 
@@ -13,7 +13,7 @@
 		"pk":2,
 		"fields":{
 			"nombre":"FCNM",
-			"logo": "static/img/facultades/fcnm.png"
+			"logo": "img/facultades/fcnm.png"
 		}
 	},
 
@@ -22,7 +22,7 @@
 		"pk":3,
 		"fields":{
 			"nombre":"EDCOM",
-			"logo": "static/img/facultades/edcom.png"
+			"logo": "img/facultades/edcom.png"
 		}
 	},
 	{
@@ -30,7 +30,7 @@
 		"pk":4,
 		"fields":{
 			"nombre":"FCSH",
-			"logo": "static/img/facultades/fcsh.png"
+			"logo": "img/facultades/fcsh.png"
 		}
 	},
 
@@ -39,7 +39,7 @@
 		"pk":5,
 		"fields":{
 			"nombre":"FICT",
-			"logo": "static/img/facultades/fict.png"
+			"logo": "img/facultades/fict.png"
 		}
 	},
 
@@ -48,7 +48,7 @@
 		"pk":6,
 		"fields":{
 			"nombre":"FIMCP",
-			"logo": "static/img/facultades/fimcp.png"
+			"logo": "img/facultades/fimcp.png"
 		}
 	},
 

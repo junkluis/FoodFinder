@@ -44,7 +44,14 @@ def comedoresC(request):
 
 def comedoresF(request):
     template = loader.get_template('FoodFinder/comedoresFacultad.html')
-    context = {}
+    comedores = Comedor.objects.all()
+    platillos = Platillo.objects.all()
+    facultades = Facultad.objects.all()
+    context = {
+        'comedores': comedores,
+        'platillos': platillos,
+        'facultades': facultades,
+    }
     return HttpResponse(template.render(context, request))
 
 def mejoresPlatos(request):
