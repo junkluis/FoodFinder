@@ -22,7 +22,10 @@ def index(request):
 
 def galeria(request):
     template = loader.get_template('FoodFinder/photoGallery.html')
-    context = {}
+    platillos=Platillo.objects.all()
+    context = {
+        'platillos':platillos,
+    }
     return HttpResponse(template.render(context, request))
 
 def comedoresC(request):

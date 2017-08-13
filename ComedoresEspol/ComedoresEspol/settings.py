@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'ComedoresEspol.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'proyecto',
-        'USER': 'dajocape',
-        'PASSWORD': 'dajocape',
+        'NAME': 'practicaMVC1',
+        'USER': 'root',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': '',
     }
