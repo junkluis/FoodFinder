@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'FoodFinder',
 ]
 
@@ -84,8 +83,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'proyecto',
-        'USER': 'dajocape',
-        'PASSWORD': 'dajocape',
+        'USER': 'anrosant',
+        'PASSWORD': 'sistema',
         'HOST': 'localhost',
         'PORT': '',
     }

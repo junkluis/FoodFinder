@@ -9,22 +9,23 @@
     <h1 id="titulo">Valoraciones de platillos</h1>
     {% for comedor,platillos in platillosDic.items %}
     <div class="row">
-        <h3 class="comedores">{{ comedor }}</h3>
+        <h3 class="comedores">{{ comedor }} {{platillo.id}}</h3>
         {% for platillo in platillos %}
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
             <img class="comida" src="{% static platillo.imagen %}">
             <figcaption>{{ platillo.titulo }}</figcaption>
-            <span class="starRating" id_p='{{plato.id}}'>
-                <input id="rating5{{plato.id}}" type="radio" name="rating{{plato.id}}" value="1" style="display: none">
-                <label for="rating5{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-                <input id="rating4{{plato.id}}" type="radio" name="rating{{plato.id}}" value="2" style="display: none">
-                <label for="rating4{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-                <input id="rating3{{plato.id}}" type="radio" name="rating{{plato.id}}" value="3" style="display: none">
-                <label for="rating3{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-                <input id="rating2{{plato.id}}" type="radio" name="rating{{plato.id}}" value="4" style="display: none">
-                <label for="rating2{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
-                <input id="rating1{{plato.id}}" type="radio" name="rating{{plato.id}}" value="5" style="display: none">
-                <label for="rating1{{plato.id}}"><span class="glyphicon glyphicon-star"></span></label>
+
+            <span class="starRating" id="{{platillo.id}}">
+                <input id="rating5{{platillo.id}}" type="radio" name="rating{{platillo.id}}" value="1" style="display: none">
+                <label for="rating5{{platillo.id}}"><span class="glyphicon glyphicon-star"></span></label>
+                <input id="rating4{{platillo.id}}" type="radio" name="rating{{platillo.id}}" value="2" style="display: none">
+                <label for="rating4{{platillo.id}}"><span class="glyphicon glyphicon-star"></span></label>
+                <input id="rating3{{platillo.id}}" type="radio" name="rating{{platillo.id}}" value="3" style="display: none">
+                <label for="rating3{{platillo.id}}"><span class="glyphicon glyphicon-star"></span></label>
+                <input id="rating2{{platillo.id}}" type="radio" name="rating{{platillo.id}}" value="4" style="display: none">
+                <label for="rating2{{platillo.id}}"><span class="glyphicon glyphicon-star"></span></label>
+                <input id="rating1{{platillo.id}}" type="radio" name="rating{{platillo.id}}" value="5" style="display: none">
+                <label for="rating1{{platillo.id}}"><span class="glyphicon glyphicon-star"></span></label>
             </span>
         </div>
 

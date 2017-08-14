@@ -133,7 +133,7 @@
 		"model":"FoodFinder.Denuncia",
 		"pk":1,
 		"fields":{
-			"comedor":"Carreta del Toño",
+			"comedor":"Carreta del Tono",
 			"fecha_den": "2017-08-17",
 			"denuncia":"Encontré un gusano en mi sopa"
 		}

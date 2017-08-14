@@ -1,7 +1,9 @@
 $( document ).ready(function() {
      $('[name^=rating]').change(function(){
         value = this.getAttribute("value");
-        platoId = this.parentElement.getAttribute("id_p");
+        platoId = this.parentElement.getAttribute("id");
+        console.log(value);
+        console.log(this.parentElement);
         jQuery.ajax({
               url: "/FoodFinder/valorar",
               dataType: "json",
