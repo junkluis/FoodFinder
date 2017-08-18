@@ -59,8 +59,13 @@ def about(request):
 
 def historia(request):
     template = loader.get_template('FoodFinder/time.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
+    historias=Timeline.objects.all()
+    context={
+        "historia":historias,
+    }
+
+    return  HttpResponse(template.render(context, request))
+
 
 def contacto (request):
     template=loader.get_template('FoodFinder/contacto.html')
@@ -174,7 +179,7 @@ def contacto (request):
         asunto_contacto=   request.POST.get('subject')
         mensaje_contacto=  request.POST.get('message')
         email_envio=[email_host,correo_contacto]
-        send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=True)
+        send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=False)
 
     else:
         notice='none'
@@ -197,5 +202,14 @@ def platilloInfo(request, pId):
     context["imagen"]=platillo.imagen
     context["tipo"]=platillo.tipo
     context["cantidad"]=platillo.cantidad
+
+    return  HttpResponse(template.render(context, request))
+
+def timeLine(request):
+    template=loader.get_template('FoodFinder/time.html')
+    historias=Timeline.objects.all()
+    context={
+        "historia":historias,
+    }
 
     return  HttpResponse(template.render(context, request))

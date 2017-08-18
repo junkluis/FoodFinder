@@ -294,6 +294,89 @@
 			"imagen": "gallery/photo-16.jpg",
 			"valoracion": 5
 		}
+	},
+
+	{
+		"model":"FoodFinder.Timeline",
+		"pk":1,
+		"fields":{
+			"fecha":"7 Junio 2017",
+			"descp": "Se comienza maqueteado del sitio"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Timeline",
+		"pk":2,
+		"fields":{
+			"fecha":"12 Junio 2017",
+			"descp": "Se inicia el diseño de las paginas web usando  HTML 5 Y CSS"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Timeline",
+		"pk":3,
+		"fields":{
+			"fecha":"18 Juinio 2017",
+			"descp": "Se comienza maqueteado del sitio"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Timeline",
+		"pk":4,
+		"fields":{
+			"fecha":"7 Junio 2017",
+			"descp": "Se inicia el diseño usando javascript"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Timeline",
+		"pk":5,
+		"fields":{
+			"fecha":"1 Julio 2017",
+			"descp": "Se hacen pruebas con librerias de fotos"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Timeline",
+		"pk":6,
+		"fields":{
+			"fecha":"2 Julio 2017",
+			"descp": "Se inicia a verificar el diseño responsivo de la pagina"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Timeline",
+		"pk":7,
+		"fields":{
+			"fecha":"3 Julio 2017",
+			"descp": "Comedor Coca Cola de FIEC se une al sitio web"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Timeline",
+		"pk":8,
+		"fields":{
+			"fecha":"4 Julio 2017",
+			"descp": "Se inicia a usar Mapas en el sitio web"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Timeline",
+		"pk":9,
+		"fields":{
+			"fecha":"15 Julio 2017",
+			"descp": "Anni Santacruz y Daniel Castro se unen al equipo de Food Finder"
+		}
 	}
+
+
 
 ]

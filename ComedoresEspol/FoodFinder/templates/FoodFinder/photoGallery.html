@@ -8,7 +8,7 @@
 <div id="galleryherepls">
 	{% for platos in platillos %}
 	<img src="{% static platos.imagen %} "  alt="{{platos.titulo}}" title="{{platos.titulo}}" data-desc="{{platos.comedor.nombre}}" 
-	data-category="{{platos.comedor.facultad.nombre}}" data-fullsrc="{{platos.imagen}}" />
+	data-category="{{platos.comedor.facultad.nombre}}" data-fullsrc="{% static platos.imagen %} " />
 	{% endfor %}
 </div>
 {% endblock %}

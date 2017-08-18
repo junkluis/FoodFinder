@@ -1,121 +1,30 @@
-<!Doctype html>
+{% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Mejores platos</title>
-        <link href="{% static "css/css/bootstrap.min.css" %}" rel="stylesheet">
-		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
-		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
-        <link href="{% static "css/timeline-style.css" %}" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="navbar navbar-default sidebar">
-            <div id="franja"></div>
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <div id="food-logo" >
-                        <img src="{% static "img/logo-v.png" %}" alt="logo" style="width:90%;" />
-                    </div>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" >
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{% url 'FoodFinder:index'%}">Inicio</a></li>
-                        <li><a href="{% url 'FoodFinder:galeria'%}">Galeria de Platillos</a></li>
-                        <li><a href="{% url 'FoodFinder:comedoresC'%}">Comedores Cercanos</a></li>
-                        <li><a href="{% url 'FoodFinder:comedoresF' %}">Comedores por Facultad</a></li>
-                        <li><a href="{% url 'FoodFinder:mejoresPlatos' %}">Mejores Platos</a></li>
-                        <li><a href="{% url 'FoodFinder:about' %}">Nosotros</a></li>
-                        <li><a href="{% url 'FoodFinder:contacto' %}"> Contacto </a></li>
-                        <li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="main">
-            <div id="encabezado">
-                <h1> Conoce tus opciones </h1>
-                <h3> COMEDORES DE LA ESPOL </h3>
-            </div>
+{% block titulo %}Timeline{% endblock %}
+{% block extraStyle %}
+<link href="{% static "css/timeline-style.css" %}" rel="stylesheet">
+{% endblock %}
+{% block contenido %}
             <div class="timeline">
+                
                 <h3 > Nuestra Historia </h3>
                 <ul>
+                    {% for datos in historia %}
                     <li>
                         <div>
-                            <time> 7 Junio 2017 </time> Se comienza el maqueteado del sitio
+                            <time> {{datos.fecha}} </time> {{datos.descp}}
                         </div>
                     </li>
-                    <li>
-                        <div>
-                            <time> 12 Junio 2017 </time> Se inicia el diseño de las paginas web usando  HTML 5 Y CSS
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time>18 Juinio 2017</time>  Se inicia el diseño usando javascript
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time>1 Julio 2017</time> Se hacen pruebas con librerias de fotos
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time>2 Julio 2017</time> Se inicia a verificar el diseño responsivo de la pagina
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time>3 Julio 2017</time> Comedor Neo de EDCOM se une al sitio web
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time>3 Julio 2017</time> Comedor Coca Cola de FIEC se une al sitio web
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time>4 Julio 2017</time> Se inicia a usar Mapas en el sitio web
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time>5 Julio 2017</time> Se termina el diseño responsivo en tablet y movil
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time>7 Julio 2017 </time> Se comienza a verificar las paginas con el validador W3C
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time>8 Julio 2017</time> Se proceden a hacer pruebas de interaccion con usuarios
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time>10 Julio 2017</time> El sitio web es lanzado!
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
+                   
             </div>
-        </div>
+{% endblock %}
+{% block extraScript %}
         <!-- JavaScript -->
-		<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
-		<script src="{% static "js/bootstrap.min.js" %}"></script>
-		<script src="{% static "js/bootstrap.js" %}"></script>
-        <script src="{% static "js/mejoresPlatos.js" %}"></script>
-        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    </body>
-</html>
+	<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+	<script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/mejoresPlatos.js" %}"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+{% endblock %}

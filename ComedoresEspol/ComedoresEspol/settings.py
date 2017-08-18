@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.mail.me.com'
 EMAIL_HOST_USER = 'johanalejandro@me.com'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_PASSWORD = 'Cervelo291909'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'ComedoresEspol.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'proyecto',
-        'USER': 'anrosant',
-        'PASSWORD': 'sistema',
+        'NAME': 'practicaMVC1',
+        'USER': 'root',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': '',
     }

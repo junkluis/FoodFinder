@@ -38,3 +38,7 @@ class Denuncia(models.Model):
     comedor=models.CharField(max_length=30)
     fecha_den=models.DateField()
     denuncia=models.CharField(max_length=1000)
+
+class Timeline(models.Model):
+    fecha=models.CharField(max_length=30)
+    descp=models.CharField(max_length=200)
