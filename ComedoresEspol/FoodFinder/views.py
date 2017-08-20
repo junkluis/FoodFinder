@@ -68,9 +68,25 @@ def historia(request):
 
 
 def contacto (request):
-    template=loader.get_template('FoodFinder/contacto.html')
-    context={}
-    return  HttpResponse(template.render(context, request))
+  template=loader.get_template('FoodFinder/contacto.html')
+  email_host=settings.EMAIL_HOST_USER
+
+  if(request.method == 'POST'):
+        nombres_contacto=  request.POST.get('name')
+        correo_contacto=   request.POST.get('email')
+        asunto_contacto=   request.POST.get('subject')
+        mensaje_contacto=  request.POST.get('message')
+        email_envio=[email_host,correo_contacto]
+        send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=False)
+        notice="Gracias por contactarnos, estaremos en contacto!"
+        return redirect('FoodFinder/contacto.html')
+  else:
+        notice='Ingreso no valido'
+  context = {
+        'notice':notice
+  }
+  return HttpResponse(template.render(context, request))
+
 
 
 def loginUser(request):
@@ -169,24 +185,7 @@ def sesionModerador(request):
     }
     return HttpResponse(template.render(context, request))
 
-def contacto (request):
-    template=loader.get_template('FoodFinder/contacto.html')
-    email_host=settings.EMAIL_HOST_USER
 
-    if(request.method== 'POST'):
-        nombres_contacto=  request.POST.get('name')
-        correo_contacto=   request.POST.get('email')
-        asunto_contacto=   request.POST.get('subject')
-        mensaje_contacto=  request.POST.get('message')
-        email_envio=[email_host,correo_contacto]
-        send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=False)
-
-    else:
-        notice='none'
-    context = {
-        'notice':notice
-    }
-    return HttpResponse(template.render(context, request))
 
 
 def platilloInfo(request, pId):
