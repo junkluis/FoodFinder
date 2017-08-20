@@ -5,7 +5,7 @@
 
 #comedores > div.comedor {
 	height: 320px;
-    background-color: #edeaea;
+    background-color: white;
     width: 24%;
     border: 1px solid gray;
     margin: 5px 5px;
@@ -13,6 +13,8 @@
 
 .nombre {
 	height: 60px;
+	font-family: 'Josefin Slab', serif;
+	color: #d60651;
 }
 
 #titulo {
@@ -28,6 +30,7 @@
 
 p {
 	font-size: 16px;
+	font-family: 'Josefin Slab', serif;
 }
 
 .logo-facultad {

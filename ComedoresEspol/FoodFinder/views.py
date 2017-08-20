@@ -205,11 +205,3 @@ def platilloInfo(request, pId):
 
     return  HttpResponse(template.render(context, request))
 
-def timeLine(request):
-    template=loader.get_template('FoodFinder/time.html')
-    historias=Timeline.objects.all()
-    context={
-        "historia":historias,
-    }
-
-    return  HttpResponse(template.render(context, request))
