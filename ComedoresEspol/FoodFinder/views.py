@@ -66,7 +66,6 @@ def historia(request):
 
     return  HttpResponse(template.render(context, request))
 
-
 def contacto (request):
   template=loader.get_template('FoodFinder/contacto.html')
   email_host=settings.EMAIL_HOST_USER
@@ -86,8 +85,6 @@ def contacto (request):
         'notice':notice
   }
   return HttpResponse(template.render(context, request))
-
-
 
 def loginUser(request):
     template = loader.get_template('FoodFinder/login-comd.html')
@@ -110,7 +107,6 @@ def loginUser(request):
         'notice':notice
     }
     return HttpResponse(template.render(context, request))
-
 
 def ajaxMejoresPlatos(request):
     #username = request.GET.get('username', None)
@@ -185,9 +181,6 @@ def sesionModerador(request):
     }
     return HttpResponse(template.render(context, request))
 
-
-
-
 def platilloInfo(request, pId):
     template=loader.get_template('FoodFinder/platillo.html')
     context = {}
@@ -204,3 +197,21 @@ def platilloInfo(request, pId):
 
     return  HttpResponse(template.render(context, request))
 
+def comedorInfo(request, comId):
+    template=loader.get_template('FoodFinder/comedor.html')
+    comedor = Comedor.objects.get(id=comId)
+    facultad = comedor.facultad
+    platillos = platillos.objects.all()
+    context["nombre"] = comedor.nombre
+    context["tipo"] = comedor.tipo
+    context["descripcion"] = comedor.descripcion
+    context["hora_ini"] = comedor.hora_ini
+    context["hora_fin"] = comedor.hora_fin
+    context["ayudantes"] = comedor.ayudantes
+    context["facultad"] = facultad.nombre
+    context["logo"] = facultad.logo
+    context = {
+        'platillos':platillos,
+    }
+
+    return  HttpResponse(template.render(context, request))

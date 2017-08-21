@@ -1,0 +1,46 @@
+{% extends "FoodFinder/SideBar_base.html" %}
+{% load static %}
+{% block titulo %}{{ nombre }}{% endblock %}
+{% block contenido %}
+<div class="row">
+	<div class="info-comedor col-md-6">
+		<h2>{{ nombre }}</h2>
+		<h4>{{ tipo }}</h4>
+		<hr>
+		<p>{{ descripcion }}</p>
+		<ul>
+			<li><span class="glyphicon glyphicon-time"></span> Horario: {{ hora_ini }} - {{ hora_fin }}</li>
+			<li><span class="glyphicon glyphicon-map-marker"></span> Distancia: 7 mts</li>
+			<li><span class="glyphicon glyphicon-apple"></span> Promedio de Precios: $3.00</li>
+			{% if ayudantes %}
+				<li><span class="glyphicon glyphicon-ok"></span> Aceptamos Ayudantes</li>
+			{% endblock %}
+			<li><a href="comedores-cercanos.html">Buscar en mapa</a></li>
+		</ul>
+	</div>
+	<div class="platillos-disp col-md-5">
+		<h3>Platillos disponibles</h3>
+		<div class="platillos">
+			{% for platillo in platillos %}
+			<div class="plato-neo row">
+				<div class="imgenneo col-md-6">
+					<img src="{% static "gallery/photo-1.jpg" %}" alt="logo" width="200" />
+				</div>
+				<div class="col-md-6">
+					<h4>Comida para humanos - Verificada</h4>
+					<ul>
+						<li><span class="glyphicon glyphicon-blackboard"></span> $ 2.5</li>
+						<li><span class="glyphicon glyphicon-apple"></span> Almuerzo</li>
+						<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
+					</ul>
+				</div>
+			</div>
+			{% endblock %}
+		</div>
+	</div>
+</div>
+<!-- JAVASCRIPT -->
+<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/bootstrap.js" %}"></script>
+{% endblock %}

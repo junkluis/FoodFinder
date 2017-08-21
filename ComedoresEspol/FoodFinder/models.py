@@ -24,7 +24,7 @@ class Platillo(models.Model):
     tipo=models.CharField(max_length=30)
     precio=models.FloatField()
     cantidad=models.IntegerField()
-    imagen=models.CharField(max_length=500)   #AQUI SE PUEDE USAR FileField() REVISAR
+    imagen=models.CharField(max_length=500)
     valoracion=models.IntegerField()
 
 class Usuario(models.Model):

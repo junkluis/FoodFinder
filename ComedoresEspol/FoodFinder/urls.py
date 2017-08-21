@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^pruebas/$', views.guardarDenuncia, name='pruebas'),
     url(r'^moderador/$', views.sesionModerador, name='moderador'),
     url(r'^platillo/(?P<pId>[0-9]+)$', views.platilloInfo, name='platillo'),
-
+    url(r'^comedor/(?P<comId>[0-9]+)$', views.comedorInfo, name='comedor'),
 ]
