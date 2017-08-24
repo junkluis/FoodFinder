@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<div class="footer" style="height: 100px">
-				
+
 			</div>
 		</main>
 		<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
@@ -49,36 +49,6 @@
 		<script src="{% static "js/bootstrap.js" %}"></script>
 		<script src="{% static "js/index.js" %}"></script>
 		<script src="{% static "js/sesion-forms.js" %}"></script>
-		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
-		<script type="text/javascript">
-			$(document).ready( function () {
-			    $('#tablaQuery').DataTable();
-			} );
-		</script>
-		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		    <script type="text/javascript">
-		      google.charts.load("current", {packages:["corechart"]});
-		      google.charts.setOnLoadCallback(drawChart);
-		      function drawChart() {
-		        var data = google.visualization.arrayToDataTable([
-		          ['Task', 'Hours per Day'],
-		          ['Work',     11],
-		          ['Eat',      2],
-		          ['Commute',  2],
-		          ['Watch TV', 2],
-		          ['Sleep',    7]
-		        ]);
-
-		        var options = {
-		          title: 'My Daily Activities',
-		          is3D: true,
-		        };
-
-		        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-		        chart.draw(data, options);
-		      }
-		</script>
-
 		{% block ExtraScript %}{% endblock %}
 	</body>
 </html>

@@ -5,7 +5,7 @@ function filtro(criterio, orden){
 
 	var i;
 	var j;
-	for (i = 0; i < platillos.length; i++) { 
+	for (i = 0; i < platillos.length; i++) {
 		platillos[i].style.display = "block";
 		lista.push(platillos[i].getAttribute(criterio));
 	}
@@ -15,8 +15,8 @@ function filtro(criterio, orden){
 	else{
 		lista.sort();
 	}
-	for(j = 0; j < lista.length; j++) { 
-		for (i = 0; i < platillos.length; i++) { 
+	for(j = 0; j < lista.length; j++) {
+		for (i = 0; i < platillos.length; i++) {
 			if(platillos[i].getAttribute(criterio) == lista[j]){
 				platillos[i].style.order = ""+j+"";
 			}
@@ -24,7 +24,7 @@ function filtro(criterio, orden){
 	}
 
 	if(criterio == "data-disponible"){
-		for (i = 0; i < platillos.length; i++) { 
+		for (i = 0; i < platillos.length; i++) {
 			if(platillos[i].getAttribute(criterio) =="no"){
 				platillos[i].style.display = "none";
 			}

@@ -1,0 +1,23 @@
+{% extends "FoodFinder/SideBar_base.html" %}
+{% load static %}
+{% block titulo %}Comedore vs Usuarios{% endblock %}
+{% block extraStyle %}
+<link href="{% static 'css/timeline-style.css' %}" rel="stylesheet">
+<link href="{% static 'plugins/chartist/chartist.min.js' %}" rel="stylesheet">
+<link href="{% static 'plugins/chartist/chartist.css' %}" rel="stylesheet">
+<link href="{% static 'plugins/chartist/chartist.min.css' %}" rel="stylesheet">
+{% endblock %}
+{% block contenido %}
+<div>
+<div id="graphic"></div>
+</div>
+<h2 style="color:black">Los mejores platos de la semana</h2>
+<div id="chart_div"></div>
+{% endblock %}
+{% block extraScript %}
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="{% static 'js/d3.v3.min.js' %}"></script>
+	<script src="{% static 'js/mejoresPlatos.js' %}"></script>
+	<script src="{% static 'plugins/chartist/chartist.js' %}"></script>
+	<script src="{% static 'plugins/chartist/chartist.min.js' %}"></script>
+{% endblock %}

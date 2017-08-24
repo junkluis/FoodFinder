@@ -99,6 +99,8 @@ def loginUser(request):
                 login(request, user)
                 if usuario.tipo == "moderador":
                     return redirect('FoodFinder:moderador')
+                if usuario.tipo == "admin":
+                    return redirect('FoodFinder:admin')
         else:
             notice='Ingreso Invalido'
     else:
@@ -178,6 +180,24 @@ def sesionModerador(request):
     context = {
         'usuario': usuarioValido,
         'denuncias': denuncias,
+    }
+    return HttpResponse(template.render(context, request))
+def sesionAdmin(request):
+    template = loader.get_template('FoodFinder/sesion-comedor.html')
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    facultades = Facultad.objects.all()
+    usuarios=Usuario.objects.all()
+    facUsu={}
+    for usu in usuarios:
+        fac=usu.comedor.facultad
+        facUsu[fac]=facUsu.get(fac,0)+1
+    for fac in facultades:
+        facUsu[fac]=facUsu.get(fac,0)
+    if usuario is not None:
+        usuarioValido = usuario
+    context = {
+        'usuario': usuarioValido,
+        'facultades': facUsu,
     }
     return HttpResponse(template.render(context, request))
 

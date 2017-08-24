@@ -5,8 +5,8 @@ function editarPerfil(){
 	document.getElementById("desc-perfil").innerHTML = descripcion;
 	document.getElementById("esp-perfil").innerHTML = "Especialidad: " + especialidad;
 	if(ayudantes.checked == true){
-		document.getElementById("ayu-perfil").innerHTML = "Aceptamos ayudantes";	
+		document.getElementById("ayu-perfil").innerHTML = "Aceptamos ayudantes";
 	}else{
-		document.getElementById("ayu-perfil").innerHTML = "No aceptamos ayudantes" ;	
+		document.getElementById("ayu-perfil").innerHTML = "No aceptamos ayudantes" ;
 	}
 }
