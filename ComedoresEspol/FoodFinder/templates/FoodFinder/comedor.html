@@ -1,44 +1,83 @@
 {% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
 {% block titulo %}{{ nombre }}{% endblock %}
+{% block extraStyle %}
+<link href="{% static 'css/comedor.css' %}" rel="stylesheet"/>
+{% endblock %}
 {% block contenido %}
 <div class="row">
-	<div class="info-comedor col-md-6">
+	<div class="info-comedor col-lg-12">
 		<h2>{{ nombre }}</h2>
-		<h4>{{ tipo }}</h4>
-		<hr>
-		<p>{{ descripcion }}</p>
+		<h4>{{ tipo }}</h4><hr>
+	</div>
+	<div class="info-comedor col-lg-6">
 		<ul>
+			<li><span class="glyphicon glyphicon-map-marker"></span> {{ facultad }}</li>
+			<li><span class="glyphicon glyphicon-cutlery"></span> {{ descripcion }}</li>
 			<li><span class="glyphicon glyphicon-time"></span> Horario: {{ hora_ini }} - {{ hora_fin }}</li>
-			<li><span class="glyphicon glyphicon-map-marker"></span> Distancia: 7 mts</li>
-			<li><span class="glyphicon glyphicon-apple"></span> Promedio de Precios: $3.00</li>
+			<li><span class="glyphicon glyphicon-usd"></span> Promedio de Precios: $3.00</li>
 			{% if ayudantes %}
 				<li><span class="glyphicon glyphicon-ok"></span> Aceptamos Ayudantes</li>
 			{% endif %}
-			<li><a href="comedores-cercanos.html">Buscar en mapa</a></li>
+			<li><a href="{% url 'FoodFinder:comedoresC' %}">Buscar en mapa</a></li>
 		</ul>
 	</div>
-	<div class="platillos-disp col-md-5">
+	<div class="info-comedor col-lg-6">
+		<img class="logo-facultad center-block img-responsive" src="{% static logo %}" alt="logo-facultad">
+	</div>
+	<div class="platillos-disp col-md-7">
 		<h3>Platillos disponibles</h3>
 		<div class="platillos">
 			{% for platillo in platillos %}
-			<div class="plato-neo row">
-				<div class="imgenneo col-md-6">
-					<img src="{% static "gallery/photo-1.jpg" %}" alt="logo" width="200" />
+				{% if platillo.comedor.nombre == nombre %}
+				<div class="platillo" data-precio="{{ platillo.precio }}" data-disponible="si">
+					<div class="desc">
+						<a href="{% url 'FoodFinder:platillo' platillo.id %}"><h4>{{ platillo.titulo }}</h4></a>
+						<ul>
+							<li><span class="glyphicon glyphicon-usd"></span> {{ platillo.precio }}</li>
+							<li><span class="glyphicon glyphicon-cutlery"></span> {{ platillo.tipo }}</li>
+							{% if platillo.cantidad %}
+							<li><span class="glyphicon glyphicon-ok"></span> Disponible</li>
+							{% endif %}
+						</ul>
+					</div>
+					<img src="{% static platillo.imagen  %}" alt="logo" width="200" />
 				</div>
-				<div class="col-md-6">
-					<h4>Comida para humanos - Verificada</h4>
-					<ul>
-						<li><span class="glyphicon glyphicon-blackboard"></span> $ 2.5</li>
-						<li><span class="glyphicon glyphicon-apple"></span> Almuerzo</li>
-						<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
-					</ul>
-				</div>
-			</div>
+				{% endif %}
 			{% endfor %}
 		</div>
 	</div>
+	<div class="col-md-5">
+	<h3>Comentarios</h3>
+	{% for comentario in comentarios %}
+		{% if comentario.comedor.nombre == nombre %}
+		<div class="comentario">
+			<h4>{{ comentario.usuario }}</h4>
+			<p>{{ comentario.comentario }}</p>
+		</div>
+		{% endif %}
+	{% endfor %}
+	</div>
+	<div id="formulario" class="col-md-12">
+		<form role="form" action="{% url 'FoodFinder:guardarComentario' %}" method="POST">{% csrf_token %}
+			<input id="comId" type="text" name="comId" value='{{ comId }}' />
+			<div>
+				<h3>Comentario</h3>
+			</div>
+			<div class="form-group">
+				<label>Usuario: </label>
+				<input class="form-control" type="text" name="usuario" max="2017-08-11"/>
+			</div>
+			<div class="form-group">
+				<label>Comentario:</label>
+				<textarea class="form-control" rows="7" name="comentario" pattern=".{0,1000}"></textarea>
+			</div>
+			<button type="submit" class="btn btn-default center-block">Enviar{{ action }}</button>
+		</form>
+	</div>
 </div>
+{% endblock %}
+{% block extraScript %}
 <!-- JAVASCRIPT -->
 <script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
 <script src="{% static "js/bootstrap.min.js" %}"></script>

@@ -1,5 +1,66 @@
 [
 	{
+		"model":"FoodFinder.Usuario",
+		"pk":1,
+		"fields":{
+			"comedor":"1",
+			"facultad":"1",
+			"nombreUsu":"pepito",
+			"nombre":"Pepito",
+			"apellido":"Solis",
+			"correo":"pepito@hotmail.com",
+			"password":"pepe2017",
+			"tipo":"cliente",
+			"rol":"Estudiante"
+ 		}
+	},
+	{
+		"model":"FoodFinder.Usuario",
+		"pk":2,
+		"fields":{
+			"comedor":"2",
+			"facultad":"2",
+			"nombreUsu":"vilmita",
+			"nombre":"Vilmita",
+			"apellido":"Perez",
+			"correo":"vilmita@hotmail.com",
+			"password":"vilma2017",
+			"tipo":"cliente",
+			"rol":"Docente"
+		}
+	},
+	{
+		"model":"FoodFinder.Usuario",
+		"pk":3,
+		"fields":{
+			"comedor":"3",
+			"facultad":"3",
+			"nombreUsu":"sandrita",
+			"nombre":"Sandrita",
+			"apellido":"Perez",
+			"correo":"sandrita@hotmail.com",
+			"password":"sandra2017",
+			"tipo":"cliente",
+			"rol":"Docente"
+		}
+	},
+	{
+		"model":"FoodFinder.Usuario",
+		"pk":4,
+		"fields":{
+			"comedor":"2",
+			"facultad":"2",
+			"nombreUsu":"pedrito",
+			"nombre":"Pedrito",
+			"apellido":"Picapiedra",
+			"correo":"pedrito@hotmail.com",
+			"password":"pedro2017",
+			"tipo":"admin",
+			"rol":"Docente"
+		}
+	},
+
+	{
 		"model":"FoodFinder.Facultad",
 		"pk":1,
 		"fields":{
@@ -73,7 +134,7 @@
 		"pk":2,
 		"fields":{
 			"facultad":"2",
-			"nombre": "Comedor de Matematica",
+			"nombre": "Comedor de Matemática",
 			"tipo":"Comedor",
 			"descripcion":"Almuerzos y Snacks",
 			"hora_ini":"12:30",
@@ -91,7 +152,7 @@
 			"facultad":"3",
 			"nombre": "Comedor de Lucho",
 			"tipo":"Cafeteria y Comedor",
-			"descripcion":"Bar de Mecanica ",
+			"descripcion":"Bar de Mecánica ",
 			"hora_ini":"10:00",
 			"hora_fin":"16:00",
 			"ayudantes":"True",
@@ -375,8 +436,56 @@
 			"fecha":"15 Julio 2017",
 			"descp": "Anni Santacruz y Daniel Castro se unen al equipo de Food Finder"
 		}
+	},
+
+	{
+		"model":"FoodFinder.Comentario",
+		"pk":1,
+		"fields":{
+			"comedor":"1",
+			"usuario": "Daniel Castro",
+			"comentario":"Está muy rica su comida"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Comentario",
+		"pk":2,
+		"fields":{
+			"comedor":"2",
+			"usuario": "Anni Santacruz",
+			"comentario":"Deberían arreglar el aire acondicinado"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Comentario",
+		"pk":3,
+		"fields":{
+			"comedor":"3",
+			"usuario": "Luis Zúñiga",
+			"comentario":"Sus precios con muy caros"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Comentario",
+		"pk":4,
+		"fields":{
+			"comedor":"4",
+			"usuario": "Johan Canales",
+			"comentario":"Deberían poner una carpa afuera cuando hace sol"
+		}
+	},
+
+	{
+		"model":"FoodFinder.Comentario",
+		"pk":5,
+		"fields":{
+			"comedor":"5",
+			"usuario": "Anni Santacruz",
+			"comentario":"Su servicio es bueno pero en horas pico no abastecen. Deberían contratar más personal"
+		}
 	}
-
-
 
 ]

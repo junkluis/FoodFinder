@@ -12,7 +12,7 @@ body, html{
 .main .row{
     padding: 0%;
     margin: 0%;
-    }
+}
 
 .container {
     width: 100%;
@@ -127,7 +127,6 @@ body, html{
     .facultad-detalle a{
         margin-left: 85px;
         padding-top:  10px;
-
     }
 
     .imagen-facultad {
@@ -154,136 +153,6 @@ body, html{
         padding-top: 30px;
     }
 
-}
-
-    /*  Estilos usados para web de about.html */
-
-    #about-us img{
-        padding: 20px 0px;
-        width: 200px;
-    }
-
-    #desarrolladores .foto {
-        width: 150px;
-    }
-
-    #descripcion-site p {
-        display: block;
-        width: 50%;
-        padding: 10px 0px;
-        text-align: center;
-        font-family: 'Josefin Slab', serif;
-        font-size: 1.5em;
-    }
-
-    #formulario {
-        margin-top: 20px;
-    }
-
-    .perfil h4 {
-        text-align: center;
-    }
-
-    /*index - platillos*/
-
-    .platillos-del-dia{
-        margin: 20px;
-        display: flex;
-        flex-flow: row wrap;
-
-    }
-
-    .platillo{
-        margin: 10px;
-        display: inline-block;
-        position: relative;
-    }
-
-    .desc{
-        display: none;
-    }
-
-    .platillo:hover .desc{
-        display: block;
-        position: absolute;
-        background-color: rgba(85,48,55,0.8);
-        width: 250px;
-        height: 100%;
-        border-radius: 5px;
-        color: white;
-        padding: 8%;
-    }
-
-    .platillo:hover .desc ul{
-        list-style: none;
-        font-size: 16px;
-    }
-
-    .platillo img{
-        width: 250px;
-        height: 190px;
-        border-radius: 5px;
-
-    }
-
-    .desc a{
-        color: white;
-    }
-
-    .desc a:hover{
-        color: white;
-    }
-
-
-
-    /*COMEDOR NEO*/
-    .info-comedor h4{
-        font-family: 'Pacifico';
-        margin: 5px;
-    }
-
-    .info-comedor h2{
-        font-family: 'Josefin Slab';
-        font-size: 3em;
-        margin: 20px 5px 5px 5px;
-        color: #d60651;
-    }
-
-    .info-comedor ul{
-        list-style: none;
-        font-size: 1.3em;
-    }
-
-    .platillos{
-        overflow-y: scroll;
-        height: 65%;
-        width: 110%;
-    }
-
-    .plato-neo{
-        background-color: #f1f1f1;
-        border-radius: 5px;
-        margin: 0px 0px 10px !important;
-    }
-
-    .plato-neo div img{
-        border-radius: 5px;
-    }
-
-    .plato-neo div.col-md-6{
-        padding-left: 0px;
-    }
-
-    .red{
-        color:blue;
-    }
-    .form-area
-    {
-        background-color: #FAFAFA;
-        padding: 10px 40px 60px;
-        margin: 10px 0px 60px;
-        border: 1px solid GREY;
-    }
 }
 
 /*ESTILO PARA TELEFONOS*/
@@ -384,9 +253,8 @@ body, html{
     }
 
     .platillos{
-        overflow-y: scroll;
         height: 65%;
-        width: 110%;
+        width: 100%;
     }
 
     .plato-neo{
@@ -450,21 +318,15 @@ body, html{
         border: 1px solid GREY;
     }
 
-
-
-
 }
 
 /*TABLETS*/
-@media only screen
-and (max-width : 1300px)
-and (min-width : 700px){
+@media only screen and (max-width : 1300px) and (min-width : 700px){
 
     .platillos-del-dia{
         margin: 20px;
         display: flex;
         flex-flow: row wrap;
-
     }
 
     .platillo{
@@ -564,9 +426,8 @@ and (min-width : 700px){
     }
 
     .platillos{
-        overflow-y: scroll;
         height: 65%;
-        width: 110%;
+        width: 100%;
     }
 
     .plato-neo{
@@ -670,7 +531,6 @@ g text{
     font-size: 15px;
 }
 
-
 /*inicio de sesion*/
 
 .jumbotron{
@@ -686,21 +546,95 @@ g text{
     color:red;
     }
 
-.form-area
-{
+.form-area {
     background-color: #FAFAFA;
     padding: 10px 40px 60px;
     margin: 10px 0px 60px;
     border: 1px solid GREY;
-    }
-
+}
 
 body#sesion{
     background: url("../img/bg3.jpg") center;
 }
 
-
 .sesionBase{
     background-color: rgba(255,255,255,0.6);
     border-radius: 10px;
+}
+
+/*  Estilos usados para web de about.html */
+
+#about-us img{
+    padding: 20px 0px;
+    width: 200px;
+}
+
+#desarrolladores .foto {
+    width: 150px;
+}
+
+#descripcion-site p {
+    display: block;
+    width: 50%;
+    padding: 10px 0px;
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+    font-size: 1.5em;
+}
+
+#formulario {
+    margin-top: 20px;
+}
+
+.perfil h4 {
+    text-align: center;
+}
+
+/*index - platillos*/
+
+.platillos-del-dia{
+    margin: 20px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.platillo{
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+.desc{
+    display: none;
+}
+
+.platillo:hover .desc{
+    display: block;
+    position: absolute;
+    background-color: rgba(85,48,55,0.8);
+    width: 250px;
+    height: 100%;
+    border-radius: 5px;
+    color: white;
+    padding: 8%;
+}
+
+.platillo:hover .desc ul{
+    list-style: none;
+    font-size: 16px;
+}
+
+.platillo img{
+    width: 250px;
+    height: 190px;
+    border-radius: 5px;
+
+}
+
+.desc a{
+    color: white;
+}
+
+.desc a:hover{
+    color: white;
 }

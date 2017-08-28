@@ -29,10 +29,19 @@ class Platillo(models.Model):
 
 class Usuario(models.Model):
     comedor=models.ForeignKey(Comedor, on_delete=models.CASCADE)
+    facultad=models.ForeignKey(Facultad, on_delete=models.CASCADE,default="1")
+    nombreUsu=models.CharField(max_length=30,default="carlitos")
     nombre=models.CharField(max_length=30)
+    apellido=models.CharField(max_length=30,default="suarez")
     correo=models.EmailField(max_length=30)
     password=models.CharField(max_length=15)
     tipo=models.CharField(max_length=15, default="cliente")
+    ROLES=(
+        ('Estudiante', 'Estudiante'),
+        ('Docente', 'Docente'),
+        ('Trabajador', 'Trabajador'),
+    )
+    rol=models.CharField(max_length=10, choices=ROLES, default="Estudiante")
 
 class Denuncia(models.Model):
     comedor=models.CharField(max_length=30)
@@ -42,3 +51,8 @@ class Denuncia(models.Model):
 class Timeline(models.Model):
     fecha=models.CharField(max_length=30)
     descp=models.CharField(max_length=200)
+
+class Comentario(models.Model):
+    comedor=models.ForeignKey(Comedor, on_delete=models.CASCADE)
+    usuario=models.CharField(max_length=30)
+    comentario=models.CharField(max_length=1000)

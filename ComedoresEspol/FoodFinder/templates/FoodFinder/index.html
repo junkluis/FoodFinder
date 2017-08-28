@@ -14,9 +14,9 @@
 		<div class="desc">
 			<a href="{% url 'FoodFinder:platillo' plato.id %}"><h4>{{plato.titulo}}</h4></a>
 			<ul>
-				<li><span class="glyphicon glyphicon-apple"></span> $ {{plato.precio}}</li>
-				<li><span class="glyphicon glyphicon-map-marker"></span> {{plato.distancias}} mts</li>
-				<li><span class="glyphicon glyphicon-ok"></span> Aun disponible</li>
+				<li><span class="glyphicon glyphicon-usd"></span> {{plato.precio}}</li>
+				<li><span class="glyphicon glyphicon-map-marker"></span>{{plato.distancias}} mts</li>
+				<li><span class="glyphicon glyphicon-ok"></span> Disponible</li>
 				<li><a href="{% url 'FoodFinder:valoracion' %}">Valorar</a></li>
 			</ul>
 		</div>

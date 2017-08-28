@@ -102,6 +102,8 @@ def loginUser(request):
                     return redirect('FoodFinder:moderador')
                 if usuario.tipo == "admin":
                     return redirect('FoodFinder:admin')
+                if usuario.tipo == "cliente":
+                    return redirect('FoodFinder:cliente')
         else:
             notice='Ingreso Invalido'
     else:
@@ -202,6 +204,16 @@ def sesionAdmin(request):
         'facultades': facUsu,
     }
     return HttpResponse(template.render(context, request))
+    
+def sesionCliente(request):
+    template = loader.get_template('FoodFinder/sesion-cliente.html')
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
+    context = {
+        'usuario': usuarioValido,
+    }
+    return HttpResponse(template.render(context, request))
 
 def platilloInfo(request, pId):
     template=loader.get_template('FoodFinder/platillo.html')
@@ -223,17 +235,28 @@ def comedorInfo(request, comId):
     template=loader.get_template('FoodFinder/comedor.html')
     comedor = Comedor.objects.get(id=comId)
     facultad = comedor.facultad
-    platillos = platillos.objects.all()
-    context["nombre"] = comedor.nombre
-    context["tipo"] = comedor.tipo
-    context["descripcion"] = comedor.descripcion
-    context["hora_ini"] = comedor.hora_ini
-    context["hora_fin"] = comedor.hora_fin
-    context["ayudantes"] = comedor.ayudantes
-    context["facultad"] = facultad.nombre
-    context["logo"] = facultad.logo
+    platillos = Platillo.objects.all()
+    comentarios = Comentario.objects.all()
     context = {
         'platillos':platillos,
+        'comentarios':comentarios,
+        'nombre':comedor.nombre,
+        'tipo':comedor.tipo,
+        'descripcion':comedor.descripcion,
+        'hora_ini':comedor.hora_ini,
+        'hora_fin':comedor.hora_fin,
+        'ayudantes':comedor.ayudantes,
+        'facultad':facultad.nombre,
+        'logo':facultad.logo,
+        'comId':comId,
     }
-
     return  HttpResponse(template.render(context, request))
+
+def guardarComentario(request):
+    comen = Comentario()
+    comId = request.POST.get('comId')
+    comen.comedor = Comedor.objects.get(id=comId)
+    comen.usuario = request.POST.get('usuario')
+    comen.comentario = request.POST.get('comentario')
+    comen.save()
+    return redirect('/FoodFinder/comedoresFacultad')

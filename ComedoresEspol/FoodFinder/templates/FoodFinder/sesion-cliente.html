@@ -1,0 +1,20 @@
+{% extends "FoodFinder/SideBar_base.html" %}
+{% load static %}
+{% block titulo %}Valoración de los platillos{% endblock %}
+{% block extraStyle %}
+<link href="{% static "css/sesion-cliente.css" %}" rel="stylesheet">
+{% endblock %}
+{% block contenido %}
+<div class="row">
+    <h1>Bienvenido(a) {{usuario.nombreUsu}}</h1>
+    <div class="col-lg-5 col-sm-5 col-xs-11" id="informacion">
+        <h3>Información de contacto</h3>
+        <p id="info">Nombre: {{usuario.nombre}}<br>
+        Apellido: {{usuario.apellido}}<br>
+        Correo: {{usuario.correo}}<br>
+        Facultad: {{usuario.facultad.nombre}}<br>
+        Rol: {{usuario.rol}}<br></p>
+
+    </div>
+</div>
+{% endblock %}

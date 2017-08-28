@@ -16,7 +16,7 @@
 	        <p class="horario">Horario: {{ comedor.hora_ini }} - {{ comedor.hora_fin }}</p>
 	     </div>
         <div class="botoninfo">
-	      	<p class="mas-info"><a href="{% url 'FoodFinder:comedor' comedor.id %} class="btn btn-primary" role="button">Mas Info</a></p>
+	      	<p class="mas-info"><a href="{% url 'FoodFinder:comedor' comedor.id %}" class="btn btn-primary" role="button">Mas Info</a></p>
 	    </div>
 	</div>
 	{% endfor %}
