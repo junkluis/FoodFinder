@@ -1,20 +1,6 @@
 {% extends "FoodFinder/SideBar_base.html" %}
 {% load static %}
 {% block titulo %}Contacto{% endblock %}
-{% block extraScript %}
-<script type="text/javascript">
-		window.onload = function(){
-		    console.log('{{notice}}')
-		    if('{{notice}}' == 'Ingreso Invalido'){
-		    	alert('{{notice}}');
-		    }
-		    else if('{{notice}}' == 'Gracias por contactarnos, estaremos en contacto!'){
-		    	alert('{{notice}}');
-		    }
-
-		}
-</script>
-{% endblock %}
 {% block contenido %}
 <div id="about-us">
 	<img id="logo" class="img-responsive center-block" src="{% static 'img/logo-v.png' %}" alt="logo"/>
@@ -42,5 +28,13 @@
 		</div>
 	</div>
 </div>
-
+{% endblock %}
+{% block extraScript %}
+<script type="text/javascript">
+	window.onload = function(){
+	    if('{{notice}}' == 'Gracias por contactarnos!'){
+	    	alert('{{notice}}');
+	    }
+	}
+</script>
 {% endblock %}

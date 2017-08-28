@@ -67,24 +67,21 @@ def historia(request):
     return  HttpResponse(template.render(context, request))
 
 def contacto (request):
-  template=loader.get_template('FoodFinder/contacto.html')
-  email_host=settings.EMAIL_HOST_USER
+    template=loader.get_template('FoodFinder/contacto.html')
 
-  if(request.method == 'POST'):
+    if(request.method == 'POST'):
         nombres_contacto=  request.POST.get('name')
         correo_contacto=   request.POST.get('email')
         asunto_contacto=   request.POST.get('subject')
         mensaje_contacto=  request.POST.get('message')
-        email_envio=[email_host,correo_contacto]
-        send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=False)
-        notice="Gracias por contactarnos, estaremos en contacto!"
-        return redirect('FoodFinder/contacto.html')
-  else:
-        notice='Ingreso no valido'
-  context = {
+        send_mail(asunto_contacto, mensaje_contacto, correo_contacto, ['danijo1995@gmail.com'], fail_silently=False)
+        notice="Gracias por contactarnos!"
+    else:
+        notice = "Ingreso Invalido"
+    context = {
         'notice':notice
-  }
-  return HttpResponse(template.render(context, request))
+    }
+    return HttpResponse(template.render(context, request))
 
 def loginUser(request):
     template = loader.get_template('FoodFinder/login-comd.html')
@@ -182,6 +179,7 @@ def sesionModerador(request):
         'denuncias': denuncias,
     }
     return HttpResponse(template.render(context, request))
+
 def sesionAdmin(request):
     template = loader.get_template('FoodFinder/sesion-comedor.html')
     usuario = Usuario.objects.get(nombre=request.user.username);
