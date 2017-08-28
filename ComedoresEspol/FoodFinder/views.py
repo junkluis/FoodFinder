@@ -69,15 +69,19 @@ def historia(request):
 def contacto (request):
     template=loader.get_template('FoodFinder/contacto.html')
 
+    template=loader.get_template('FoodFinder/contacto.html')
+    email_host=settings.EMAIL_HOST_USER
+
     if(request.method == 'POST'):
         nombres_contacto=  request.POST.get('name')
         correo_contacto=   request.POST.get('email')
         asunto_contacto=   request.POST.get('subject')
         mensaje_contacto=  request.POST.get('message')
-        send_mail(asunto_contacto, mensaje_contacto, correo_contacto, ['danijo1995@gmail.com'], fail_silently=False)
+        email_envio=[email_host,correo_contacto]
+        send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=False)
         notice="Gracias por contactarnos!"
     else:
-        notice = "Ingreso Invalido"
+        notice='Envio fallido'
     context = {
         'notice':notice
     }
