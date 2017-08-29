@@ -29,6 +29,14 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 					<ul class="nav navbar-nav">
+						<div class="dropdown">
+						  <button class="dropbtn"><span class="glyphicon glyphicon-user"></span> {{usuario.nombreUsu}}</button>
+						  <div class="dropdown-content">
+						    <a href="{% url 'FoodFinder:cliente'%}">Ver perfil</a>
+						    <a href="{% url 'FoodFinder:index'%}">Configurar</a>
+						  </div>
+						</div>
+
 						<li><a href="{% url 'FoodFinder:index'%}">Inicio</a></li>
 						<li><a href="{% url 'FoodFinder:galeria'%}">Galeria de Platillos</a></li>
 						<li><a href="{% url 'FoodFinder:comedoresC'%}">Comedores Cercanos</a></li>
@@ -36,8 +44,11 @@
 						<li><a href="{% url 'FoodFinder:mejoresPlatos' %}">Mejores Platos</a></li>
 						<li><a href="{% url 'FoodFinder:about' %}">Nosotros</a></li>
 						<li><a href="{% url 'FoodFinder:contacto' %}"> Contacto </a></li>
-						<li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
+						{% if usuario.tipo == "cliente" %}
 						<li><a href="{% url 'FoodFinder:denuncia' %}"> Denuncia </a></li>
+						{% endif %}
+						<li><a href="{% url 'FoodFinder:historia' %}">Nuestra historia</a></li>
+						<li><a href="{% url 'FoodFinder:login'%}"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
 					</ul>
 				</div>
 			</div>

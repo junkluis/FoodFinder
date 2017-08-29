@@ -13,34 +13,50 @@ from django.conf import settings
 
 def index(request):
     template = loader.get_template('FoodFinder/index.html')
+    usuario = Usuario.objects.get(nombre=request.user.username);
     platillos = Platillo.objects.all()
+    if usuario is not None:
+        usuarioValido = usuario
     context = {
+        'usuario': usuarioValido,
         'platillos':platillos,
     }
     return HttpResponse(template.render(context, request))
 
 def galeria(request):
     template = loader.get_template('FoodFinder/photoGallery.html')
+    usuario = Usuario.objects.get(nombre=request.user.username);
     platillos=Platillo.objects.all()
+    if usuario is not None:
+        usuarioValido = usuario
     context = {
+        'usuario': usuarioValido,
         'platillos':platillos,
     }
     return HttpResponse(template.render(context, request))
 
 def comedoresC(request):
     template = loader.get_template('FoodFinder/comedores-cercanos.html')
+    usuario = Usuario.objects.get(nombre=request.user.username);
     comedores = Comedor.objects.all()
+    if usuario is not None:
+        usuarioValido = usuario
     context = {
+        'usuario': usuarioValido,
         'comedores':comedores,
     }
     return HttpResponse(template.render(context, request))
 
 def comedoresF(request):
     template = loader.get_template('FoodFinder/comedoresFacultad.html')
+    usuario = Usuario.objects.get(nombre=request.user.username);
     comedores = Comedor.objects.all()
     platillos = Platillo.objects.all()
     facultades = Facultad.objects.all()
+    if usuario is not None:
+        usuarioValido = usuario
     context = {
+        'usuario': usuarioValido,
         'comedores': comedores,
         'platillos': platillos,
         'facultades': facultades,
@@ -49,18 +65,32 @@ def comedoresF(request):
 
 def mejoresPlatos(request):
     template = loader.get_template('FoodFinder/mejores-platos.html')
-    context = {}
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
+    context = {
+        'usuario': usuarioValido,
+    }
     return HttpResponse(template.render(context, request))
 
 def about(request):
     template = loader.get_template('FoodFinder/about.html')
-    context = {}
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
+    context = {
+        'usuario': usuarioValido,
+    }
     return HttpResponse(template.render(context, request))
 
 def historia(request):
     template = loader.get_template('FoodFinder/time.html')
     historias=Timeline.objects.all()
-    context={
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
+    context = {
+        'usuario': usuarioValido,
         "historia":historias,
     }
 
@@ -152,13 +182,23 @@ def valoracion(request):
     platillosDic={}
     for platillo in platillos:
         platillosDic[platillo.comedor.nombre]=platillosDic.get(platillo.comedor.nombre,[])+[platillo]
-    context={"platillosDic": platillosDic}
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
+    context = {
+        'usuario': usuarioValido,
+        "platillosDic": platillosDic
+    }
     return  HttpResponse(template.render(context, request))
 
 def denuncia(request):
     template = loader.get_template('FoodFinder/denuncia.html')
     comedores = Comedor.objects.all()
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
     context = {
+        'usuario': usuarioValido,
         'comedores':comedores,
         'action': 'Enviar'
     }
@@ -204,7 +244,7 @@ def sesionAdmin(request):
         'facultades': facUsu,
     }
     return HttpResponse(template.render(context, request))
-    
+
 def sesionCliente(request):
     template = loader.get_template('FoodFinder/sesion-cliente.html')
     usuario = Usuario.objects.get(nombre=request.user.username);
@@ -217,7 +257,12 @@ def sesionCliente(request):
 
 def platilloInfo(request, pId):
     template=loader.get_template('FoodFinder/platillo.html')
-    context = {}
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
+    context = {
+        'usuario': usuarioValido
+    }
     platillo=Platillo.objects.get(id=pId)
     comedor=platillo.comedor
     context["nombreComedor"]=comedor.nombre
@@ -233,11 +278,15 @@ def platilloInfo(request, pId):
 
 def comedorInfo(request, comId):
     template=loader.get_template('FoodFinder/comedor.html')
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
     comedor = Comedor.objects.get(id=comId)
     facultad = comedor.facultad
     platillos = Platillo.objects.all()
     comentarios = Comentario.objects.all()
     context = {
+        'usuario': usuarioValido,
         'platillos':platillos,
         'comentarios':comentarios,
         'nombre':comedor.nombre,
@@ -250,6 +299,7 @@ def comedorInfo(request, comId):
         'logo':facultad.logo,
         'comId':comId,
     }
+
     return  HttpResponse(template.render(context, request))
 
 def guardarComentario(request):

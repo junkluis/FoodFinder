@@ -1,6 +1,13 @@
 div#informacion {
     border-top: 5px solid #d60651;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f8f8;
 }
-p#info{
-    font-size: 18px;
+div#enlaces{
+    border-top: 5px solid #d60651;
+    margin-top: 20px;
+    margin-left: 50px;
+    padding: 15px;
+    background-color: #f8f8f8;
 }

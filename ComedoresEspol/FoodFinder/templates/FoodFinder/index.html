@@ -17,7 +17,9 @@
 				<li><span class="glyphicon glyphicon-usd"></span> {{plato.precio}}</li>
 				<li><span class="glyphicon glyphicon-map-marker"></span>{{plato.distancias}} mts</li>
 				<li><span class="glyphicon glyphicon-ok"></span> Disponible</li>
+				{% if usuario.tipo == "cliente" %}
 				<li><a href="{% url 'FoodFinder:valoracion' %}">Valorar</a></li>
+				{% endif %}
 			</ul>
 		</div>
 		<img src="{% static plato.imagen %}" alt="logo" width="200" />

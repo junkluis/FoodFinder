@@ -6,15 +6,20 @@
 {% endblock %}
 {% block contenido %}
 <div class="row">
-    <h1>Bienvenido(a) {{usuario.nombreUsu}}</h1>
-    <div class="col-lg-5 col-sm-5 col-xs-11" id="informacion">
+    <div class="col-lg-5 col-sm-6 col-xs-11" id="informacion">
         <h3>Información de contacto</h3>
         <p id="info">Nombre: {{usuario.nombre}}<br>
         Apellido: {{usuario.apellido}}<br>
         Correo: {{usuario.correo}}<br>
         Facultad: {{usuario.facultad.nombre}}<br>
         Rol: {{usuario.rol}}<br></p>
-
+        <a href="#">modificar</a>
+    </div>
+    <div class="col-lg-5 col-sm-6 col-xs-11" id="enlaces">
+        <h3>Enlaces</h3>
+        <p>Valorar platillos: {{usuario.nombre}}<br>
+        Enviar una denuncia: {{usuario.apellido}}</p>
+        <a href="#">modificar</a>
     </div>
 </div>
 {% endblock %}
