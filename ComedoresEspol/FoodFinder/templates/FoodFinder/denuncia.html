@@ -33,3 +33,12 @@
 	</div>
 </div>
 {% endblock %}
+{% block extraScript %}
+<script type="text/javascript">
+	window.onload = function(){
+	    if('{{notice}}' == 'Gracias por contactarnos!'){
+	    	alert('{{notice}}');
+	    }
+	}
+</script>
+{% endblock %}

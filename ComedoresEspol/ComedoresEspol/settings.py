@@ -28,9 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_HOST_USER = 'djcastro@espol.edu.ec'
+EMAIL_HOST_PASSWORD = 'Dajocape95'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -84,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'proyecto',
-        'USER': 'anrosant',
-        'PASSWORD': 'sistema',
+        'USER': 'dajocape',
+        'PASSWORD': 'dajocape',
         'HOST': 'localhost',
         'PORT': '',
     }

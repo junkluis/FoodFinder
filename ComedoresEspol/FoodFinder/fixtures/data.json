@@ -40,7 +40,7 @@
 			"apellido":"Perez",
 			"correo":"sandrita@hotmail.com",
 			"password":"sandra2017",
-			"tipo":"cliente",
+			"tipo":"moderador",
 			"rol":"Docente"
 		}
 	},

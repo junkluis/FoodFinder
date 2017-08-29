@@ -17,9 +17,8 @@
     </div>
     <div class="col-lg-5 col-sm-6 col-xs-11" id="enlaces">
         <h3>Enlaces</h3>
-        <p>Valorar platillos: {{usuario.nombre}}<br>
-        Enviar una denuncia: {{usuario.apellido}}</p>
-        <a href="#">modificar</a>
+        <a href="{% url 'FoodFinder:valoracion' %}">Valorar platillos</a><br>
+        <a href="{% url 'FoodFinder:denuncia' %}">Enviar una denuncia</a>
     </div>
 </div>
 {% endblock %}

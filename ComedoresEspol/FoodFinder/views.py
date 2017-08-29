@@ -93,7 +93,6 @@ def historia(request):
         'usuario': usuarioValido,
         "historia":historias,
     }
-
     return  HttpResponse(template.render(context, request))
 
 def contacto (request):
@@ -217,13 +216,19 @@ def sesionModerador(request):
     template = loader.get_template('FoodFinder/sesion-moderador.html')
     usuario = Usuario.objects.get(nombre=request.user.username);
     denuncias = Denuncia.objects.all()
+
     if usuario is not None:
         usuarioValido = usuario
-
+    denunciasDic={}
+    for den in denuncias:
+        denunciasDic[den.comedor]=denunciasDic.get(den.comedor,0)+1
+    
     context = {
         'usuario': usuarioValido,
-        'denuncias': denuncias,
-    }
+        'denunciasDic':denunciasDic,
+        'denuncias': denuncias
+    }    
+
     return HttpResponse(template.render(context, request))
 
 def sesionAdmin(request):

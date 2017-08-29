@@ -33,7 +33,33 @@
 	</div>
 </div>
 <div class="platillos-disp col-md-5">
-	<h3>Numero de Quejas por Comedores</h3><br>
+	<h3>Numero de Denuncias por Comedores</h3><br>
 	<div id="piechart" style="width: 900px; height: 500px;"></div>
 </div>
+{% endblock %}
+{% block ExtraScript %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Denuncias', 'Comedores'],
+  {% for c,n in denunciasDic.items %}
+  ['{{c}}',{{n}}],
+  {% endfor %}
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
 {% endblock %}
