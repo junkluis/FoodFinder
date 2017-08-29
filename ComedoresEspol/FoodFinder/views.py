@@ -97,8 +97,6 @@ def historia(request):
 
 def contacto (request):
     template=loader.get_template('FoodFinder/contacto.html')
-
-    template=loader.get_template('FoodFinder/contacto.html')
     email_host=settings.EMAIL_HOST_USER
 
     if(request.method == 'POST'):
