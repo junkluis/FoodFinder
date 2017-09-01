@@ -31,9 +31,9 @@
 					<ul class="nav navbar-nav">
 						<div class="dropdown">
 						  <button class="dropbtn"><span class="glyphicon glyphicon-user"></span> {{usuario.nombreUsu}}</button>
-						  <div class="dropdown-content">
+						  <div class="dropdown-content" id="perfil">
 						    <a href="{% url 'FoodFinder:cliente'%}">Ver perfil</a>
-						    <a href="{% url 'FoodFinder:index'%}">Configurar</a>
+						    <a href="{% url 'FoodFinder:modificarUsuario' %}">Configurar</a>
 						  </div>
 						</div>
 

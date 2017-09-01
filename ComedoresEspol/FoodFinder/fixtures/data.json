@@ -3,7 +3,6 @@
 		"model":"FoodFinder.Usuario",
 		"pk":1,
 		"fields":{
-			"comedor":"1",
 			"facultad":"1",
 			"nombreUsu":"pepito",
 			"nombre":"Pepito",
@@ -18,7 +17,6 @@
 		"model":"FoodFinder.Usuario",
 		"pk":2,
 		"fields":{
-			"comedor":"2",
 			"facultad":"2",
 			"nombreUsu":"vilmita",
 			"nombre":"Vilmita",
@@ -33,7 +31,6 @@
 		"model":"FoodFinder.Usuario",
 		"pk":3,
 		"fields":{
-			"comedor":"3",
 			"facultad":"3",
 			"nombreUsu":"sandrita",
 			"nombre":"Sandrita",
@@ -48,7 +45,6 @@
 		"model":"FoodFinder.Usuario",
 		"pk":4,
 		"fields":{
-			"comedor":"2",
 			"facultad":"2",
 			"nombreUsu":"pedrito",
 			"nombre":"Pedrito",
@@ -194,6 +190,7 @@
 		"model":"FoodFinder.Denuncia",
 		"pk":1,
 		"fields":{
+			"usuario": "1",
 			"comedor":"Carreta del Tono",
 			"fecha_den": "2017-08-17",
 			"denuncia":"Encontré un gusano en mi sopa"
@@ -203,6 +200,7 @@
 		"model":"FoodFinder.Denuncia",
 		"pk":2,
 		"fields":{
+			"usuario": "2",
 			"comedor":"Comedor NEO",
 			"fecha_den": "2017-08-15",
 			"denuncia":"Encontré un pelo en mi arroz"
@@ -212,6 +210,7 @@
 		"model":"FoodFinder.Denuncia",
 		"pk":3,
 		"fields":{
+			"usuario": "1",
 			"comedor":"Comedor NEO",
 			"fecha_den": "2017-08-16",
 			"denuncia":"Encontré moscas en mi postre"
@@ -221,6 +220,7 @@
 		"model":"FoodFinder.Denuncia",
 		"pk":4,
 		"fields":{
+			"usuario": "2",
 			"comedor":"Coca-cola",
 			"fecha_den": "2017-07-17",
 			"denuncia":"Encontré bichos en mi sopa"
@@ -442,8 +442,8 @@
 		"model":"FoodFinder.Comentario",
 		"pk":1,
 		"fields":{
-			"comedor":"1",
-			"usuario": "Daniel Castro",
+			"usuario": "1",
+			"comedor":"1",			
 			"comentario":"Está muy rica su comida"
 		}
 	},
@@ -452,8 +452,8 @@
 		"model":"FoodFinder.Comentario",
 		"pk":2,
 		"fields":{
-			"comedor":"2",
-			"usuario": "Anni Santacruz",
+			"usuario": "1",
+			"comedor":"2",			
 			"comentario":"Deberían arreglar el aire acondicinado"
 		}
 	},
@@ -462,8 +462,8 @@
 		"model":"FoodFinder.Comentario",
 		"pk":3,
 		"fields":{
-			"comedor":"3",
-			"usuario": "Luis Zúñiga",
+			"usuario": "2",
+			"comedor":"3",			
 			"comentario":"Sus precios con muy caros"
 		}
 	},
@@ -472,8 +472,8 @@
 		"model":"FoodFinder.Comentario",
 		"pk":4,
 		"fields":{
-			"comedor":"4",
-			"usuario": "Johan Canales",
+			"usuario": "2",
+			"comedor":"4",			
 			"comentario":"Deberían poner una carpa afuera cuando hace sol"
 		}
 	},
@@ -482,8 +482,8 @@
 		"model":"FoodFinder.Comentario",
 		"pk":5,
 		"fields":{
-			"comedor":"5",
-			"usuario": "Anni Santacruz",
+			"usuario": "1",
+			"comedor":"5",		
 			"comentario":"Su servicio es bueno pero en horas pico no abastecen. Deberían contratar más personal"
 		}
 	}

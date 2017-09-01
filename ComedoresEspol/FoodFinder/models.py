@@ -28,7 +28,6 @@ class Platillo(models.Model):
     valoracion=models.IntegerField()
 
 class Usuario(models.Model):
-    comedor=models.ForeignKey(Comedor, on_delete=models.CASCADE)
     facultad=models.ForeignKey(Facultad, on_delete=models.CASCADE,default="1")
     nombreUsu=models.CharField(max_length=30,default="carlitos")
     nombre=models.CharField(max_length=30)
@@ -44,6 +43,7 @@ class Usuario(models.Model):
     rol=models.CharField(max_length=10, choices=ROLES, default="Estudiante")
 
 class Denuncia(models.Model):
+    usuario=models.ForeignKey(Usuario, on_delete=models.CASCADE,default="1")
     comedor=models.CharField(max_length=30)
     fecha_den=models.DateField()
     denuncia=models.CharField(max_length=1000)
@@ -53,6 +53,7 @@ class Timeline(models.Model):
     descp=models.CharField(max_length=200)
 
 class Comentario(models.Model):
+    usuario=models.ForeignKey(Usuario, on_delete=models.CASCADE)
     comedor=models.ForeignKey(Comedor, on_delete=models.CASCADE)
-    usuario=models.CharField(max_length=30)
+    #usuario=models.CharField(max_length=30)
     comentario=models.CharField(max_length=1000)

@@ -220,12 +220,12 @@ def sesionModerador(request):
     denunciasDic={}
     for den in denuncias:
         denunciasDic[den.comedor]=denunciasDic.get(den.comedor,0)+1
-    
+
     context = {
         'usuario': usuarioValido,
         'denunciasDic':denunciasDic,
         'denuncias': denuncias
-    }    
+    }
 
     return HttpResponse(template.render(context, request))
 
@@ -236,7 +236,7 @@ def sesionAdmin(request):
     usuarios=Usuario.objects.all()
     facUsu={}
     for usu in usuarios:
-        fac=usu.comedor.facultad
+        fac=usu.facultad
         facUsu[fac]=facUsu.get(fac,0)+1
     for fac in facultades:
         facUsu[fac]=facUsu.get(fac,0)
@@ -309,7 +309,34 @@ def guardarComentario(request):
     comen = Comentario()
     comId = request.POST.get('comId')
     comen.comedor = Comedor.objects.get(id=comId)
-    comen.usuario = request.POST.get('usuario')
+    comen.usuario = Usuario.objects.get(id=request.user.id);
+    #comen.usuario = request.POST.get('usuario')
     comen.comentario = request.POST.get('comentario')
     comen.save()
     return redirect('/FoodFinder/comedoresFacultad')
+
+def modificarUsuario(request):
+    template = loader.get_template('FoodFinder/modificarUsuario.html')
+    facultades = Facultad.objects.all()
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
+    context = {
+        'usuario': usuarioValido,
+        'facultades':facultades,
+        'action': 'Modificar'
+    }
+    return HttpResponse(template.render(context, request))
+
+def modificar(request):
+    usuario=Usuario.objects.get(id=request.POST.get('usuarioId'));
+    usuario.nombreUsu = request.POST.get('usuario')
+    usuario.nombre = request.POST.get('nombre')
+    usuario.apellido = request.POST.get('apellido')
+    usuario.correo = request.POST.get('correo')
+    facultadId = request.POST.get('facultad')
+    usuario.facultad = Facultad.objects.get(id=facultadId)
+    usuario.rol = request.POST.get('rol')
+
+    usuario.save()
+    return redirect('/FoodFinder/cliente/')

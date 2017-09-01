@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'^platillo/(?P<pId>[0-9]+)$', views.platilloInfo, name='platillo'),
     url(r'^comedor/(?P<comId>[0-9]+)$', views.comedorInfo, name='comedor'),
     url(r'^guardarComentario/$', views.guardarComentario, name='guardarComentario'),
+    url(r'^modificarUsuario/$', views.modificarUsuario, name='modificarUsuario'),
+    url(r'^modificar/$', views.modificar, name='modificar'),
 ]
