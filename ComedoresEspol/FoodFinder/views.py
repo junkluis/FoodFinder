@@ -442,7 +442,17 @@ def mostrarComentarios(request):
     }
     return  HttpResponse(template.render(context, request))
 
+def ajaxEditarComentario(request):
+    idCom=request.POST.get('idComentario',None)
+    comentario=Comentario.objects.get(id=idCom)
+    data = {
+        'comedor': comentario.comedor.nombre,
+        'usuario': comentario.usuario.nombreUsu,
+        'comentario': comentario.comentario,
+        'idComentario': idCom
+    }
+    return JsonResponse(data)
+    
 def cerrarSesion(request):
     logout(request)
     return redirect('FoodFinder:login')
-

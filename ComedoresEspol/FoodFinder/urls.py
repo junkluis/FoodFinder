@@ -29,6 +29,6 @@ urlpatterns = [
     url(r'^modificarUsuario/$', views.modificarUsuario, name='modificarUsuario'),
     url(r'^modificar/$', views.modificar, name='modificar'),
     url(r'^cerrarSesion/$', views.cerrarSesion, name='cerrarSesion'),
-    #here
     url(r'^comentarios/$', views.mostrarComentarios, name='comentarios'),
+    url(r'^editarComentario/$', views.ajaxEditarComentario, name='editarComentario'),
 ]

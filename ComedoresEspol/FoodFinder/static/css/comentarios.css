@@ -1,0 +1,13 @@
+.comentario {
+    background-color: rgba(24, 186, 163, 0.17);
+    border: 1px solid #18baa3;
+    padding: 2px 5px;
+    margin-bottom: 10px;
+}
+button{
+    float: right;
+    padding: 5px 10px;
+}
+#div_editar{
+    display: none;
+}

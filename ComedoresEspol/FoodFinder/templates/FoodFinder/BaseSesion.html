@@ -8,7 +8,6 @@
 		<title>Comedores de la ESPOL | {% block titulo %}{% endblock %}</title>
 		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
 		<link href="{% static "css/estilo.css" %}" rel="stylesheet">
-		<link href="{% static "css/baseSesion.css" %}" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
 		{% block ExtraStyle %}{% endblock %}
 	</head>
@@ -16,10 +15,10 @@
 		<nav class="navbar navbar-default">
 				<div class="container-fluid" id="barra">
 					<ul>
-					  <li><a class="active" href="#home">Inicio</a></li>
+					  <li><a class="active" href="{% url 'FoodFinder:moderador' %}">Inicio</a></li>
 					  {% if usuario.tipo == "moderador" %}
 					  <li><a href="#">Usuarios Conectados</a></li>
-					  <li><a href="#">Sugerencias</a></li>
+					  <li><a href="{% url 'FoodFinder:comentarios' %}">Comentarios</a></li>
 					  {% endif %}
 					  <li style="float:right"><a href="{% url 'FoodFinder:login'%}"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
 					  {% if usuario.tipo == "moderador" %}
