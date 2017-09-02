@@ -26,13 +26,14 @@
 				<div class="col-md-4 col-md-offset-4">
 					<div class="panel panel-default">
 						<div class="panel-heading row">
-							<div class="col-md-2">
+							<div class="col-md-3">
 								<img id="logo" src="{% static "img/logo.png" %}" style="width:50;" alt=""/>
-								<div class="col-md-6">
+							</div>
+							<div class="col-md-8">
 									<p id="title">Food Finder</p>
 									<p id="in-se">Inicio de Sesion</p>
 								</div>
-							</div>
+						</div>
 							<div class="panel-body">
 								<form method="POST" action="{% url 'FoodFinder:login' %}">
 									{% csrf_token %}

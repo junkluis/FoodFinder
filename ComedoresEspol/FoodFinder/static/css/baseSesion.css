@@ -78,6 +78,150 @@ body, html{
         padding-top: 10px
     }
 
+    #food-logo{
+        width: 40%;
+        padding-bottom: 20px;
+        display: inline-block;
+    }
+
+    .btn{
+        margin-bottom: 3px;
+    }
+
+    #descripcion-site p {
+        display: block;
+        width: 50%;
+        padding: 10px 0px;
+        text-align: center;
+        font-family: 'Josefin Slab', serif;
+        font-size: 1.5em;
+    }
+
+    #contacto-header {
+        color:#d60651;
+        font-family: 'Pacifico';
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 20px;
+    }
+
+    /*INDEX - para telefonos*/
+    .platillos-del-dia{
+        margin: 5px;
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .platillo{
+        margin: 5px;
+        background-color: #f7f7f7;
+        border-radius: 5px;
+    }
+
+    .desc{
+        display: inline-block;
+        width: 50%;
+        padding: 15px;
+    }
+
+    .desc ul{
+        list-style: none;
+        padding-left: 15px;
+    }
+
+    .platillo img{
+        display: inline-block;
+        width: 45%;
+        margin: 5px 0px 5px;
+    }
+
+    /*NEO RESTAURANT*/
+    .info-comedor h4{
+        font-family: 'Pacifico';
+        margin: 5px;
+    }
+
+    .info-comedor h2{
+        font-family: 'Josefin Slab';
+        font-size: 3em;
+        margin: 20px 5px 5px 5px;
+        color: #d60651;
+    }
+
+    .info-comedor ul{
+        list-style: none;
+        font-size: 1em;
+        padding-bottom: 10px;
+        border-bottom: 1px solid;
+    }
+
+    .platillos{
+        height: 65%;
+        width: 100%;
+    }
+
+    .plato-neo{
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        margin: 0px 0px 10px !important;
+    }
+
+    .plato-neo:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .plato-neo div img{
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .plato-neo div.col-md-6{
+        padding: 0px 0px 0px 7px;
+        width: 49%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    div.imgenneo{
+        padding: 0px;
+        width: 38% !important;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    /*about*/
+    div#prog{
+        text-align: center;
+        width: 30%;
+        display: inline-block;
+        margin-left: 15%;
+        margin-top: 10px;
+    }
+
+    div#prog img{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    div#prog h3{
+        font-size: 1em;
+    }
+
+
+    .red{
+        color:red;
+    }
+    .form-area
+    {
+        background-color: #FAFAFA;
+        padding: 10px 40px 60px;
+        margin: 10px 0px 60px;
+        border: 1px solid GREY;
+    }
+
 }
 
 /*ESTILO PARA TELEFONOS*/

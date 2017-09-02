@@ -32,3 +32,11 @@
 	font-weight: bold;
 }
 
+.list-group{
+	max-height: 400px;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+
+}
+
