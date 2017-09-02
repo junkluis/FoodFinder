@@ -98,7 +98,9 @@ def historia(request):
 def contacto (request):
     template=loader.get_template('FoodFinder/contacto.html')
     email_host=settings.EMAIL_HOST_USER
-
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
     if(request.method == 'POST'):
         nombres_contacto=  request.POST.get('name')
         correo_contacto=   request.POST.get('email')
@@ -110,6 +112,7 @@ def contacto (request):
     else:
         notice='Envio fallido'
     context = {
+        'usuario': usuarioValido,
         'notice':notice
     }
     return HttpResponse(template.render(context, request))
@@ -340,3 +343,15 @@ def modificar(request):
 
     usuario.save()
     return redirect('/FoodFinder/cliente/')
+
+def mostrarComentarios(request):
+    template=loader.get_template('FoodFinder/comentarios.html')
+    usuario = Usuario.objects.get(nombre=request.user.username);
+    if usuario is not None:
+        usuarioValido = usuario
+    comentarios = Comentario.objects.all()
+    context = {
+        'usuario': usuarioValido,
+        'comentarios':comentarios,
+    }
+    return  HttpResponse(template.render(context, request))

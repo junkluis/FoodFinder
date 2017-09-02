@@ -21,74 +21,47 @@ body, html{
 #about-us {
     padding-bottom: 20px;
 }
-/*---------------USUARIO CONFIGURAR---------------*/
+/*-----------------------------DROPDOWN-----------------------*/
 .dropbtn {
-    background-color: #f8f8f8;
-    color: #777777;
+    background-color: #4CAF50;
+    color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
 }
-
 .dropdown {
     position: relative;
     display: inline-block;
 }
-
 .dropdown-content {
     display: none;
-    right: 0;
+    position: absolute;
     background-color: #f9f9f9;
-
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
-
 .dropdown-content a {
-    color: #777777;
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
-.dropdown-content#perfil {
-    border-bottom: 1px solid rgba(119, 119, 119, 0.65);
-}
-
 .dropdown-content a:hover {background-color: #f1f1f1}
-
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 .dropdown:hover .dropbtn {
-    background-color: #f1f1f1;
+    background-color: #3e8e41;
 }
-/*--------------------------------------------------*/
-
+/*----------------------------------------------------*/
 /*ESTILO PARA COMPUTADORAS*/
 @media only screen and (min-width: 1300px){
     .main{
         width: calc(100% - 200px);
         margin-left: 200px;
         height: 100%;
-    }
-
-    nav.sidebar{
-        margin-left: 0%;
-        float: left;
-        width: 15%;
-    }
-
-    #franja{
-        background-color: black;
-        margin-bottom: 20px;
-        height: 1px;
-        width: 100%;
-    }
-
-    div#food-logo{
-        width: 100%;
-        margin: 10%  0% 20% 4%;
     }
 
     ul li a {
@@ -105,117 +78,10 @@ body, html{
         padding-top: 10px
     }
 
-    #encabezado {
-        color: black;
-        height: 30%;
-        margin-top: 0%;
-        text-align: right;
-        width: 100%;
-        background: url("../img/header.jpg");
-        background-repeat: no-repeat;
-        background-size: 100%;
-        padding: 4% 2% 2% 0%;
-    }
-
-    #encabezado h1 {
-        color: white;
-        margin-top: 0%;
-        vertical-align: bottom;
-        font-family: 'Pacifico';
-        font-size: 3.5em;
-    }
-
-    #encabezado h3 {
-        color: white;
-        margin-top: 20px;
-        vertical-align: bottom;
-    }
-
-    #filtro-search {
-        display: inline-block;
-        width: 55%;
-        margin: 5px 5px 5px 15px;
-    }
-
-    #buscar {
-        width:15%;
-        margin:0%;
-        display: inline-block;
-    }
-
-    #filtro-search {
-        margin-top: 10px;
-        display: inline-block;
-    }
-
-    #facultad-comedores {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .facultad-detalle {
-        width: 270px;
-        height: 270px;
-        padding-top: 30px;
-        border-style: solid;
-        border-radius: 20px;
-        display: inline-block;
-        margin-left: 25px;
-        margin-bottom: 25px;
-        margin-top: 25px;
-        border-color: #d60651;
-    }
-
-    .facultad-detalle a{
-        margin-left: 85px;
-        padding-top:  10px;
-    }
-
-    .imagen-facultad {
-        width: 200px;
-        height: 60px;
-        margin-left: 15px;
-    }
-
-    .facultad-detalle p {
-        padding-left: 40px;
-    }
-
-    .facultad-detalle h4 {
-        color: #004d99;
-        text-align: center;
-    }
-
-    #contacto-header {
-        color:#d60651;
-        font-family: 'Pacifico';
-        text-align: center;
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-top: 30px;
-    }
-
 }
 
 /*ESTILO PARA TELEFONOS*/
 @media only screen and (max-width: 700px){
-
-    #filtro-search {
-        margin-left: 10px;
-        margin-top: 0px;
-        display: inline-block;
-        width: 100%;
-    }
-
-    .navbar-toggle{
-        display: inline-block;
-        margin-top: 8%;
-    }
-
-    #encabezado {
-        display: none;
-    }
-
     #food-logo{
         width: 40%;
         padding-bottom: 20px;
@@ -602,14 +468,12 @@ body#sesion{
 .sesionBase{
     background-color: rgba(255,255,255,0.6);
     border-radius: 10px;
-    margin-right: 2px;
-    margin-left: 2px;
 }
 #barra ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    /*overflow: hidden;*/
+    overflow: hidden;
     background-color: #f8f8f8;
 }
 
@@ -639,13 +503,6 @@ color: white;
     background-color: rgb(24, 186, 163);
 }
 
-#barra ul li .dropdown-content{
-    position: absolute;
-    left: 0;
-}
-#config{
-    border: 1px solid white;
-}
 /*  Estilos usados para web de about.html */
 
 #about-us img{
@@ -672,53 +529,4 @@ color: white;
 
 .perfil h4 {
     text-align: center;
-}
-
-/*index - platillos*/
-
-.platillos-del-dia{
-    margin: 20px;
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.platillo{
-    margin: 10px;
-    display: inline-block;
-    position: relative;
-}
-
-.desc{
-    display: none;
-}
-
-.platillo:hover .desc{
-    display: block;
-    position: absolute;
-    background-color: rgba(85,48,55,0.8);
-    width: 250px;
-    height: 100%;
-    border-radius: 5px;
-    color: white;
-    padding: 8%;
-}
-
-.platillo:hover .desc ul{
-    list-style: none;
-    font-size: 16px;
-}
-
-.platillo img{
-    width: 250px;
-    height: 190px;
-    border-radius: 5px;
-
-}
-
-.desc a{
-    color: white;
-}
-
-.desc a:hover{
-    color: white;
 }
