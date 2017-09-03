@@ -130,7 +130,7 @@
 		"pk":2,
 		"fields":{
 			"facultad":"2",
-			"nombre": "Comedor de Matemática",
+			"nombre": "Comedor de Matematica",
 			"tipo":"Comedor",
 			"descripcion":"Almuerzos y Snacks",
 			"hora_ini":"12:30",
@@ -148,7 +148,7 @@
 			"facultad":"3",
 			"nombre": "Comedor de Lucho",
 			"tipo":"Cafeteria y Comedor",
-			"descripcion":"Bar de Mecánica ",
+			"descripcion":"Bar de Mecanica ",
 			"hora_ini":"10:00",
 			"hora_fin":"16:00",
 			"ayudantes":"True",
@@ -193,7 +193,7 @@
 			"usuario": "1",
 			"comedor":"Carreta del Tono",
 			"fecha_den": "2017-08-17",
-			"denuncia":"Encontré un gusano en mi sopa"
+			"denuncia":"Encontre un gusano en mi sopa"
 		}
 	},
 	{
@@ -203,7 +203,7 @@
 			"usuario": "2",
 			"comedor":"Comedor NEO",
 			"fecha_den": "2017-08-15",
-			"denuncia":"Encontré un pelo en mi arroz"
+			"denuncia":"Encontre un pelo en mi arroz"
 		}
 	},
 	{
@@ -213,7 +213,7 @@
 			"usuario": "1",
 			"comedor":"Comedor NEO",
 			"fecha_den": "2017-08-16",
-			"denuncia":"Encontré moscas en mi postre"
+			"denuncia":"Encontre moscas en mi postre"
 		}
 	},
 	{
@@ -223,7 +223,7 @@
 			"usuario": "2",
 			"comedor":"Coca-cola",
 			"fecha_den": "2017-07-17",
-			"denuncia":"Encontré bichos en mi sopa"
+			"denuncia":"Encontre bichos en mi sopa"
 		}
 	},
 	{
@@ -270,7 +270,7 @@
 		"pk":4,
 		"fields":{
 			"comedor":"3",
-			"titulo": "Chaulafán de pollo",
+			"titulo": "Chaulafan de pollo",
 			"tipo":"Segundo",
 			"precio": 1.5,
 			"cantidad": 100,
@@ -309,7 +309,7 @@
 		"pk":7,
 		"fields":{
 			"comedor":"2",
-			"titulo": "Enrollado de atún",
+			"titulo": "Enrollado de atun",
 			"tipo":"Sopa",
 			"precio": 2.0,
 			"cantidad": 500,
@@ -348,7 +348,7 @@
 		"pk":10,
 		"fields":{
 			"comedor":"2",
-			"titulo": "Bolón de queso",
+			"titulo": "Bolon de queso",
 			"tipo":"Desayuno",
 			"precio": 2.0,
 			"cantidad": 500,
@@ -444,7 +444,7 @@
 		"fields":{
 			"usuario": "1",
 			"comedor":"1",			
-			"comentario":"Está muy rica su comida"
+			"comentario":"Esta muy rica su comida"
 		}
 	},
 
@@ -454,7 +454,7 @@
 		"fields":{
 			"usuario": "1",
 			"comedor":"2",			
-			"comentario":"Deberían arreglar el aire acondicinado"
+			"comentario":"Deberian arreglar el aire acondicinado"
 		}
 	},
 
@@ -474,7 +474,7 @@
 		"fields":{
 			"usuario": "2",
 			"comedor":"4",			
-			"comentario":"Deberían poner una carpa afuera cuando hace sol"
+			"comentario":"Deberian poner una carpa afuera cuando hace sol"
 		}
 	},
 
@@ -484,7 +484,7 @@
 		"fields":{
 			"usuario": "1",
 			"comedor":"5",		
-			"comentario":"Su servicio es bueno pero en horas pico no abastecen. Deberían contratar más personal"
+			"comentario":"Su servicio es bueno pero en horas pico no abastecen. Deberian contratar mas personal"
 		}
 	}
 

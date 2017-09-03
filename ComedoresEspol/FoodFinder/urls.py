@@ -30,5 +30,7 @@ urlpatterns = [
     url(r'^modificar/$', views.modificar, name='modificar'),
     url(r'^cerrarSesion/$', views.cerrarSesion, name='cerrarSesion'),
     url(r'^comentarios/$', views.mostrarComentarios, name='comentarios'),
+    url(r'^mostrarEditarComentario/(?P<idComen>[0-9]+)$', views.ajaxMostrarEditarComentario, name='mostrarEditarComentario'),
+    url(r'^eliminarComentario/(?P<idComen>[0-9]+)$', views.ajaxEliminarComentario, name='eliminarComentario'),
     url(r'^editarComentario/$', views.ajaxEditarComentario, name='editarComentario'),
 ]

@@ -442,17 +442,34 @@ def mostrarComentarios(request):
     }
     return  HttpResponse(template.render(context, request))
 
-def ajaxEditarComentario(request):
-    idCom=request.POST.get('idComentario',None)
-    comentario=Comentario.objects.get(id=idCom)
+def ajaxMostrarEditarComentario(request,idComen):
+    #idCom=request.POST.get('idComentario',None)
+    comentario=Comentario.objects.get(id=idComen)
     data = {
         'comedor': comentario.comedor.nombre,
         'usuario': comentario.usuario.nombreUsu,
-        'comentario': comentario.comentario,
-        'idComentario': idCom
+        'comentario': comentario.comentario
     }
     return JsonResponse(data)
-    
+
 def cerrarSesion(request):
     logout(request)
     return redirect('FoodFinder:login')
+
+def ajaxEliminarComentario(request, idComen):
+    comentario=Comentario.objects.get(id=idComen)
+    comentario.delete()
+    data = {
+        'msj': "Comentario eliminado correctamente"
+        }
+    return JsonResponse(data)
+def ajaxEditarComentario(request):
+    idComen=request.POST.get('idComen',None)
+    coment=request.POST.get('comentario',None)
+    comentario=Comentario.objects.get(id=idComen)
+    comentario.comentario=coment
+    comentario.save()
+    data = {
+        'msj': "Comentario editado correctamente"
+        }
+    return JsonResponse(data)

@@ -25,3 +25,6 @@
 	color: #d60651;
 	padding: 15px 0px;
 }
+span.glyphicon.glyphicon-star:hover {
+    color: #d60651;
+}

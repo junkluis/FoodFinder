@@ -10,22 +10,26 @@
 {% endblock %}
 {% block contenido %}
 
-<div class="col-lg-6 col-md-6" div="comentarios">
-    {% for com in comentarios %}
-    <button class="editar" id="{{ com.id }}"><i class="fa fa-edit"></i></button>
-    <button class="aceptar" id="{{ com.id }}"><i class="fa fa-check"></i></button>
-    <button class="eliminar" id="{{ com.id }}"><i class="fa fa-close"></i></button>
-    <div class="comentario" id="{{com.id}}">
-        <h4>{{ com.comedor.nombre }}</h4>
-		<h5>De: {{ com.usuario.nombreUsu }}</h5>
-		<p>{{ com.comentario }}</p>
-    </div>
-    {% endfor %}
+<div class="col-lg-6 col-md-6">
+	<div class="row">
+		{% for com in comentarios %}
+		<div class="col-lg-12 col-md-12" id="comentario{{ com.id }}">
+		    <button class="editar" id="{{ com.id }}" ><i class="fa fa-edit"></i></button>
+		    <button class="aceptar" id="{{ com.id }}"><i class="fa fa-check"></i></button>
+		    <button class="eliminar" id="{{ com.id }}"><i class="fa fa-close"></i></button>
+		    <div class="comentario" id="{{com.id}}">
+		        <h4>{{ com.comedor.nombre }}</h4>
+				<h5>De: {{ com.usuario.nombreUsu }}</h5>
+				<p>{{ com.comentario }}</p>
+		    </div>
+
+		</div>
+		{% endfor %}
+	</div>
 </div>
 
 <div class="col-lg-6 col-md-6" id="div_editar">
-    <form role="form" action="" method="POST">{% csrf_token %}
-        <input type="hidden" name="idComedor" id="idComedor">
+    <form role="form" action="">{% csrf_token %}
         <div>
             <h3>Editar comentario</h3>
         </div>
@@ -38,24 +42,20 @@
         <div class="form-group">
             <textarea class="form-control" rows="7" name="comentario" id="comentario" pattern=".{0,1000}"></textarea>
         </div>
-        <button type="submit" class="btn btn-default center-block">Aceptar</button>
+        <button class="editarComentario" type="submit" class="btn btn-default center-block">Aceptar</button>
     </form>
 </div>
 {% endblock %}
 {% block ExtraScript %}
+<script src="{% static 'js/ajax_setup.js' %}"></script>
 <script>
 $(document).ready(function(){
     $(".editar").click(function(){
         var id=this.id;
-        $("#idComedor").attr("value",id);
+		$(".editarComentario").attr("id",id);
         jQuery.ajax({
-            url: "/FoodFinder/editarComentario/",
-            method: 'POST',
-            data: {
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-                'idComentario': id
-            },
-            dataType: "json",
+            url: "/FoodFinder/mostrarEditarComentario/"+id,
+            method: 'GET',
             success: function (data) {
                 document.getElementById("usuario").innerHTML=data["usuario"];
                 document.getElementById("comedor").innerHTML=data["comedor"];
@@ -67,7 +67,41 @@ $(document).ready(function(){
         });
         $("#div_editar").show();
     });
-
+	$(".eliminar").click(function(){
+        var id=this.id;
+        jQuery.ajax({
+            url: "/FoodFinder/eliminarComentario/"+id,
+            type: 'DELETE',
+            success: function (data) {
+				$('#comentario'+id).hide()
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                console.log(errorThrown);
+            }
+        });
+    });
+	$(".editarComentario").click(function(){
+        var id=this.id;
+		var comentario=document.getElementById("comentario").value;
+        jQuery.ajax({
+            url: "/FoodFinder/editarComentario/",
+            type: 'POST',
+			data: {
+				csrfmiddlewaretoken: '{{csrf_token}}',
+				'idComen': id,
+				'comentario': comentario
+			},
+			success: function (data) {
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                console.log(errorThrown);
+            }
+        });
+    });
+	$(".aceptar").click(function(){
+        var id=this.id;
+		$('#comentario'+id).hide();
+	});
 });
 </script>
 {% endblock %}
