@@ -68,10 +68,11 @@
 				<label>Usuario: </label>
 				<input class="form-control" type="text" name="usuario"/>
 			</div-->
+			<input type="hidden" value="{{usuario.id}}" name="usuarioId"/>
 			<div class="form-group">
 				<textarea class="form-control" rows="7" name="comentario" pattern=".{0,1000}"></textarea>
 			</div>
-			<button type="submit" class="btn btn-default center-block">Enviar{{ action }}</button>
+			<button type="submit" class="btn btn-default center-block enviar">Enviar{{ action }}</button>
 		</form>
 	</div>
 </div>

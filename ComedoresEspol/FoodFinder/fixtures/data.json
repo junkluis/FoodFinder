@@ -443,7 +443,8 @@
 		"pk":1,
 		"fields":{
 			"usuario": "1",
-			"comedor":"1",			
+			"comedor":"1",	
+			"aceptado":0,		
 			"comentario":"Esta muy rica su comida"
 		}
 	},
@@ -453,7 +454,8 @@
 		"pk":2,
 		"fields":{
 			"usuario": "1",
-			"comedor":"2",			
+			"comedor":"2",	
+			"aceptado":1,		
 			"comentario":"Deberian arreglar el aire acondicinado"
 		}
 	},
@@ -463,7 +465,8 @@
 		"pk":3,
 		"fields":{
 			"usuario": "2",
-			"comedor":"3",			
+			"comedor":"3",	
+			"aceptado":0,		
 			"comentario":"Sus precios con muy caros"
 		}
 	},
@@ -473,7 +476,8 @@
 		"pk":4,
 		"fields":{
 			"usuario": "2",
-			"comedor":"4",			
+			"comedor":"4",
+			"aceptado":0,			
 			"comentario":"Deberian poner una carpa afuera cuando hace sol"
 		}
 	},
@@ -483,7 +487,8 @@
 		"pk":5,
 		"fields":{
 			"usuario": "1",
-			"comedor":"5",		
+			"comedor":"5",	
+			"aceptado":0,	
 			"comentario":"Su servicio es bueno pero en horas pico no abastecen. Deberian contratar mas personal"
 		}
 	}

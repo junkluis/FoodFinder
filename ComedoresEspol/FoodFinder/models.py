@@ -74,8 +74,8 @@ class Timeline(models.Model):
 class Comentario(models.Model):
     usuario=models.ForeignKey(Usuario, on_delete=models.CASCADE)
     comedor=models.ForeignKey(Comedor, on_delete=models.CASCADE)
-    #usuario=models.CharField(max_length=30)
     comentario=models.CharField(max_length=1000)
+    aceptado=models.IntegerField(default=0)
 
     def __str__(self):
         return 'Comentario: {}'.format(self.comentario)

@@ -388,11 +388,13 @@ def guardarComentario(request):
     comen = Comentario()
     comId = request.POST.get('comId')
     comen.comedor = Comedor.objects.get(id=comId)
-    comen.usuario = Usuario.objects.get(id=request.user.id);
+    #comen.usuario = Usuario.objects.get(id=request.user.id);
+    comen.usuario = Usuario.objects.get(id=request.POST.get('usuarioId'));
     #comen.usuario = request.POST.get('usuario')
     comen.comentario = request.POST.get('comentario')
+    comen.aceptado=0
     comen.save()
-    return redirect('/FoodFinder/comedoresFacultad')
+    return redirect('/FoodFinder/comedor/'+comId)
 
 def modificarUsuario(request):
     template = loader.get_template('FoodFinder/modificarUsuario.html')
@@ -472,4 +474,11 @@ def ajaxEditarComentario(request):
     data = {
         'msj': "Comentario editado correctamente"
         }
+    return JsonResponse(data)
+def ajaxAceptarComentario(request):
+    idComen=request.POST.get('idComen',None)
+    comentario=Comentario.objects.get(id=idComen)
+    comentario.aceptado=1;
+    comentario.save()
+    data = {}
     return JsonResponse(data)
