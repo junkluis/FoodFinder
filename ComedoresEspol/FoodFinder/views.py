@@ -312,6 +312,34 @@ def sesionAdmin(request):
     }
     return HttpResponse(template.render(context, request))
 
+def actualizarInfoAdmin(request):
+    descrip = request.GET.get("descrip")
+    especialidad = request.GET.get("especialidad")
+    Nombrefac = request.GET.get("facultad")
+    ayudantes = request.GET.get("ayudantes")
+    comedorPk = int(request.GET.get("comedorPk"))
+
+    facultad = Facultad.objects.get(nombre = Nombrefac)
+    comedor = Comedor.objects.get(pk = comedorPk)
+    comedor.descripcion = descrip
+    comedor.facultad = facultad
+    if ayudantes == "false":
+        comedor.ayudantes = True
+    else:
+        comedor.ayudantes = False
+    comedor.tipo = especialidad
+    comedor.save()
+    data = {
+        'descrip':descrip,
+        'especialidad':especialidad,
+        'Nombrefac':Nombrefac,
+        'ayudantes':ayudantes,
+    }
+
+    return JsonResponse(data)
+
+
+
 def sesionCliente(request):
     template = loader.get_template('FoodFinder/sesion-cliente.html')
     try:

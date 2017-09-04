@@ -8,7 +8,6 @@
 			"nombre":"Pepito",
 			"apellido":"Solis",
 			"correo":"pepito@hotmail.com",
-			"password":"pepe2017",
 			"tipo":"cliente",
 			"rol":"Estudiante"
  		}
@@ -22,7 +21,6 @@
 			"nombre":"Vilmita",
 			"apellido":"Perez",
 			"correo":"vilmita@hotmail.com",
-			"password":"vilma2017",
 			"tipo":"cliente",
 			"rol":"Docente"
 		}
@@ -31,12 +29,10 @@
 		"model":"FoodFinder.Usuario",
 		"pk":3,
 		"fields":{
-			"facultad":"3",
 			"nombreUsu":"sandrita",
 			"nombre":"Sandrita",
 			"apellido":"Perez",
 			"correo":"sandrita@hotmail.com",
-			"password":"sandra2017",
 			"tipo":"moderador",
 			"rol":"Docente"
 		}
@@ -45,12 +41,11 @@
 		"model":"FoodFinder.Usuario",
 		"pk":4,
 		"fields":{
-			"facultad":"2",
+			"comedor":"2",
 			"nombreUsu":"pedrito",
 			"nombre":"Pedrito",
 			"apellido":"Picapiedra",
 			"correo":"pedrito@hotmail.com",
-			"password":"pedro2017",
 			"tipo":"admin",
 			"rol":"Docente"
 		}

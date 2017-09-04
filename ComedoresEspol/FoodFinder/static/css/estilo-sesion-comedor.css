@@ -1,0 +1,17 @@
+.contenidoSesionComed{
+	margin: 10px;
+}
+
+.comd-info{
+	width: 18%;
+	background-color: #40585A;
+	color: white;
+	font-weight: bold;
+	font-size: 1em;
+	text-align: right;
+}
+
+.tabla-tit{
+	color: #40585A;
+	font-size: 2em;
+}

@@ -195,6 +195,44 @@ body, html{
         padding-top: 30px;
     }
 
+    /*NEO PARA TABLETS*/
+    .info-comedor h4{
+        font-family: 'Pacifico';
+        margin: 5px;
+    }
+
+    .info-comedor h2{
+        font-family: 'Josefin Slab';
+        font-size: 3em;
+        margin: 20px 5px 5px 5px;
+        color: #d60651;
+    }
+
+    .info-comedor ul{
+        list-style: none;
+        font-size: 1.3em;
+    }
+
+    .platillos{
+        height: 65%;
+        width: 100%;
+    }
+
+    .plato-neo{
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        margin: 0px 0px 10px !important;
+    }
+
+    .plato-neo div img{
+        border-radius: 5px;
+    }
+
+    .plato-neo div.col-md-6{
+        padding-left: 0px;
+    }
+
+
 }
 
 /*ESTILO PARA TELEFONOS*/

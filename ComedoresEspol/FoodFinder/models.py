@@ -39,11 +39,10 @@ class Platillo(models.Model):
 class Usuario(models.Model):
     facultad=models.ForeignKey(Facultad, on_delete=models.CASCADE,blank=True,null=True)
     comedor=models.ForeignKey(Comedor, on_delete=models.CASCADE,blank=True,null=True)
-    nombreUsu=models.CharField(max_length=30,default="carlitos")
+    nombreUsu=models.CharField(max_length=30,default="carlitos", unique=True)
     nombre=models.CharField(max_length=30)
     apellido=models.CharField(max_length=30,default="suarez")
     correo=models.EmailField(max_length=30)
-    password=models.CharField(max_length=15)
     tipo=models.CharField(max_length=15, default="cliente")
     ROLES=(
         ('Estudiante', 'Estudiante'),
