@@ -10,3 +10,18 @@ button{
 #div_editar{
     display: none;
 }
+#info{
+    margin-left: 20px;
+    color: #18baa3;
+}
+.editarComentario{
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: rgba(24, 186, 163, 0);
+    background-color: #18baa3;
+}
+.contenido{
+    margin-right: 15px;
+    margin-left: 15px;
+}

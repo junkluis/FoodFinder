@@ -1,0 +1,70 @@
+<script src="{% static 'js/ajax_setup.js' %}"></script>
+<script>
+$(document).ready(function(){
+    $(".editar").click(function(){
+        var id=this.id;
+		$(".editarComentario").attr("id",id);
+        jQuery.ajax({
+            url: "/FoodFinder/mostrarEditarComentario/"+id,
+            method: 'GET',
+            success: function (data) {
+                document.getElementById("usuario").innerHTML=data["usuario"];
+                document.getElementById("comedor").innerHTML=data["comedor"];
+                document.getElementById("comentario").innerHTML=data["comentario"];
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                console.log(errorThrown);
+            }
+        });
+        $("#div_editar").show();
+    });
+	$(".eliminar").click(function(){
+        var id=this.id;
+        jQuery.ajax({
+            url: "/FoodFinder/eliminarComentario/"+id,
+            type: 'DELETE',
+            success: function (data) {
+				$('#comentario'+id).hide()
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                console.log(errorThrown);
+            }
+        });
+    });
+	$(".editarComentario").click(function(){
+        var id=this.id;
+		var comentario=document.getElementById("comentario").value;
+        jQuery.ajax({
+            url: "/FoodFinder/editarComentario/",
+            type: 'POST',
+			data: {
+				csrfmiddlewaretoken: '{{csrf_token}}',
+				'idComen': id,
+				'comentario': comentario
+			},
+			success: function (data) {
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                console.log(errorThrown);
+            }
+        });
+    });
+	$(".aceptar").click(function(){
+        var id=this.id;
+		jQuery.ajax({
+            url: "/FoodFinder/aceptarComentario/",
+            type: 'POST',
+			data: {
+				csrfmiddlewaretoken: '{{csrf_token}}',
+				'idComen': id,
+			},
+			success: function (data) {
+				$('#comentario'+id).hide();
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                console.log(errorThrown);
+            }
+        });
+	});
+});
+</script>

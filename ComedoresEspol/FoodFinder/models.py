@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from django.db import models
 
+
 # Create your models here.
 class Facultad(models.Model):
     nombre=models.CharField(max_length=30)
@@ -51,8 +52,6 @@ class Usuario(models.Model):
     )
     rol=models.CharField(max_length=10, choices=ROLES, default="Estudiante")
 
-    def __str__(self):
-        return 'Usuario: {}'.format(self.nombre)
 
 class Denuncia(models.Model):
     usuario=models.ForeignKey(Usuario, on_delete=models.CASCADE,default="1")

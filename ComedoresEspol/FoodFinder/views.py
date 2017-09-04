@@ -165,7 +165,7 @@ def loginUser(request):
         clave = request.POST['password']
         user = authenticate(username=nombre, password=clave)
         if user is not None:
-            usuario = Usuario.objects.get(nombre=nombre);
+            usuario = Usuario.objects.get(nombreUsu=nombre);
             if usuario is not None:
                 login(request, user)
                 if usuario.tipo == "moderador":
@@ -351,8 +351,10 @@ def sesionCliente(request):
         usuarioValido = usuario
     else:
         return redirect('FoodFinder:login')
+    facultades = Facultad.objects.all()
     context = {
         'usuario': usuarioValido,
+        'facultades': facultades
     }
     return HttpResponse(template.render(context, request))
 
@@ -446,19 +448,24 @@ def modificarUsuario(request):
     return HttpResponse(template.render(context, request))
 
 def modificar(request):
-    if(request.POST):
-        usuario=Usuario.objects.get(id=request.POST.get('usuarioId'));
-        usuario.nombreUsu = request.POST.get('usuario')
-        usuario.nombre = request.POST.get('nombre')
-        usuario.apellido = request.POST.get('apellido')
-        usuario.correo = request.POST.get('correo')
-        facultadId = request.POST.get('facultad')
-        usuario.facultad = Facultad.objects.get(id=facultadId)
-        usuario.rol = request.POST.get('rol')
+    usuario=Usuario.objects.get(id=int(request.GET.get('usuarioId')));
+    usuario.nombre = request.GET.get('nombre')
+    usuario.apellido = request.GET.get('apellido')
+    usuario.correo = request.GET.get('correo')
+    facultad = request.GET.get('facultad')
+    usuario.facultad = Facultad.objects.get(nombre = facultad)
+    usuario.rol = request.GET.get('rol')
+    usuario.save()
+    data = {
+        'nombre': usuario.nombre,
+        'apellido': usuario.apellido,
+        'correo': usuario.correo,
+        'facultad': usuario.facultad.nombre,
+        'rol': usuario.rol
+    }
 
-        usuario.save()
-        messages.success(request, 'Editado correctamente!')
-    return redirect('/FoodFinder/cliente/')
+    return JsonResponse(data)
+    #return redirect('/FoodFinder/cliente/')
 
 def mostrarComentarios(request):
     template=loader.get_template('FoodFinder/comentarios.html')
@@ -510,7 +517,7 @@ def ajaxEditarComentario(request):
     comentario.save()
     data = {
         'msj': "Comentario editado correctamente"
-        }
+    }
     return JsonResponse(data)
 def ajaxAceptarComentario(request):
     idComen=request.POST.get('idComen',None)
