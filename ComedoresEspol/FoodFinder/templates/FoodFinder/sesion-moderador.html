@@ -6,38 +6,44 @@
 	<p>{{ hello.nombre }} - Moderador</p>
 {% endblock %}
 {% block contenido %}
-<div class="col-md-6">
-	<div>
-		<h3> Denuncias Reportadas</h3><br>
+<div class="row">
+	<div class="col-lg-6">
 		<div>
-			<table id="tablaQuery" class="display table table-hover">
-			    <thead>
-			        <tr>
-			            <th>Fecha</th>
-			            <th>Comedor</th>
-			            <th>Quejas y denuncias</th>
-						<th></th>
-			        </tr>
-			    </thead>
-			    <tbody>
-			        {% for d in denuncias %}
-			        	<tr>
-			        		<td>{{ d.comedor }}</td>
-			        		<td>{{ d.fecha_den }}</td>
-			        		<td>{{ d.denuncia }}</td>
-							<td><button type="button" class="btn btn-default btn-sm">
-								<span class="glyphicon glyphicon-envelope"></span> Enviar
-        						</button>
-							</td>
-						</tr>
-			        {% endfor %}
+			<h3> Denuncias Reportadas</h3><br>
+			<div>
+				<table id="tablaQuery" class="display table table-hover">
+				    <thead>
+				        <tr>
+				            <th>Fecha</th>
+				            <th>Comedor</th>
+				            <th>Quejas y denuncias</th>
+							<th></th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        {% for d in denuncias %}
+				        	<tr>
+				        		<td>{{ d.comedor }}</td>
+				        		<td>{{ d.fecha_den }}</td>
+				        		<td>{{ d.denuncia }}</td>
+								<td><input type="checkbox" id="denunciaCheck" name="denunciaCheck" onClick="checkbox();" value="{{d.denuncia}}">
+								</td>
+							</tr>
+				        {% endfor %}
 
-			    </tbody>
-			</table>
+				    </tbody>
+				</table>
+			</div>
 		</div>
 	</div>
+	<div class="col-lg-6">
+		<form>
+		<textarea type="text" id="show" name="vehicle"></textarea></br>
+		<input type="submit" value="Enviar">
+		</form>
+	</div>
 </div>
-<div class="platillos-disp col-md-5">
+<div class="platillos-disp col-lg-5">
 	<h3>Numero de Denuncias por Comedores</h3><br>
 	<div id="piechart"></div>
 </div>
@@ -66,5 +72,21 @@ function drawChart() {
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
   chart.draw(data, options);
 }
+
+function checkbox(){
+
+  var checkboxes = document.getElementsByName('denunciaCheck');
+  var checkboxesChecked = [];
+  // loop over them all
+  for (var i=0; i<checkboxes.length; i++) {
+     // And stick the checked ones onto an array...
+     if (checkboxes[i].checked) {
+        checkboxesChecked.push(checkboxes[i].value);
+     }
+  }
+  document.getElementById("show").value = checkboxesChecked;
+
+}
 </script>
+
 {% endblock %}
