@@ -173,6 +173,8 @@ def loginUser(request):
                     return redirect('FoodFinder:admin')
                 if usuario.tipo == "cliente":
                     return redirect('FoodFinder:cliente')
+                if usurio.tipo=="super-user":
+                    return redirect('Foodfinder:cliente')
         else:
             notice='Ingreso Invalido'
     else:
@@ -372,6 +374,21 @@ def estadisticasAdmin(request):
         'descrip':'todo bien',
     }
     return JsonResponse(data)
+
+def sesionSuper(request):
+    template = loader.get_template('FoodFinder/sesion-super.html')
+    try:
+        usuario = Usuario.objects.get(nombre=request.user.username)
+    except Usuario.DoesNotExist:
+        usuario = None
+    if usuario is not None:
+        usuarioValido = usuario
+    else:
+        return redirect('FoodFinder:login')
+    context = {
+        'usuario': usuarioValido,
+    }
+    return HttpResponse(template.render(context, request))
 
 
 

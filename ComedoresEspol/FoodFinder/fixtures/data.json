@@ -50,6 +50,20 @@
 			"rol":"Docente"
 		}
 	},
+	{
+		"model":"FoodFinder.Usuario",
+		"pk":5,
+		"fields":{
+			"comedor":"2",
+			"nombreUsu":"johansito",
+			"nombre":"Johansito",
+			"apellido":"Canales",
+			"correo":"johanalejandro@me.com",
+			"tipo":"super-user",
+			"rol":"Docente"
+		}
+
+	},
 
 	{
 		"model":"FoodFinder.Facultad",

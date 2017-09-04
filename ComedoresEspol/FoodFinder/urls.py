@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^admin/actualizarUbicacion$', views.actualizarUbicacion, name='actualizarUbicacion'),
     url(r'^admin/MenuDelDiaAdmin$', views.MenuDelDiaAdmin, name='MenuDelDiaAdmin'),
     url(r'^admin/estadisticasAdmin$', views.estadisticasAdmin, name='estadisticasAdmin'),
+    url(r'^super/$', views.sesionSuper, name='super'),
     url(r'^cliente/$', views.sesionCliente, name='cliente'),
     url(r'^cliente/modificarUsuario$', views.modificar, name='modificarUsuario'),
     url(r'^platillo/(?P<pId>[0-9]+)$', views.platilloInfo, name='platillo'),
