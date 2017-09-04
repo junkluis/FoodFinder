@@ -11,6 +11,8 @@ from django.http import JsonResponse
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 def index(request):
     template = loader.get_template('FoodFinder/index.html')
@@ -295,6 +297,7 @@ def sesionAdmin(request):
         usuario = None
     facultades = Facultad.objects.all()
     usuarios=Usuario.objects.all()
+    platillos = Platillo.objects.filter(comedor = comedorUsr)
     facUsu={}
     for usu in usuarios:
         fac=usu.facultad
@@ -309,6 +312,7 @@ def sesionAdmin(request):
         'usuario': usuarioValido,
         'facultades': facUsu,
         'comedor': comedorUsr,
+        'platillos': platillos,
     }
     return HttpResponse(template.render(context, request))
 

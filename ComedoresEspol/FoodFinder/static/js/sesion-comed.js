@@ -134,3 +134,9 @@ function guardarNuevaUbicacion(Oldlat, Oldlot){
           });
 
 }
+
+function fileUpload(){
+  var myFile = $('#plato-image').prop('files');
+  console.log(myFile);
+
+}

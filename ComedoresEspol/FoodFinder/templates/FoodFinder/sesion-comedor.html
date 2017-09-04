@@ -12,12 +12,12 @@
 {% endblock %}
 
 {% block extraMenu %}
-	<li><a href="{% url 'FoodFinder:MenuDelDiaAdmin' %}">Menu del Dia</a></li>
-	<li><a href="{% url 'FoodFinder:estadisticasAdmin' %}">Estadisticas</a></li>
+	<li><a href="#AgregarPlatillos">Menu del Dia</a></li>
+	<li><a href="#Estadisticas">Estadisticas</a></li>
 {% endblock %}
 
 {% block contenido %}
-<div class="row contenidoSesionComed">
+<div class="row contenidoSesionComed" id="inicio">
 	<div class="col-md-6 col-lg-6">
 		<table class="table table-hover">
 		    <thead>
@@ -139,6 +139,79 @@
 		</div>
 	</div>
 </div>
+<hr class="coolHr">
+<div class="row contenidoSesionComed" id="AgregarPlatillos">
+	<div class="col-md-6 col-lg-6">
+		<h4 class="tabla-tit">Nuevo Platillo</h4>
+		<form class="form-horizontal" style="width: 80%">
+		  <div class="form-group">
+		    <label class="control-label col-sm-4">Titulo del Platillo:</label>
+		    <div class="col-sm-8">
+		      <input type="email" class="form-control" placeholder="Yapingacho">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="control-label col-sm-4">Tipo:</label>
+		    <div class="col-sm-8"> 
+		      <input type="text" class="form-control" placeholder="Alumerzo, desayuno, postre, etc..">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="control-label col-sm-4">Precio:</label>
+		    <div class="col-sm-8"> 
+		      <input type="text" class="form-control" placeholder="en dólares">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="control-label col-sm-4">Cantidad disponible:</label>
+		    <div class="col-sm-8"> 
+		      <input type="number" class="form-control">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="control-label col-sm-4">Imagen:</label>
+		    <div class="col-sm-8"> 
+		      <input type="file" class="form-control" id="#plato-image" placeholder="Alumerzo, desayuno, postre, etc..">
+		    </div>
+		  </div>
+		  <div class="form-group"> 
+		    <div class="col-sm-offset-10 col-sm-3">
+		      <button type="button" onclick="fileUpload()" class="btn btn-default">Submit</button>
+		    </div>
+		  </div>
+		</form>
+	</div>
+	<div class="col-md-6 col-lg-6">
+		<h4 class="tabla-tit">Platillos disponibles</h4>
+		<div class="platillos">
+			{% for plato in platillos %}
+			<div class="plato-neo row">
+				<div class="imgenneo col-md-5" style="width: 35%">
+					<img src="{% static "gallery/photo-1.jpg" %}" alt="logo" width="200" />
+				</div>
+				<div class="col-md-7">
+					<h4>{{plato.titulo}}</h4>
+					<ul style="list-style: none">
+						<li><span class="glyphicon glyphicon-blackboard"></span> ${{plato.precio}}</li>
+						<li><span class="glyphicon glyphicon-apple"></span> {{plato.tipo}}</li>
+						<li><span class="glyphicon glyphicon-star"></span> {{plato.valoracion}}</li> 
+					</ul>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+<hr class="coolHr">
+<div class="row contenidoSesionComed" id="Estadisticas">
+	<div class="col-md-6 col-lg-6">
+		<h1>holis</h1>
+	</div>
+	<div class="col-md-6 col-lg-6">
+		<h1>holis</h1>
+	</div>
+</div>
+
 {% endblock %}
 {% block ExtraScript %}
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

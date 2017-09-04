@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 from django.contrib.auth.views import login
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 app_name = 'FoodFinder'
@@ -39,3 +41,7 @@ urlpatterns = [
     url(r'^editarComentario/$', views.ajaxEditarComentario, name='editarComentario'),
     url(r'^aceptarComentario/$', views.ajaxAceptarComentario, name='aceptarComentario'),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
