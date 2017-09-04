@@ -6,7 +6,16 @@
 {% endblock %}
 {% block contenido %}
 <div class="row">
-    <div class="col-lg-5 col-sm-6 col-xs-11" id="informacion">
+    {% for message in messages %}
+      <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+      </div>
+    {% endfor %}
+
+    <div class="col-lg-6 col-sm-6 col-xs-11" id="informacion">
         <h3>Información de contacto</h3>
         <p id="info">Nombre: {{usuario.nombre}}<br>
         Apellido: {{usuario.apellido}}<br>
@@ -15,7 +24,7 @@
         Rol: {{usuario.rol}}<br></p>
         <a href="{% url 'FoodFinder:modificarUsuario' %}">modificar</a>
     </div>
-    <div class="col-lg-5 col-sm-6 col-xs-11" id="enlaces">
+    <div class="col-lg-6 col-sm-6 col-xs-11" id="enlaces">
         <h3>Enlaces</h3>
         <a href="{% url 'FoodFinder:valoracion' %}">Valorar platillos</a><br>
         <a href="{% url 'FoodFinder:denuncia' %}">Enviar una denuncia</a>

@@ -6,24 +6,37 @@
 {% endblock %}
 {% block contenido %}
 <div class="row">
+	{% for message in messages %}
+      <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+      </div>
+    {% endfor %}
+
 	<div class="info-comedor col-lg-12">
 		<h2>{{ nombre }}</h2>
 		<h4>{{ tipo }}</h4><hr>
 	</div>
-	<div class="info-comedor col-lg-6">
-		<ul>
-			<li><span class="glyphicon glyphicon-map-marker"></span> {{ facultad }}</li>
-			<li><span class="glyphicon glyphicon-cutlery"></span> {{ descripcion }}</li>
-			<li><span class="glyphicon glyphicon-time"></span> Horario: {{ hora_ini }} - {{ hora_fin }}</li>
-			<li><span class="glyphicon glyphicon-usd"></span> Promedio de Precios: $3.00</li>
-			{% if ayudantes %}
-				<li><span class="glyphicon glyphicon-ok"></span> Aceptamos Ayudantes</li>
-			{% endif %}
-			<li><a href="{% url 'FoodFinder:comedoresC' %}">Buscar en mapa</a></li>
-		</ul>
-	</div>
-	<div class="info-comedor col-lg-6">
-		<img class="logo-facultad center-block img-responsive" src="{% static logo %}" alt="logo-facultad">
+	<div class="info-comedor col-lg-12">
+		<div class="row">
+			<div class="col-lg-6">
+				<ul>
+					<li><span class="glyphicon glyphicon-map-marker"></span> {{ facultad }}</li>
+					<li><span class="glyphicon glyphicon-cutlery"></span> {{ descripcion }}</li>
+					<li><span class="glyphicon glyphicon-time"></span> Horario: {{ hora_ini }} - {{ hora_fin }}</li>
+					<li><span class="glyphicon glyphicon-usd"></span> Promedio de Precios: $3.00</li>
+					{% if ayudantes %}
+						<li><span class="glyphicon glyphicon-ok"></span> Aceptamos Ayudantes</li>
+					{% endif %}
+					<li><a href="{% url 'FoodFinder:comedoresC' %}">Buscar en mapa</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-6">
+				<img class="logo-facultad center-block img-responsive" src="{% static logo %}" alt="logo-facultad">
+			</div>
+		</div>
 	</div>
 	<div class="platillos-disp col-md-7">
 		<h3>Platillos disponibles</h3>
@@ -58,7 +71,7 @@
 		{% endif %}
 	{% endfor %}
 	</div>
-	<div id="formulario" class="col-md-12">
+	<div id="formulario" class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 		<form role="form" action="{% url 'FoodFinder:guardarComentario' %}" method="POST">{% csrf_token %}
 			<input id="comId" type="text" name="comId" value='{{ comId }}' />
 			<div>

@@ -10,6 +10,7 @@ from .forms import UserForm
 from django.http import JsonResponse
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib import messages
 
 def index(request):
     template = loader.get_template('FoodFinder/index.html')
@@ -413,15 +414,17 @@ def comedorInfo(request, comId):
     return  HttpResponse(template.render(context, request))
 
 def guardarComentario(request):
-    comen = Comentario()
-    comId = request.POST.get('comId')
-    comen.comedor = Comedor.objects.get(id=comId)
-    #comen.usuario = Usuario.objects.get(id=request.user.id);
-    comen.usuario = Usuario.objects.get(id=request.POST.get('usuarioId'));
-    #comen.usuario = request.POST.get('usuario')
-    comen.comentario = request.POST.get('comentario')
-    comen.aceptado=0
-    comen.save()
+    if (request.POST):
+        comen = Comentario()
+        comId = request.POST.get('comId')
+        comen.comedor = Comedor.objects.get(id=comId)
+        #comen.usuario = Usuario.objects.get(id=request.user.id);
+        comen.usuario = Usuario.objects.get(id=request.POST.get('usuarioId'));
+        #comen.usuario = request.POST.get('usuario')
+        comen.comentario = request.POST.get('comentario')
+        comen.aceptado=0
+        comen.save()
+        messages.success(request, 'Su comentario se guardó correctamente!')
     return redirect('/FoodFinder/comedor/'+comId)
 
 def modificarUsuario(request):
@@ -443,16 +446,18 @@ def modificarUsuario(request):
     return HttpResponse(template.render(context, request))
 
 def modificar(request):
-    usuario=Usuario.objects.get(id=request.POST.get('usuarioId'));
-    usuario.nombreUsu = request.POST.get('usuario')
-    usuario.nombre = request.POST.get('nombre')
-    usuario.apellido = request.POST.get('apellido')
-    usuario.correo = request.POST.get('correo')
-    facultadId = request.POST.get('facultad')
-    usuario.facultad = Facultad.objects.get(id=facultadId)
-    usuario.rol = request.POST.get('rol')
+    if(request.POST):
+        usuario=Usuario.objects.get(id=request.POST.get('usuarioId'));
+        usuario.nombreUsu = request.POST.get('usuario')
+        usuario.nombre = request.POST.get('nombre')
+        usuario.apellido = request.POST.get('apellido')
+        usuario.correo = request.POST.get('correo')
+        facultadId = request.POST.get('facultad')
+        usuario.facultad = Facultad.objects.get(id=facultadId)
+        usuario.rol = request.POST.get('rol')
 
-    usuario.save()
+        usuario.save()
+        messages.success(request, 'Editado correctamente!')
     return redirect('/FoodFinder/cliente/')
 
 def mostrarComentarios(request):
@@ -465,13 +470,17 @@ def mostrarComentarios(request):
         usuarioValido = usuario
     else:
         return redirect('FoodFinder:login')
-    comentarios = Comentario.objects.all()
+    comentariosT = Comentario.objects.all()
+    comentarios=[]
+    for com in comentariosT:
+        #Comentarios que aun no han sido aceptados por el moderador
+        if com.aceptado == 0:
+            comentarios.append(com)
     context = {
         'usuario': usuarioValido,
         'comentarios':comentarios,
     }
     return  HttpResponse(template.render(context, request))
-
 def ajaxMostrarEditarComentario(request,idComen):
     #idCom=request.POST.get('idComentario',None)
     comentario=Comentario.objects.get(id=idComen)

@@ -1,13 +1,17 @@
 div#informacion {
     border-top: 5px solid #d60651;
     margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     padding: 15px;
     background-color: #f8f8f8;
 }
+
 div#enlaces{
     border-top: 5px solid #d60651;
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
     padding: 15px;
     background-color: #f8f8f8;
 }
