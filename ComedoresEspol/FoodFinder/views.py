@@ -149,12 +149,9 @@ def contacto (request):
         mensaje_contacto=  request.POST.get('message')
         email_envio=[email_host,correo_contacto]
         send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=False)
-        notice="Gracias por contactarnos!"
-    else:
-        notice='Envio fallido'
+        messages.success(request, 'Gracias por contactarnos!')
     context = {
         'usuario': usuarioValido,
-        'notice':notice
     }
     return HttpResponse(template.render(context, request))
 
@@ -255,12 +252,14 @@ def denuncia(request):
     return HttpResponse(template.render(context, request))
 
 def guardarDenuncia(request):
-    den = Denuncia()
-    den.comedor = request.POST.get('comedor')
-    den.fecha_den = request.POST.get('fecha_den')
-    den.denuncia = request.POST.get('denuncia')
+    if (request.POST):
+        den = Denuncia()
+        den.comedor = request.POST.get('comedor')
+        den.fecha_den = request.POST.get('fecha_den')
+        den.denuncia = request.POST.get('denuncia')
 
-    den.save()
+        den.save()
+        messages.success(request, 'Su denuncia se envió correctamente!')
     return redirect('/FoodFinder/denuncia/')
 
 def sesionModerador(request):
@@ -541,17 +540,17 @@ def ajaxEliminarComentario(request, idComen):
         }
     return JsonResponse(data)
 def ajaxEditarComentario(request):
-    idComen=request.POST.get('idComen',None)
-    coment=request.POST.get('comentario',None)
+    idComen=request.GET.get('idComen',None)
+    coment=request.GET.get('comentario',None)
     comentario=Comentario.objects.get(id=idComen)
     comentario.comentario=coment
     comentario.save()
     data = {
-        'msj': "Comentario editado correctamente"
+        'comentario': coment
     }
     return JsonResponse(data)
 def ajaxAceptarComentario(request):
-    idComen=request.POST.get('idComen',None)
+    idComen=request.GET.get('idComen',None)
     comentario=Comentario.objects.get(id=idComen)
     comentario.aceptado=1;
     comentario.save()

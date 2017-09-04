@@ -95,9 +95,9 @@ WSGI_APPLICATION = 'ComedoresEspol.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'FoodFinder',
-        'USER': 'root',
-        'PASSWORD': 'admin',
+        'NAME': 'proyecto',
+        'USER': 'anrosant',
+        'PASSWORD': 'sistema',
         'HOST': 'localhost',
         'PORT': '',
     }
