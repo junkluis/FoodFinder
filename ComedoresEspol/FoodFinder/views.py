@@ -318,6 +318,8 @@ def actualizarInfoAdmin(request):
     especialidad = request.GET.get("especialidad")
     Nombrefac = request.GET.get("facultad")
     ayudantes = request.GET.get("ayudantes")
+    horaInicio = request.GET.get("horaInicio")
+    horaCierre = request.GET.get("horaCierre")
     comedorPk = int(request.GET.get("comedorPk"))
 
     facultad = Facultad.objects.get(nombre = Nombrefac)
@@ -329,14 +331,43 @@ def actualizarInfoAdmin(request):
     else:
         comedor.ayudantes = False
     comedor.tipo = especialidad
+    comedor.hora_ini = horaInicio
+    comedor.hora_fin = horaCierre
     comedor.save()
     data = {
         'descrip':descrip,
         'especialidad':especialidad,
         'Nombrefac':Nombrefac,
         'ayudantes':ayudantes,
+        'hora_ini':horaInicio,
+        'hora_fin':horaCierre,
     }
 
+    return JsonResponse(data)
+
+def actualizarUbicacion(request):
+    newLat = float(request.GET.get("newLat"))
+    newLon = float(request.GET.get("newLon"))
+    comedorPk = request.GET.get("comedorPk")
+    comedor = Comedor.objects.get(pk = comedorPk)
+    comedor.latitud = newLat
+    comedor.longitud = newLon
+    comedor.save()
+    data = {
+        'descrip':'todo bien',
+    }
+    return JsonResponse(data)
+
+def MenuDelDiaAdmin(request):
+    data = {
+        'descrip':'todo bien',
+    }
+    return JsonResponse(data)
+
+def estadisticasAdmin(request):
+    data = {
+        'descrip':'todo bien',
+    }
     return JsonResponse(data)
 
 

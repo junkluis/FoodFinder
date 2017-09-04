@@ -5,10 +5,17 @@
 <link href="{% static "css/estilo-sesion-comedor.css" %}" rel="stylesheet">
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 {% endblock %}
+
 {% block Encabezado %}
-	<h1 class="comedorAdmin" data-pk="{{ comedor.pk }}">{{comedor.nombre}}</h1>
+	<h1 class="comedorAdmin" data-pk="{{ comedor.pk }}" data-lat="{{ comedor.latitud }}" data-lon="{{ comedor.longitud }}">{{comedor.nombre}}</h1>
 	<p>Bienvenido moderador {{ usuario.nombre }} {{ usuario.apellido }}</p>
 {% endblock %}
+
+{% block extraMenu %}
+	<li><a href="{% url 'FoodFinder:MenuDelDiaAdmin' %}">Menu del Dia</a></li>
+	<li><a href="{% url 'FoodFinder:estadisticasAdmin' %}">Estadisticas</a></li>
+{% endblock %}
+
 {% block contenido %}
 <div class="row contenidoSesionComed">
 	<div class="col-md-6 col-lg-6">
@@ -19,13 +26,13 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <tr>
+		      <tr id="row-desc">
 		        <td class="comd-info">Descripción</td>
 		        <td id="InfoDesc">{{comedor.descripcion}}</td>
 		      </tr>
 		      <tr>
 		        <td class="comd-info">Horario</td>
-		        <td id="InfoHora">{{comedor.hora_ini}} - {{comedor.hora_ini}}</td>
+		        <td id="InfoHora">{{comedor.hora_ini|time:'H:i'}} - {{comedor.hora_fin|time:'H:i'}}</td>
 		      </tr>
 		      <tr>
 		        <td class="comd-info">Tipo</td>
@@ -80,11 +87,12 @@
 							</div>
 							<div class="form-group">
 								<label>Hora de Inicio:</label>
-								<input type="time" class="form-control" required="required">
+								<input type="time" id="Act-horaInicio" class="form-control" required="required" value="{{comedor.hora_ini|time:'H:i'}}">
+
 							</div>
 							<div class="form-group">
 								<label>Hora de Cierre:</label>
-								<input type="time" class="form-control" required="required">
+								<input type="time" id="Act-horaCierre" class="form-control" required="required" value="{{comedor.hora_fin|time:'H:i'}}">
 							</div>
 							<div class="checkbox" id="Act-ayudantes">
 								<label><input type="checkbox" id="ayudantes" data-toggle="toggle">  Aceptamos Ayudantes</label>
@@ -98,6 +106,37 @@
 				</div>
 			</div>
 		</div>
+		<!-- UBICACION -->
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#editarUbicacion">
+			<span class="glyphicon glyphicon-map-marker"></span> Cambiar ubicación
+		</button>
+		<!-- EDITAR UBICACION MODAL -->
+		<div class="modal fade" id="editarUbicacion" tabindex="-100" role="dialog"  aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4>Editar Ubicación</h4>
+					</div>
+					<form>
+						<div class="modal-body">
+							<!-- FORMULARIO -->
+							<div id="nuevaUbicacion" style="height: 300px; width: 100%;"></div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-success" onclick="setUbicacion()">Ubicacion Actual</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="guardarNuevaUbicacion({{ comedor.latitud }},{{ comedor.longitud }})">Guardar Nueva Ubicacion</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 col-lg-6">
+		<h4 class="tabla-tit"><b>Ubicación</b></h4>
+		<div>
+			<div id="miUbicacion" style="height: 300px; width: 100%;"></div>
+		</div>
 	</div>
 </div>
 {% endblock %}
@@ -105,26 +144,7 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <script src="{% static "js/sesion-comed.js" %}"></script>
-<script type="text/javascript">
-// Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-// Draw the chart and set the chart values
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
-  ['Facultados', 'Usuarios'],
-  {% for f,n in facultades.items %}
-  ['{{f.nombre}}',{{n}}],
-  {% endfor %}
-]);
-
-  // Optional; add a title and set the width and height of the chart
-  var options = {'width':550, 'height':400};
-
-  // Display the chart inside the <div> element with id="piechart"
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
-}
-</script>
+ <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuKMTTgBEGbT5Ry3SNsBr2rUy2aLpb4Rw&callback=initMap">
+    </script>
 {% endblock %}
