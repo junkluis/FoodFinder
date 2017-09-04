@@ -173,8 +173,8 @@ def loginUser(request):
                     return redirect('FoodFinder:admin')
                 if usuario.tipo == "cliente":
                     return redirect('FoodFinder:cliente')
-                if usurio.tipo=="super-user":
-                    return redirect('Foodfinder:cliente')
+                if usuario.tipo=="super-user":
+                    return redirect('FoodFinder:super')
         else:
             notice='Ingreso Invalido'
     else:
