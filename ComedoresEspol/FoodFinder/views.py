@@ -431,7 +431,11 @@ def comedorInfo(request, comId):
     comedor = Comedor.objects.get(id=comId)
     facultad = comedor.facultad
     platillos = Platillo.objects.all()
-    comentarios = Comentario.objects.all()
+    coments = Comentario.objects.all()
+    comentarios=[]
+    for com in coments:
+        if com.comedor.nombre == comedor.nombre:
+            comentarios.append(com)
     context = {
         'usuario': usuarioValido,
         'platillos':platillos,

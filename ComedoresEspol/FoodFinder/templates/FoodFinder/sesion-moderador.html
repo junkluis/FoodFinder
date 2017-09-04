@@ -10,12 +10,13 @@
 	<div>
 		<h3> Denuncias Reportadas</h3><br>
 		<div>
-			<table id="tablaQuery" class="display">
+			<table id="tablaQuery" class="display table table-hover">
 			    <thead>
 			        <tr>
 			            <th>Fecha</th>
 			            <th>Comedor</th>
 			            <th>Quejas y denuncias</th>
+						<th></th>
 			        </tr>
 			    </thead>
 			    <tbody>
@@ -24,7 +25,11 @@
 			        		<td>{{ d.comedor }}</td>
 			        		<td>{{ d.fecha_den }}</td>
 			        		<td>{{ d.denuncia }}</td>
-			        	</tr>
+							<td><button type="button" class="btn btn-default btn-sm">
+								<span class="glyphicon glyphicon-envelope"></span> Enviar
+        						</button>
+							</td>
+						</tr>
 			        {% endfor %}
 
 			    </tbody>
@@ -55,7 +60,7 @@ function drawChart() {
 ]);
 
   // Optional; add a title and set the width and height of the chart
-  var options = {'width':550, 'height':400};
+  var options = {'width':500, 'height':400};
 
   // Display the chart inside the <div> element with id="piechart"
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));

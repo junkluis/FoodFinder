@@ -7,12 +7,6 @@
 {% block contenido %}
 <div class="row">
     <div class="col-lg-6 col-sm-6 col-xs-11" id="informacion">
-        <!--h3>Información de contacto</h3>
-        <p id="info">Nombre: {{usuario.nombre}}<br>
-        Apellido: {{usuario.apellido}}<br>
-        Correo: {{usuario.correo}}<br>
-        Facultad: {{usuario.facultad.nombre}}<br>
-        Rol: {{usuario.rol}}<br></p-->
         <table class="table table-hover">
 		    <thead>
 		      <tr>
@@ -49,7 +43,7 @@
         </button>
     </div>
     <div class="col-lg-6 col-sm-6 col-xs-11" id="enlaces">
-        <h3>Enlaces</h3>
+        <h5>Enlaces</h5>
         <a href="{% url 'FoodFinder:valoracion' %}">Valorar platillos</a><br>
         <a href="{% url 'FoodFinder:denuncia' %}">Enviar una denuncia</a>
     </div>
