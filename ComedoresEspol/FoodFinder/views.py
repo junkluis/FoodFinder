@@ -302,7 +302,7 @@ def sesionAdmin(request):
         usuario = None
     facultades = Facultad.objects.all()
     usuarios=Usuario.objects.all()
-    platillos = Platillo.objects.filter(comedor = comedorUsr)
+    platillos = Platillo.objects.filter(comedor = comedorUsr).order_by('valoracion')
     facUsu={}
     for usu in usuarios:
         fac=usu.facultad

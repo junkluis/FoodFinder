@@ -189,15 +189,15 @@
 			<div class="plato-neo row">
 				<div class="imgenneo col-md-5" style="width: 35%">
 				{% if  plato.imgPlatillo %}
-					<img src="{{ plato.imgPlatillo.url }}" alt="logo" width="200" style="height: 200px" />
+					<img src="{{ plato.imgPlatillo.url }}" alt="logo" width="200" height="150" />
 				{% endif %}
 				</div>
 				<div class="col-md-7">
 					<h4>{{plato.titulo}}</h4>
 					<ul style="list-style: none">
-						<li><span class="glyphicon glyphicon-blackboard"></span> ${{plato.precio}}</li>
-						<li><span class="glyphicon glyphicon-apple"></span> {{plato.tipo}}</li>
-						<li><span class="glyphicon glyphicon-star"></span> {{plato.valoracion}}</li> 
+						<li><img src="http://www.iconsdb.com/icons/preview/black/banknotes-xxl.png" width="20" /></span> <b>Precio:</b> ${{plato.precio}}</li>
+						<li><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/551389-200.png" width="20" /></span> <b>Tipo: </b> {{plato.tipo}}</li>
+						<li><span class="glyphicon glyphicon-star"></span> <b>Valoracion: </b>{{plato.valoracion}}</li> 
 					</ul>
 				</div>
 			</div>
@@ -207,11 +207,9 @@
 </div>
 <hr class="coolHr">
 <div class="row contenidoSesionComed" id="Estadisticas">
-	<div class="col-md-6 col-lg-6">
-		<h1>holis</h1>
-	</div>
-	<div class="col-md-6 col-lg-6">
-		<h1>holis</h1>
+	<div class="col-md-11 col-lg-11">
+		<h1 class="tabla-tit">Estadisticas</h1>
+		<div id="piechart" style="width: 900px; height: 500px;"></div>
 	</div>
 </div>
 
@@ -222,5 +220,28 @@
 <script src="{% static "js/sesion-comed.js" %}"></script>
  <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuKMTTgBEGbT5Ry3SNsBr2rUy2aLpb4Rw&callback=initMap">
+</script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Facultad', 'Usuarios'],
+          {% for key,value in facultades.items %}
+	          {% if key %}
+	          	['{{ key }}', {{ value }}],
+	          {% endif %}
+		  {% endfor %}
+        ]);
+
+        var options = {
+          title: 'Clientes por Facultad'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
     </script>
 {% endblock %}

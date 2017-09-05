@@ -27,6 +27,6 @@ hr.coolHr {
 }
 
 .platillos{
-	max-height: 1000px;
+	max-height: 400px;
 	overflow: auto; 
 }

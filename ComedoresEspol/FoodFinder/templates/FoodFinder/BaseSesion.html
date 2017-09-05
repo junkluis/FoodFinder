@@ -21,7 +21,7 @@
 					  <li><a href="{% url 'FoodFinder:comentarios' %}">Comentarios</a></li>
 					  {% endif %}
 					  {% block extraMenu %}{% endblock %}
-					  <li style="float:right"><a href="{% url 'FoodFinder:login'%}"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
+					  <li style="float:right"><a href="{% url 'FoodFinder:cerrarSesion'%}"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
 					  {% if usuario.tipo == "moderador" %}
 					  <li class="dropdown" style="float:right">
 					    <a href="" class="dropbtn"><span class="glyphicon glyphicon-user"></span> Sandrita</a>
