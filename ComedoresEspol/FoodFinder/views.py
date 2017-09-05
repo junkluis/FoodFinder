@@ -14,6 +14,9 @@ from django.contrib import messages
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
+
+IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
+
 def index(request):
     template = loader.get_template('FoodFinder/index.html')
     try:
@@ -358,6 +361,31 @@ def actualizarUbicacion(request):
     comedor.latitud = newLat
     comedor.longitud = newLon
     comedor.save()
+    data = {
+        'descrip':'todo bien',
+    }
+    return JsonResponse(data)
+
+def crearPlatillo(request):
+    imagenPlato = request.FILES.get('imagenPlato')
+    tituloP = request.POST.get('titulo')
+    tipoP = request.POST.get('tipo')
+    precioP = request.POST.get('precio')
+    cantidadP = request.POST.get('cantidad')
+
+    #nuevo platillo
+    platillo = Platillo()
+    platillo.comedor = Comedor.objects.get(pk=1)
+    platillo.titulo = tituloP
+    platillo.tipo = tipoP
+    platillo.precio = precioP
+    platillo.cantidad = cantidadP
+    platillo.imagen = ''
+    platillo.valoracion = 0
+    platillo.imgPlatillo = imagenPlato
+    platillo.save()
+
+
     data = {
         'descrip':'todo bien',
     }

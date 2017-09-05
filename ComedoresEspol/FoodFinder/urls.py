@@ -1,8 +1,6 @@
 from django.conf.urls import url
 from . import views
 from django.contrib.auth.views import login
-from django.conf import settings
-from django.conf.urls.static import static
 
 
 app_name = 'FoodFinder'
@@ -28,6 +26,7 @@ urlpatterns = [
     url(r'^admin/actualizarUbicacion$', views.actualizarUbicacion, name='actualizarUbicacion'),
     url(r'^admin/MenuDelDiaAdmin$', views.MenuDelDiaAdmin, name='MenuDelDiaAdmin'),
     url(r'^admin/estadisticasAdmin$', views.estadisticasAdmin, name='estadisticasAdmin'),
+    url(r'^admin/crearPlatillo$', views.crearPlatillo, name='crearPlatillo'),
     url(r'^super/$', views.sesionSuper, name='super'),
     url(r'^cliente/$', views.sesionCliente, name='cliente'),
     url(r'^cliente/modificarUsuario$', views.modificar, name='modificarUsuario'),
@@ -41,8 +40,4 @@ urlpatterns = [
     url(r'^eliminarComentario/(?P<idComen>[0-9]+)$', views.ajaxEliminarComentario, name='eliminarComentario'),
     url(r'^editarComentario/$', views.ajaxEditarComentario, name='editarComentario'),
     url(r'^aceptarComentario/$', views.ajaxAceptarComentario, name='aceptarComentario'),
-]
-
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 

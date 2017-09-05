@@ -33,6 +33,7 @@ class Platillo(models.Model):
     cantidad=models.IntegerField()
     imagen=models.CharField(max_length=500)
     valoracion=models.IntegerField()
+    imgPlatillo = models.ImageField(upload_to='fotos', blank=True)
 
     def __str__(self):
         return 'Platillo: {}'.format(self.titulo)

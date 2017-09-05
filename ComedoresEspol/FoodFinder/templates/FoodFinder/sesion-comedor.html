@@ -143,40 +143,41 @@
 <div class="row contenidoSesionComed" id="AgregarPlatillos">
 	<div class="col-md-6 col-lg-6">
 		<h4 class="tabla-tit">Nuevo Platillo</h4>
-		<form class="form-horizontal" style="width: 80%">
+		<form class="form-horizontal" style="width: 80%" action="{% url 'FoodFinder:crearPlatillo' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
 		  <div class="form-group">
 		    <label class="control-label col-sm-4">Titulo del Platillo:</label>
 		    <div class="col-sm-8">
-		      <input type="email" class="form-control" placeholder="Yapingacho">
+		      <input type="text" name="titulo" class="form-control" required="required">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label col-sm-4">Tipo:</label>
 		    <div class="col-sm-8"> 
-		      <input type="text" class="form-control" placeholder="Alumerzo, desayuno, postre, etc..">
+		      <input type="text" name="tipo" class="form-control" placeholder="Alumerzo, desayuno, postre, etc.." required="required">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label col-sm-4">Precio:</label>
 		    <div class="col-sm-8"> 
-		      <input type="text" class="form-control" placeholder="en dólares">
+		      <input type="text" name="precio" class="form-control" placeholder="en dólares" required="required">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label col-sm-4">Cantidad disponible:</label>
 		    <div class="col-sm-8"> 
-		      <input type="number" class="form-control">
+		      <input type="number" name="cantidad" class="form-control" required="required">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label col-sm-4">Imagen:</label>
 		    <div class="col-sm-8"> 
-		      <input type="file" class="form-control" id="#plato-image" placeholder="Alumerzo, desayuno, postre, etc..">
+		      <input type="file" name="imagenPlato" class="form-control" id="#plato-image" placeholder="Alumerzo, desayuno, postre, etc.." required="required">
 		    </div>
 		  </div>
 		  <div class="form-group"> 
 		    <div class="col-sm-offset-10 col-sm-3">
-		      <button type="button" onclick="fileUpload()" class="btn btn-default">Submit</button>
+		      <button type="Submit" class="btn btn-default">Guardar</button>
 		    </div>
 		  </div>
 		</form>
@@ -187,7 +188,9 @@
 			{% for plato in platillos %}
 			<div class="plato-neo row">
 				<div class="imgenneo col-md-5" style="width: 35%">
-					<img src="{% static "gallery/photo-1.jpg" %}" alt="logo" width="200" />
+				{% if  plato.imgPlatillo %}
+					<img src="{{ plato.imgPlatillo.url }}" alt="logo" width="200" style="height: 200px" />
+				{% endif %}
 				</div>
 				<div class="col-md-7">
 					<h4>{{plato.titulo}}</h4>

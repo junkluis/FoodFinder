@@ -22,7 +22,11 @@
 				{% endif %}
 			</ul>
 		</div>
-		<img src="{% static plato.imagen %}" alt="logo" width="200" />
+		{% if  plato.imgPlatillo %}
+						<img src="{{ plato.imgPlatillo.url }}" alt="logo" width="200" style="height: 200px" />
+						{% else %}
+						<img src="{% static 'img/NoImage.jpg' %}" alt="logo" width="200" style="height: 200px" />
+					{% endif %}
 	</div>
 	{% endfor %}
 </div>

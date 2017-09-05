@@ -55,7 +55,9 @@
 							{% endif %}
 						</ul>
 					</div>
-					<img src="{% static platillo.imagen  %}" alt="logo" width="200" />
+					{% if  platillo.imgPlatillo %}
+						<img src="{{ platillo.imgPlatillo.url }}" alt="logo" width="200" style="height: 200px" />
+					{% endif %}
 				</div>
 				{% endif %}
 			{% endfor %}
