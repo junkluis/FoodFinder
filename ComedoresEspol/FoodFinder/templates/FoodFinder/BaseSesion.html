@@ -15,22 +15,9 @@
 		<nav class="navbar navbar-default">
 				<div class="container-fluid" id="barra">
 					<ul>
-					  <li><a class="active" href="{% url 'FoodFinder:moderador' %}">Inicio</a></li>
-					  {% if usuario.tipo == "moderador" %}
-					  <li><a href="#">Usuarios Conectados</a></li>
-					  <li><a href="{% url 'FoodFinder:comentarios' %}">Comentarios</a></li>
-					  {% endif %}
 					  {% block extraMenu %}{% endblock %}
 					  <li style="float:right"><a href="{% url 'FoodFinder:cerrarSesion'%}"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
-					  {% if usuario.tipo == "moderador" %}
-					  <li class="dropdown" style="float:right">
-					    <a href="" class="dropbtn"><span class="glyphicon glyphicon-user"></span> Sandrita</a>
-					    <div class="dropdown-content" id="config">
-					      <a href="#">Ver perfil</a>
-					      <a href="#">Configurar</a>
-					    </div>
-					  </li>
-					  {% endif %}
+					
 					</ul>
 				</div>
 				<!--div id="navbar" class="navbar-collapse collapse">

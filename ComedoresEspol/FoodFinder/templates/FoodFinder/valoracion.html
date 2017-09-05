@@ -12,7 +12,11 @@
         <h3 class="comedores">{{ comedor }} {{platillo.id}}</h3>
         {% for platillo in platillos %}
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-            <img class="comida" src="{% static platillo.imagen %}">
+            {% if platillo.imgPlatillo %}
+            <img class="comida" src="{{ platillo.imgPlatillo.url }}" width="200" style="height: 200px">
+            {% else %}
+            <img src="{% static 'img/NoImage.jpg' %}" alt="logo" width="200" style="height: 200px" />
+            {% endif %}
             <figcaption>{{ platillo.titulo }}</figcaption>
 
             <span class="starRating" id="{{platillo.id}}">

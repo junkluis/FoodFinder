@@ -1,0 +1,94 @@
+{% extends "FoodFinder/BaseSesion.html" %}
+{% load static %}
+{% block titulo %}Moderador{% endblock %}
+{% block Encabezado %}
+	<h1>Usuarios Conectados</h1>
+{% endblock %}
+{% block ExtraStyle %}
+<link href="{% static 'css/comentarios.css' %}" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+{% endblock %}
+{% block extraMenu %}
+<li><a class="active" href="{% url 'FoodFinder:moderador' %}">Inicio</a></li>
+<li><a href="{% url 'FoodFinder:moderador' %}">Denuncias</a></li>
+<li><a href="{% url 'FoodFinder:usuariosConectados' %}">Usuarios Conectados</a></li>
+<li><a href="{% url 'FoodFinder:comentarios' %}">Comentarios</a></li>
+{% endblock %}
+{% block contenido %}
+<div class="row contenido">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="row">
+			{% if usuarios|length != 0 %}
+				<div>
+					<table id="tablaQuery2" class="display table table-hover">
+					    <thead>
+					        <tr>
+					            <th>Id</th>
+					            <th>Usuario</th>
+					            <th>Nombre</th>
+								<th>Apellido</th>
+								<th>Correo</th>
+					            <th>Tipo</th>
+					            <th>Rol</th>
+					            <th>Conectado</th>
+					        </tr>
+					    </thead>
+					    <tbody>
+					        {% for usuario in usuarios %}
+					        	<tr>
+						        	<td>{{ usuario.pk }}</td>
+						        	<td>{{ usuario.nombreUsu }}</td>
+						        	<td>{{ usuario.nombre }}</td>
+						        	<td>{{ usuario.apellido }}</td>
+						        	<td>{{ usuario.correo }}</td>
+						        	<td>{{ usuario.tipo }}</td>
+						        	<td>{{ usuario.rol }}</td>
+						        	{% if usuario.online == True %}
+						        		<td><img src="http://www.clker.com/cliparts/4/t/n/Q/b/d/green-glossy-icon-hi.png"  width="40" /></td>
+						        	{% else %}
+										<td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ9woSMTvIZCZVEMg2hv3WhfEfQzz765PdbxmBZ3bWy9Zp2nOs9g"  width="40" /></td>
+						        	{% endif %}
+								</tr>
+					        {% endfor %}
+
+					    </tbody>
+					</table>
+				</div>
+			{% else %}
+			<h3 id="info"> No existe información para presentar</h3>
+			{% endif %}
+
+		</div>
+	</div>
+
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="div_editar">
+	    <form role="form" action="">{% csrf_token %}
+	        <div>
+	            <h3>Editar comentario</h3>
+	        </div>
+	        <div class="form-group">
+	            <label id="comedor"></label>
+	        </div>
+	        <div class="form-group">
+	            <label id="usuario"></label>
+	        </div>
+	        <div class="form-group">
+	            <textarea class="form-control" rows="7" name="comentario" id="comentario" pattern=".{0,1000}"></textarea>
+	        </div>
+	        <button type="submit" onclick="editarComentario(this.id)" class="editarComentario btn btn-default center-block">Aceptar</button>
+	    </form>
+	</div>
+</div>
+{% endblock %}
+
+{% block ExtraScript %}
+<script src="{% static 'js/ajax_setup.js' %}"></script>
+<script src="{% static 'js/comentarios.js' %}"></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script type="text/javascript">
+	$(document).ready( function () {
+    	$('#tablaQuery2').DataTable();
+	});
+</script>
+{% endblock %}

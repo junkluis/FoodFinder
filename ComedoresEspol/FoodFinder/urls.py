@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^guardarDenuncia/$', views.guardarDenuncia, name='guardarDenuncia'),
     url(r'^pruebas/$', views.guardarDenuncia, name='pruebas'),
     url(r'^moderador/$', views.sesionModerador, name='moderador'),
+    url(r'^moderador/modificarUsuario$', views.modificarModerador, name='modificarModerador'),
     url(r'^admin/$', views.sesionAdmin, name='admin'),
     url(r'^admin/actualizarInfo$', views.actualizarInfoAdmin, name='actualizarInfo'),
     url(r'^admin/actualizarUbicacion$', views.actualizarUbicacion, name='actualizarUbicacion'),
@@ -43,4 +44,6 @@ urlpatterns = [
     url(r'^eliminarUsuario/(?P<UrsPk>[0-9]+)$', views.eliminarUsuario, name='eliminarUsuario'),
     url(r'^eliminarComedor/(?P<ComdrPk>[0-9]+)$', views.eliminarComedor, name='eliminarComedor'),
     url(r'^super/crearUsuario/',views.crearUsuario,name='crearUsuario'),
-] 
+    url(r'^moderador/usuariosConectados$', views.moderadorUsuariosConectados, name='usuariosConectados'),
+]
+

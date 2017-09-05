@@ -13,6 +13,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.models import User
 
 
 IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
@@ -20,7 +21,7 @@ IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 def index(request):
     template = loader.get_template('FoodFinder/index.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     platillos = Platillo.objects.all()
@@ -37,7 +38,7 @@ def index(request):
 def galeria(request):
     template = loader.get_template('FoodFinder/photoGallery.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     platillos=Platillo.objects.all()
@@ -54,7 +55,7 @@ def galeria(request):
 def comedoresC(request):
     template = loader.get_template('FoodFinder/comedores-cercanos.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     comedores = Comedor.objects.all()
@@ -71,7 +72,7 @@ def comedoresC(request):
 def comedoresF(request):
     template = loader.get_template('FoodFinder/comedoresFacultad.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     comedores = Comedor.objects.all()
@@ -92,7 +93,7 @@ def comedoresF(request):
 def mejoresPlatos(request):
     template = loader.get_template('FoodFinder/mejores-platos.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -107,7 +108,7 @@ def mejoresPlatos(request):
 def about(request):
     template = loader.get_template('FoodFinder/about.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -123,7 +124,7 @@ def historia(request):
     template = loader.get_template('FoodFinder/time.html')
     historias=Timeline.objects.all()
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -140,7 +141,7 @@ def contacto (request):
     template=loader.get_template('FoodFinder/contacto.html')
     email_host=settings.EMAIL_HOST_USER
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -170,6 +171,8 @@ def loginUser(request):
             usuario = Usuario.objects.get(nombreUsu=nombre);
             if usuario is not None:
                 login(request, user)
+                usuario.online = True
+                usuario.save()
                 if usuario.tipo == "moderador":
                     return redirect('FoodFinder:moderador')
                 if usuario.tipo == "admin":
@@ -227,7 +230,7 @@ def valoracion(request):
     for platillo in platillos:
         platillosDic[platillo.comedor.nombre]=platillosDic.get(platillo.comedor.nombre,[])+[platillo]
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -244,7 +247,7 @@ def denuncia(request):
     template = loader.get_template('FoodFinder/denuncia.html')
     comedores = Comedor.objects.all()
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -271,6 +274,8 @@ def guardarDenuncia(request):
 
 def sesionModerador(request):
     template = loader.get_template('FoodFinder/sesion-moderador.html')
+
+    email_host=settings.EMAIL_HOST_USER
     try:
         usuario = Usuario.objects.get(nombre=request.user.username)
     except Usuario.DoesNotExist:
@@ -284,11 +289,24 @@ def sesionModerador(request):
     denunciasDic={}
     for den in denuncias:
         denunciasDic[den.comedor]=denunciasDic.get(den.comedor,0)+1
+    superAdmin = Usuario.objects.get(nombreUsu="johansito")
+    comedores = Comedor.objects.all()
+
+    if(request.method == 'POST'):
+        asunto = request.POST.get('subject')
+        comedor = request.POST.get('comedor')
+        mensaje = request.POST.get('message')
+        mensaje_final = "Con respecto al comedor: "+comedor+"\n"+mensaje
+        email_envio=[superAdmin.correo]
+        send_mail(asunto, mensaje_final, email_host ,email_envio, fail_silently=False)
+        messages.success(request, 'Su correo fue enviado con éxito!')
 
     context = {
         'usuario': usuarioValido,
         'denunciasDic':denunciasDic,
-        'denuncias': denuncias
+        'denuncias': denuncias,
+        "superAdmin": superAdmin,
+        "comedores": comedores
     }
 
     return HttpResponse(template.render(context, request))
@@ -296,7 +314,7 @@ def sesionModerador(request):
 def sesionAdmin(request):
     template = loader.get_template('FoodFinder/sesion-comedor.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
         comedorUsr = usuario.comedor
     except Usuario.DoesNotExist:
         usuario = None
@@ -372,10 +390,11 @@ def crearPlatillo(request):
     tipoP = request.POST.get('tipo')
     precioP = request.POST.get('precio')
     cantidadP = request.POST.get('cantidad')
+    pkComedor = int(request.POST.get('comedor'))
 
     #nuevo platillo
     platillo = Platillo()
-    platillo.comedor = Comedor.objects.get(pk=1)
+    platillo.comedor = Comedor.objects.get(pk=pkComedor)
     platillo.titulo = tituloP
     platillo.tipo = tipoP
     platillo.precio = precioP
@@ -384,12 +403,23 @@ def crearPlatillo(request):
     platillo.valoracion = 0
     platillo.imgPlatillo = imagenPlato
     platillo.save()
+    return redirect('FoodFinder:admin')
 
+def moderadorUsuariosConectados(request):
+    template = loader.get_template('FoodFinder/usuariosConectados.html')
+    ListaUsuarios = Usuario.objects.all()
+    usuario = Usuario.objects.get(nombreUsu=request.user.username)
+    users = User.objects.all()
+    for user in users:
+        print(user.is_authenticated())
+        print(user.username)
 
-    data = {
-        'descrip':'todo bien',
+    context={
+        'usuarios': ListaUsuarios,
+        'usuario': usuario,
+        'users': users,
     }
-    return JsonResponse(data)
+    return HttpResponse(template.render(context, request))
 
 def MenuDelDiaAdmin(request):
     data = {
@@ -406,7 +436,7 @@ def estadisticasAdmin(request):
 def sesionSuper(request):
     template = loader.get_template('FoodFinder/sesion-super.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -423,7 +453,7 @@ def sesionSuper(request):
 def sesionCliente(request):
     template = loader.get_template('FoodFinder/sesion-cliente.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -440,7 +470,7 @@ def sesionCliente(request):
 def platilloInfo(request, pId):
     template=loader.get_template('FoodFinder/platillo.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -466,7 +496,7 @@ def platilloInfo(request, pId):
 def comedorInfo(request, comId):
     template=loader.get_template('FoodFinder/comedor.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -516,7 +546,7 @@ def modificarUsuario(request):
     template = loader.get_template('FoodFinder/modificarUsuario.html')
     facultades = Facultad.objects.all()
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -548,12 +578,11 @@ def modificar(request):
     }
 
     return JsonResponse(data)
-    #return redirect('/FoodFinder/cliente/')
 
 def mostrarComentarios(request):
     template=loader.get_template('FoodFinder/comentarios.html')
     try:
-        usuario = Usuario.objects.get(nombre=request.user.username)
+        usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     if usuario is not None:
@@ -582,6 +611,9 @@ def ajaxMostrarEditarComentario(request,idComen):
     return JsonResponse(data)
 
 def cerrarSesion(request):
+    usuario = Usuario.objects.get(nombreUsu=request.user.username)
+    usuario.online = True
+    usuario.save()
     logout(request)
     return redirect('FoodFinder:login')
 
@@ -609,6 +641,7 @@ def ajaxAceptarComentario(request):
     comentario.save()
     data = {}
     return JsonResponse(data)
+
 def eliminarUsuario (request,UrsPk):
     usuario=Usuario.objects.get(id=UrsPk)
     usuario.delete()
@@ -631,3 +664,20 @@ def crearUsuario (request):
     return redirect('/FoodFinder/super/')
 
     
+
+def modificarModerador(request):
+    usuario=Usuario.objects.get(id=int(request.GET.get('usuarioId')));
+    usuario.nombre = request.GET.get('nombre')
+    usuario.apellido = request.GET.get('apellido')
+    usuario.correo = request.GET.get('correo')
+    usuario.rol = request.GET.get('rol')
+    usuario.save()
+    data = {
+        'nombre': usuario.nombre,
+        'apellido': usuario.apellido,
+        'correo': usuario.correo,
+        'rol': usuario.rol
+    }
+
+    return JsonResponse(data)
+
