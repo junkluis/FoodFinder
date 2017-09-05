@@ -1,29 +1,199 @@
-{% extends "FoodFinder/SideBar_base.html" %}
+{% extends "FoodFinder/BaseSesion.html" %}
 {% load static %}
-{% block titulo %}Valoración de los platillos{% endblock %}
-{% block extraStyle %}
-<link href="{% static "css/sesion-cliente.css" %}" rel="stylesheet">
+{% block titulo %}Moderador{% endblock %}
+{% block ExtraStyle %}
+<link href="{% static "css/sesion-super.css" %}" rel="stylesheet">
+{% endblock %}
+{% block Encabezado %}
+    <h1>Bienvenido</h1>
 {% endblock %}
 {% block contenido %}
-<div class="row">
-    <p>  Prueba super user </p>
-    <!--
 
-    <div class="col-lg-5 col-sm-6 col-xs-11" id="informacion">
+<div class="well">
+    <h3 id="usuarios"> Usuarios Disponibles</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Tipo de Usuario</th>
+          <th style="width: 38px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+       {% for users in listausuarios %}
+        <tr>
+          <td> 1</td>
+          <td>{{ users.nombre }} </td>
+          <td>{{ users.apellido }} </td>
+          <td>{{ users.tipo }} </td>
+          <td>
+             <a href="/FoodFinder/eliminarUsuario/{{users.pk}}"><button type="button"  class="btn btn-danger">Eliminar</button></a>
+          </td>
+        </tr>
 
-        <h3>Información de contacto</h3>
-        <p id="info">Nombre: {{usuario.nombre}}<br>
-        Apellido: {{usuario.apellido}}<br>
-        Correo: {{usuario.correo}}<br>
-        Facultad: {{usuario.facultad.nombre}}<br>
-        Rol: {{usuario.rol}}<br></p>
-        <a href="{% url 'FoodFinder:modificarUsuario' %}">modificar</a>
+        {% endfor %}
+      </tbody>
+      </table>
+    <div class="row">
+        <div class="col-lg-6">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editarForm"> 
+            Añadir Usuario
+        </button>
     </div>
-    <div class="col-lg-5 col-sm-6 col-xs-11" id="enlaces">
-        <h3>Enlaces</h3>
-        <a href="{% url 'FoodFinder:valoracion' %}">Valorar platillos</a><br>
-        <a href="{% url 'FoodFinder:denuncia' %}">Enviar una denuncia</a>
-    </div>
-    -->
+   </div>
+    <!-- EDITAR FORM MODAL -->
+        <div class="modal fade" id="editarForm" tabindex="-100" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Añadir nuevo usuario</h4>
+                    </div>
+                        <form method='post'>
+                        <div class="modal-body">
+                            <!-- FORMULARIO -->
+                            <div class="form-group">
+                                <label>Nombre:</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombres" required="required">{{comedor.descripcion}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Apellido:</label>
+                                <input type="text" class="form-control" id="apellido" placeholder="Apellidos" required="required" value="{{ comedor.tipo }}">
+                            </div>
+                             <div class="form-group">
+                                <label>Nombre Usuario:</label>
+                                <input type="text" class="form-control" id="usuario" placeholder="Usuario" required="required" value="{{ comedor.tipo }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Facultad:</label>
+                                <select class="form-control" id="facultad">
+                                {% for facultad in listafacultades %}
+                                    {% if facultad != None%}
+                                    <option>{{ facultad.nombre }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Correo:</label>
+                                <input type="email" id="Act-horaInicio" class="form-control" required="required" id="correo">
+
+                            </div>
+                            <div class="form-group">
+                                <label>Rol:</label>
+                                 <select class="form-control" id="rol">
+                                    <option> Estudiante</option>
+                                     <option> Docente</option>
+                                      <option> Trabajador</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo de Usuario:</label>
+                                 <select class="form-control" id="tipo">
+                                    <option> cliente </option>
+                                     <option> moderador</option>
+                                      <option> admin</option>
+                                      <option> super-user</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <a href="/FoodFinder/crearUsuario/"><button type="button" class="btn btn-primary" data-dismiss="modal">Guardar Usuario</button></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
 </div>
+    
+</div>
+
+
+
+<div class="well">
+    <h3 id="usuarios"> Comedores Ingresados </h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Tipo </th>
+          <th style="width: 38px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+       {% for comed in listacomedores %}
+        <tr>
+          <td> 1</td>
+          <td>{{ comed.nombre }} </td>
+          <td>{{ comed.tipo }} </td>
+          <td>
+              <a href="/FoodFinder/eliminarComedor/{{comed.pk}}"><button type="button"  class="btn btn-danger">Eliminar</button></a>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="row">
+        <div class="col-lg-6">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editarCom">
+           Añadir Comedor
+        </button>
+    </div>
+     <div class="modal fade" id="editarCom" tabindex="-100" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Editar Perfil del Comedor</h4>
+                    </div>
+                    <form>
+                        <div class="modal-body">
+                            <!-- FORMULARIO -->
+                            <div class="form-group">
+                                <label>Descripción:</label>
+                                <textarea class="form-control" rows="3" id="Act-descripcion" placeholder="Descripcion restaurante" required="required">{{comedor.descripcion}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo:</label>
+                                <input type="text" class="form-control" id="Act-especialidad" placeholder="Almuerzos, Comida tipica, ..." required="required" value="{{ comedor.tipo }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Facultad:</label>
+                                <select class="form-control" id="Act-facultad">
+                                {% for facultad in listafacultades %}
+                                    {% if facultad != None%}
+                                    <option>{{ facultad.nombre }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Hora de Inicio:</label>
+                                <input type="time" id="Act-horaInicio" class="form-control" required="required" value="{{comedor.hora_ini|time:'H:i'}}">
+
+                            </div>
+                            <div class="form-group">
+                                <label>Hora de Cierre:</label>
+                                <input type="time" id="Act-horaCierre" class="form-control" required="required" value="{{comedor.hora_fin|time:'H:i'}}">
+                            </div>
+                            <div class="checkbox" id="Act-ayudantes">
+                                <label><input type="checkbox" id="ayudantes" data-toggle="toggle">  Acepta ayudantes</label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ActualizarPerfil()">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+
+
 {% endblock %}

@@ -609,3 +609,25 @@ def ajaxAceptarComentario(request):
     comentario.save()
     data = {}
     return JsonResponse(data)
+def eliminarUsuario (request,UrsPk):
+    usuario=Usuario.objects.get(id=UrsPk)
+    usuario.delete()
+    return redirect('/FoodFinder/super/')
+def eliminarComedor(request,ComdrPk):
+    comedor=Comedor.objects.get(id=ComdrPk)
+    comedor.delete()
+    return redirect('/FoodFinder/super/')
+def crearUsuario (request):
+    usuarioNuevo=Usuario()
+    if request.method == 'POST':
+       usuarioNuevo.nombre=request.POST["nombre"]
+       usuarioNuevo.apellido=request.POST["apellido"]
+       usuarioNuevo.facultad=request.POST["facultad"]
+       usuarioNuevo.nombreUsu=request.POST["usuario"]
+       usuarioNuevo.correo=request.POST["correo"]
+       usuarioNuevo.tipo=request.POST["tipo"]
+       usuarioNuevo.rol=request.POST["rol"]
+       usuarioNuevo.save()
+    return redirect('/FoodFinder/super/')
+
+    

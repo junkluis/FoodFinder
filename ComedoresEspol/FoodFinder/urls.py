@@ -40,4 +40,7 @@ urlpatterns = [
     url(r'^eliminarComentario/(?P<idComen>[0-9]+)$', views.ajaxEliminarComentario, name='eliminarComentario'),
     url(r'^editarComentario/$', views.ajaxEditarComentario, name='editarComentario'),
     url(r'^aceptarComentario/$', views.ajaxAceptarComentario, name='aceptarComentario'),
+    url(r'^eliminarUsuario/(?P<UrsPk>[0-9]+)$', views.eliminarUsuario, name='eliminarUsuario'),
+    url(r'^eliminarComedor/(?P<ComdrPk>[0-9]+)$', views.eliminarComedor, name='eliminarComedor'),
+    url(r'^super/crearUsuario/',views.crearUsuario,name='crearUsuario'),
 ] 
