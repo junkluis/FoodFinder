@@ -5,8 +5,20 @@
 	<h1>Bienvenido</h1>
 	<p>{{ hello.nombre }} - Moderador</p>
 {% endblock %}
+{% block ExtraStyle %}
+<link href="{% static 'css/sesion-moderador.css' %}" rel="stylesheet">
+{% endblock %}
 {% block contenido %}
 <div class="row">
+	{% for message in messages %}
+      <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+      </div>
+    {% endfor %}
+
 	<div class="col-lg-6">
 		<div>
 			<h3> Denuncias Reportadas</h3><br>
@@ -36,11 +48,37 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-6">
-		<form>
-		<textarea type="text" id="show" name="vehicle"></textarea></br>
-		<input type="submit" value="Enviar">
-		</form>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" id="div_editar">
+	    <form role="form" id="formCorreo" method="POST" action="{% url 'FoodFinder:moderador' %}">{%csrf_token%}
+	        <div>
+	            <h3>Enviar denuncia por comedor</h3>
+	        </div>
+			<div class="form-group">
+				<label>De:</label>
+				<input type="text" class="form-control" id="name" name="name" placeholder="Nombres" required>
+			</div>
+	        <div class="form-group">
+				<label>Para:</label>
+				<input id="email" type="hidden" name="correoAdmin" val="{{superAdmin.correo}}"/>
+	            <label>{{superAdmin.correo}}</label>
+	        </div>
+	        <div class="form-group">
+	            <label id="asunto">Asunto:</label>
+				<input type="text" class="form-control" id="subject" name="subject" placeholder="Escoja un comedor" value="" required>
+	        </div>
+			<div class="form-group">
+	            <label>Comedor:</label>
+				<select class="form-control" id="comedor" name="comedor">
+					{% for c in comedores %}
+					<option value="{{ c.nombre }}">{{ c.nombre }}</option>
+					{% endfor %}
+				</select>
+	        </div>
+	        <div class="form-group">
+	            <textarea class="form-control" rows="7" name="message" id="show" pattern=".{0,1000}">Se realizaron las siguientes denuncias: </textarea>
+	        </div>
+	        <button type="submit" id="botonCorreo" class="ntn btn-default center-block">Enviar</button>
+	    </form>
 	</div>
 </div>
 <div class="platillos-disp col-lg-5">
@@ -81,12 +119,20 @@ function checkbox(){
   for (var i=0; i<checkboxes.length; i++) {
      // And stick the checked ones onto an array...
      if (checkboxes[i].checked) {
+
         checkboxesChecked.push(checkboxes[i].value);
      }
   }
-  document.getElementById("show").value = checkboxesChecked;
+  checkboxesChecked.toString();
+  var str=("" + checkboxesChecked).replace(/,/g, '\n')
+  var str1="Se realizaron las siguientes denuncias:\n";
+  document.getElementById("show").value = str1+str;
 
 }
+
+$('#comedor').change(function(){
+    	$('#subject').val("Denuncias realizadas a "+$('#comedor option:selected').text());
+	});
 </script>
 
 {% endblock %}

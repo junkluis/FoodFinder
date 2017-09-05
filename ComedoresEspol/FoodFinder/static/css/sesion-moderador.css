@@ -1,0 +1,11 @@
+form#formCorreo {
+    padding: 20px;
+}
+button#botonCorreo {
+    background-color: #18baa3;
+    color: white;
+}
+.row{
+    margin-left: 10px;
+    margin-right: 10px;
+}

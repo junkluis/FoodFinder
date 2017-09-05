@@ -271,6 +271,8 @@ def guardarDenuncia(request):
 
 def sesionModerador(request):
     template = loader.get_template('FoodFinder/sesion-moderador.html')
+
+    email_host=settings.EMAIL_HOST_USER
     try:
         usuario = Usuario.objects.get(nombre=request.user.username)
     except Usuario.DoesNotExist:
@@ -284,11 +286,24 @@ def sesionModerador(request):
     denunciasDic={}
     for den in denuncias:
         denunciasDic[den.comedor]=denunciasDic.get(den.comedor,0)+1
+    superAdmin = Usuario.objects.get(nombreUsu="johansito")
+    comedores = Comedor.objects.all()
+
+    if(request.method == 'POST'):
+        nombres_contacto=  request.POST.get('name')
+        correo_contacto=   request.POST.get('email')
+        asunto_contacto=   request.POST.get('subject')
+        mensaje_contacto=  request.POST.get('message')
+        email_envio=[email_host,correo_contacto]
+        send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=False)
+        messages.success(request, 'Su correo fue enviado con éxito!')
 
     context = {
         'usuario': usuarioValido,
         'denunciasDic':denunciasDic,
-        'denuncias': denuncias
+        'denuncias': denuncias,
+        "superAdmin": superAdmin,
+        "comedores": comedores
     }
 
     return HttpResponse(template.render(context, request))
