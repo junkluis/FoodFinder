@@ -41,4 +41,5 @@ urlpatterns = [
     url(r'^eliminarComentario/(?P<idComen>[0-9]+)$', views.ajaxEliminarComentario, name='eliminarComentario'),
     url(r'^editarComentario/$', views.ajaxEditarComentario, name='editarComentario'),
     url(r'^aceptarComentario/$', views.ajaxAceptarComentario, name='aceptarComentario'),
+    url(r'^moderador/usuariosConectados$', views.moderadorUsuariosConectados, name='usuariosConectados'),
 ]

@@ -46,6 +46,7 @@ class Usuario(models.Model):
     apellido=models.CharField(max_length=30,default="suarez")
     correo=models.EmailField(max_length=30)
     tipo=models.CharField(max_length=15, default="cliente")
+    online = models.BooleanField(default=False)
     ROLES=(
         ('Estudiante', 'Estudiante'),
         ('Docente', 'Docente'),

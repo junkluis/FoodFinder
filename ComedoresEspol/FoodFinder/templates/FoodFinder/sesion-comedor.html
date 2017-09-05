@@ -8,7 +8,7 @@
 
 {% block Encabezado %}
 	<h1 class="comedorAdmin" data-pk="{{ comedor.pk }}" data-lat="{{ comedor.latitud }}" data-lon="{{ comedor.longitud }}">{{comedor.nombre}}</h1>
-	<p>Bienvenido moderador {{ usuario.nombre }} {{ usuario.apellido }}</p>
+	<p class="coolFont">Bienvenido moderador {{ usuario.nombre }} {{ usuario.apellido }}</p>
 {% endblock %}
 
 {% block extraMenu %}
@@ -175,6 +175,7 @@
 		      <input type="file" name="imagenPlato" class="form-control" id="#plato-image" placeholder="Alumerzo, desayuno, postre, etc.." required="required">
 		    </div>
 		  </div>
+		  <input type="hidden" name="comedor" value="{{ comedor.pk }}">
 		  <div class="form-group"> 
 		    <div class="col-sm-offset-10 col-sm-3">
 		      <button type="Submit" class="btn btn-default">Guardar</button>
@@ -193,7 +194,7 @@
 				{% endif %}
 				</div>
 				<div class="col-md-7">
-					<h4>{{plato.titulo}}</h4>
+					<h4 class="coolFont">{{plato.titulo}}</h4>
 					<ul style="list-style: none">
 						<li><img src="http://www.iconsdb.com/icons/preview/black/banknotes-xxl.png" width="20" /></span> <b>Precio:</b> ${{plato.precio}}</li>
 						<li><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/551389-200.png" width="20" /></span> <b>Tipo: </b> {{plato.tipo}}</li>

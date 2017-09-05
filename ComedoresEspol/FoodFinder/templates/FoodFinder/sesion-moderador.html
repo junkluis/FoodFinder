@@ -12,7 +12,7 @@
 {% block extraMenu %}
 <li><a class="active" href="#perfil">Inicio</a></li>
 <li><a href="#denuncias">Denuncias</a></li>
-<li><a href="#">Usuarios Conectados</a></li>
+<li><a href="{% url 'FoodFinder:usuariosConectados' %}">Usuarios Conectados</a></li>
 <li><a href="{% url 'FoodFinder:comentarios' %}">Comentarios</a></li>
 {% endblock %}
 
