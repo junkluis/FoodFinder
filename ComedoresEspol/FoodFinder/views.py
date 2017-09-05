@@ -277,7 +277,7 @@ def sesionModerador(request):
 
     email_host=settings.EMAIL_HOST_USER
     try:
-        usuario = Usuario.objects.get(nombreUsu=request.user.username)
+        usuario = Usuario.objects.get(nombre=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
     denuncias = Denuncia.objects.all()
@@ -289,23 +289,23 @@ def sesionModerador(request):
     denunciasDic={}
     for den in denuncias:
         denunciasDic[den.comedor]=denunciasDic.get(den.comedor,0)+1
-    #superAdmin = Usuario.objects.get(nombreUsu="johansito")
+    superAdmin = Usuario.objects.get(nombreUsu="johansito")
     comedores = Comedor.objects.all()
 
     if(request.method == 'POST'):
-        nombres_contacto=  request.POST.get('name')
-        correo_contacto=   request.POST.get('email')
-        asunto_contacto=   request.POST.get('subject')
-        mensaje_contacto=  request.POST.get('message')
-        email_envio=[email_host,correo_contacto]
-        send_mail(asunto_contacto, mensaje_contacto, email_host ,email_envio, fail_silently=False)
+        asunto = request.POST.get('subject')
+        comedor = request.POST.get('comedor')
+        mensaje = request.POST.get('message')
+        mensaje_final = "Con respecto al comedor: "+comedor+"\n"+mensaje
+        email_envio=[superAdmin.correo]
+        send_mail(asunto, mensaje_final, email_host ,email_envio, fail_silently=False)
         messages.success(request, 'Su correo fue enviado con éxito!')
 
     context = {
         'usuario': usuarioValido,
         'denunciasDic':denunciasDic,
         'denuncias': denuncias,
-        #"superAdmin": superAdmin,
+        "superAdmin": superAdmin,
         "comedores": comedores
     }
 
