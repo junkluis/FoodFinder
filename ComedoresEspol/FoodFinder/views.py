@@ -439,12 +439,19 @@ def sesionSuper(request):
         usuario = Usuario.objects.get(nombreUsu=request.user.username)
     except Usuario.DoesNotExist:
         usuario = None
+    listausuarios=Usuario.objects.all()
+    listafacultades=Facultad.objects.all()
+    listacomedores=Comedor.objects.all()
     if usuario is not None:
         usuarioValido = usuario
+        
     else:
         return redirect('FoodFinder:login')
     context = {
         'usuario': usuarioValido,
+        'listausuarios':listausuarios,
+        'listafacultades':listafacultades,
+        'listacomedores':listacomedores
     }
     return HttpResponse(template.render(context, request))
 
