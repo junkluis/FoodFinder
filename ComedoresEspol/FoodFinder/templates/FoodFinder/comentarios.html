@@ -8,6 +8,11 @@
 <link href="{% static 'css/comentarios.css' %}" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
+{% block extraMenu %}
+<li><a href="#">Usuarios Conectados</a></li>
+<li><a href="{% url 'FoodFinder:comentarios' %}">Comentarios</a></li>
+{% endblock %}
+
 {% block contenido %}
 <div class="row contenido">
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

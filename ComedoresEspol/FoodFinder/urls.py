@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^guardarDenuncia/$', views.guardarDenuncia, name='guardarDenuncia'),
     url(r'^pruebas/$', views.guardarDenuncia, name='pruebas'),
     url(r'^moderador/$', views.sesionModerador, name='moderador'),
+    url(r'^moderador/modificarUsuario$', views.modificarModerador, name='modificarModerador'),
     url(r'^admin/$', views.sesionAdmin, name='admin'),
     url(r'^admin/actualizarInfo$', views.actualizarInfoAdmin, name='actualizarInfo'),
     url(r'^admin/actualizarUbicacion$', views.actualizarUbicacion, name='actualizarUbicacion'),
@@ -40,4 +41,4 @@ urlpatterns = [
     url(r'^eliminarComentario/(?P<idComen>[0-9]+)$', views.ajaxEliminarComentario, name='eliminarComentario'),
     url(r'^editarComentario/$', views.ajaxEditarComentario, name='editarComentario'),
     url(r'^aceptarComentario/$', views.ajaxAceptarComentario, name='aceptarComentario'),
-] 
+]

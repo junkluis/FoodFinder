@@ -563,7 +563,6 @@ def modificar(request):
     }
 
     return JsonResponse(data)
-    #return redirect('/FoodFinder/cliente/')
 
 def mostrarComentarios(request):
     template=loader.get_template('FoodFinder/comentarios.html')
@@ -623,4 +622,19 @@ def ajaxAceptarComentario(request):
     comentario.aceptado=1;
     comentario.save()
     data = {}
+    return JsonResponse(data)
+def modificarModerador(request):
+    usuario=Usuario.objects.get(id=int(request.GET.get('usuarioId')));
+    usuario.nombre = request.GET.get('nombre')
+    usuario.apellido = request.GET.get('apellido')
+    usuario.correo = request.GET.get('correo')
+    usuario.rol = request.GET.get('rol')
+    usuario.save()
+    data = {
+        'nombre': usuario.nombre,
+        'apellido': usuario.apellido,
+        'correo': usuario.correo,
+        'rol': usuario.rol
+    }
+
     return JsonResponse(data)

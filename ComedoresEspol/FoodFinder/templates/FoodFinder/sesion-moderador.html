@@ -8,8 +8,106 @@
 {% block ExtraStyle %}
 <link href="{% static 'css/sesion-moderador.css' %}" rel="stylesheet">
 {% endblock %}
+
+{% block extraMenu %}
+<li><a class="active" href="#perfil">Inicio</a></li>
+<li><a href="#denuncias">Denuncias</a></li>
+<li><a href="#">Usuarios Conectados</a></li>
+<li><a href="{% url 'FoodFinder:comentarios' %}">Comentarios</a></li>
+{% endblock %}
+
 {% block contenido %}
-<div class="row">
+<div class="row" id="perfil">
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		<table class="table table-hover">
+		    <thead>
+		      <tr>
+		        <th colspan="2" class="tabla-tit">Información del Moderador</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr id="row-desc">
+		        <td class="comd-info">Nombre</td>
+		        <td id="nombreU">{{usuario.nombre}}</td>
+		      </tr>
+		      <tr>
+		        <td class="comd-info">Apellido</td>
+		        <td id="apellidoU">{{usuario.apellido}}</td>
+		      </tr>
+			  <tr>
+		        <td class="comd-info">Correo</td>
+		        <td id="correoU">{{ usuario.correo }}</td>
+		      </tr>
+		      <tr>
+		        <td class="comd-info">Rol</td>
+		        <td id="rolU">{{ usuario.rol }}</td>
+		      </tr>
+		    </tbody>
+		  </table>
+		<!-- EDITAR -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editarForm">
+			<span class="glyphicon glyphicon-pencil"></span> Actualizar Información
+		</button>
+		<!-- EDITAR FORM MODAL -->
+		<div class="modal fade" id="editarForm" tabindex="-100" role="dialog"  aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4>Editar Perfil del Comedor</h4>
+					</div>
+					<form>
+						<div class="modal-body">
+							<!-- FORMULARIO -->
+							<div class="form-group">
+								<input class="form-control" type="hidden" id="usuarioId" name="usuarioId" value="{{usuario.id}}"/>
+	            				<label>Nombre:</label>
+								<input class="form-control" id="nombre" required="required" value="{{usuario.nombre}}" />
+							</div>
+							<div class="form-group">
+								<label>Apellido:</label>
+								<input class="form-control" id="apellido" required="required" value="{{usuario.apellido}}" />
+							</div>
+							<div class="form-group">
+								<label>Correo:</label>
+								<input class="form-control" id="correo" required="required" value="{{usuario.correo}}" />
+							</div>
+							<div class="form-group">
+	            				<label>Rol:</label>
+	            				<select class="form-control" id="rol" name="rol">
+	                                {% if "Docente" == usuario.rol %}
+	                                <option selected>Docente</option>
+	                                {% else %}
+	                                <option>Docente</option>
+	                                {% endif %}
+	                                {% if "Estudiante" == usuario.rol %}
+	                                <option selected>Estudiante</option>
+	                                {% else %}
+	                                <option>Estudiante</option>
+	                                {% endif %}
+	                                {% if "Trabajador" == usuario.rol %}
+	                                <option selected>Trabajador</option>
+	                                {% else %}
+	                                <option>Trabajador</option>
+	                                {% endif %}
+	            				</select>
+	            			</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="editarPerfil()">Guardar Cambios</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="platillos-disp col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		<h3>Numero de Denuncias por Comedores</h3><br>
+		<div id="piechart"></div>
+	</div>
+</div>
+<hr class="coolHr">
+<div class="row" id="denuncias">
 	{% for message in messages %}
       <div class="alert {{ message.tags }} alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -19,7 +117,7 @@
       </div>
     {% endfor %}
 
-	<div class="col-lg-6">
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 		<div>
 			<h3> Denuncias Reportadas</h3><br>
 			<div>
@@ -81,14 +179,10 @@
 	    </form>
 	</div>
 </div>
-<div class="platillos-disp col-lg-5">
-	<h3>Numero de Denuncias por Comedores</h3><br>
-	<div id="piechart"></div>
-</div>
 {% endblock %}
 {% block ExtraScript %}
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+<script src="{% static 'js/sesion-moderador.js' %}"></script>
 <script type="text/javascript">
 // Load google charts
 google.charts.load('current', {'packages':['corechart']});
