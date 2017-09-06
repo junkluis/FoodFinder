@@ -5,17 +5,17 @@
 <div id="filtro-search">
 	<p id="buscar"><span class="glyphicon glyphicon-search" ></span> Buscar por: </p>
 	<button type="button" onclick="filtro('data-precio','des')" class="btn busqueda"> Precio </button>
-	<button type="button" onclick="filtro('data-distancia','des')" class="btn busqueda">Ubicacion</button>
+	<button type="button" onclick="filtro('data-distancia','asc')" class="btn busqueda">Valoracion</button>
 	<button type="button" onclick="filtro('data-disponible','asc')" class="btn busqueda"> Disponibles </button>
 </div>
 <div class="platillos-del-dia">
 	{% for plato in platillos %}
-	<div class="platillo" data-precio="{{plato.precio}}" data-disponible="si" data-distancia="{{plato.distancia}}">
+	<div class="platillo" data-precio="{{plato.precio}}" data-disponible="si" data-distancia="{{plato.valoracion}}">
 		<div class="desc">
 			<a href="{% url 'FoodFinder:platillo' plato.id %}"><h4>{{plato.titulo}}</h4></a>
 			<ul>
-				<li><span class="glyphicon glyphicon-usd"></span> {{plato.precio}}</li>
-				<li><span class="glyphicon glyphicon-map-marker"></span>{{plato.distancias}} mts</li>
+				<li></span> <b>Precio:</b> {{plato.precio}}</li>
+				<li><span class="glyphicon glyphicon-star"></span> <b>Puntuación: </b>{{plato.valoracion}}</li>
 				<li><span class="glyphicon glyphicon-ok"></span> Disponible</li>
 				{% if usuario.tipo == "cliente" %}
 				<li><a href="{% url 'FoodFinder:valoracion' %}">Valorar</a></li>

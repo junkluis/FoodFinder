@@ -193,13 +193,20 @@
 					<img src="{{ plato.imgPlatillo.url }}" alt="logo" width="200" height="150" />
 				{% endif %}
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-5">
 					<h4 class="coolFont">{{plato.titulo}}</h4>
 					<ul style="list-style: none">
 						<li><img src="http://www.iconsdb.com/icons/preview/black/banknotes-xxl.png" width="20" /></span> <b>Precio:</b> ${{plato.precio}}</li>
 						<li><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/551389-200.png" width="20" /></span> <b>Tipo: </b> {{plato.tipo}}</li>
 						<li><span class="glyphicon glyphicon-star"></span> <b>Valoracion: </b>{{plato.valoracion}}</li> 
 					</ul>
+				</div>
+				<div class="col-md-2" style="margin-top: 10%">
+					<a href="eliminarPlatillo/{{ plato.pk }}">
+					<button type="button" class="btn btn-default btn-sm btn-danger" >
+			          <span class="glyphicon glyphicon-remove"></span> Eliminar 
+			        </button>
+			        </a>
 				</div>
 			</div>
 			{% endfor %}

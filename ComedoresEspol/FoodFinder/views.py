@@ -688,3 +688,10 @@ def modificarModerador(request):
 
     return JsonResponse(data)
 
+
+def eliminarPlatillo(request, platoId):
+    if(Platillo.objects.get(pk=platoId)):
+        plato = Platillo.objects.get(pk=platoId)
+        plato.delete()
+    return redirect('FoodFinder:admin')
+
